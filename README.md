@@ -21,6 +21,9 @@ npm run start
  ┣ 📂.git
  ┣ 📂.node_modules
  ┣ 📂public
+ ┃ ┣ 📂img
+ ┃ ┗ 📂fonts
+ ┣ 📂public
  ┃ ┣ 📜about-us.html
  ┃ ┣ 📜bundle.js
  ┃ ┣ 📜index.html
