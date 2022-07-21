@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "clear && npm run build && live-server --entry-file=\"/public/index.html\""
+    "start": "clear && npm run build && webpack serve"
   },
   "keywords": [],
   "author": "",
@@ -23,10 +23,11 @@
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
-    "live-server": "^1.2.2",
+    "mini-css-extract-plugin": "^2.6.1",
     "sass": "^1.53.0",
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",
-    "webpack": "^5.73.0"
+    "webpack": "^5.73.0",
+    "webpack-dev-server": "^4.9.3"
   }
 }

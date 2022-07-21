@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 //TODO auto 
 module.exports = {
@@ -14,17 +15,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
-        use: [
-          // Creates `style` nodes from JS strings
-          "style-loader",
-          // Translates CSS into CommonJS
-          "css-loader",
-          // Compiles Sass to CSS
-          "sass-loader",
-        ],
-      },
-      {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
@@ -33,6 +23,17 @@ module.exports = {
             presets: ['@babel/preset-env']
           }
         }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          // Creates `style` nodes from JS strings
+          MiniCssExtractPlugin.loader,
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
       }
     ],
   },
@@ -52,6 +53,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'projects.html',
       template: '/src/project-blocks/page/projects/projects.html'
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'style.css'
     })
   ]
 }
