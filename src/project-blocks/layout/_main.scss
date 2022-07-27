@@ -8,7 +8,7 @@
 		align-items: center;
 		gap: 250px;
 
-		.title-block {
+		.heading-block {
 			background: linear-gradient(315deg, rgba(71, 112, 255, 0.16) 0%, rgba(255, 255, 255, 0.8) 100%),
 				rgba(255, 255, 255, 0.6);
 			border-radius: 80px;
@@ -25,32 +25,30 @@
 				width: 260px;
 				height: 260px;
 				font-size: 31px;
-				letter-spacing: -0.22px;
+				letter-spacing: -0.85px;
 
-				.heading__text {
+				&__text {
 					line-height: 35px;
 				}
 
-				.heading__text_big-first {
+				&__text_big-first {
 					font-size: 74px;
 					letter-spacing: 3px;
 					line-height: 60px;
 				}
 
-				.heading__text_big-second {
+				&__text_big-second {
 					font-size: 74px;
-					letter-spacing: -1px;
+					letter-spacing: -1.85px;
 					line-height: 60px;
 				}
-
-
 			}
 		}
 
 		.image {
 			padding-bottom: 60px;
-			width: 90%;
-			height: 90%;
+			width: 85%;
+			height: 85%;
 		}
 	}
 }
