@@ -2,7 +2,7 @@
 ## Dependency installation
 To use this project without installation of everything by yourself just use
 ```bash
-npm install package-lock.json
+
 ```
 ## npm scripts
 ### 🔨 build
