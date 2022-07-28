@@ -9,6 +9,7 @@
 		gap: 250px;
 
 		.heading-block {
+			position: relative;
 			background: linear-gradient(315deg, rgba(71, 112, 255, 0.16) 0%, rgba(255, 255, 255, 0.8) 100%),
 				rgba(255, 255, 255, 0.6);
 			border-radius: 80px;
@@ -16,6 +17,7 @@
 			font-weight: 700;
 			color: black;
 			display: flex;
+			z-index: 1;
 
 			.heading {
 				display: flex;
@@ -45,7 +47,32 @@
 			}
 		}
 
-		.image {
+		.heading-block::before {
+			content: '';
+			background: linear-gradient(315deg, rgba(71, 112, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 100%),
+				linear-gradient(0deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6));
+			backdrop-filter: blur(15px);
+			border-radius: 80px;
+			position: absolute;
+			right: 0;
+			width: 0;
+			bottom: 0;
+			left: 100px;
+			height: 260px;
+			transition: width 300ms ease-out;
+			z-index: -1;
+		}
+
+		.heading-block:hover::before {
+			z-index: -1;
+			right: 0;
+			width: 620px;
+			left: 100px;
+			transition: width 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+		}
+
+		.main__image {
 			padding-bottom: 60px;
 			width: 85%;
 			height: 85%;
