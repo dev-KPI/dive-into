@@ -1,0 +1,26 @@
+.social{
+  display: flex;
+  gap: 50px;
+  margin-right: 140px;
+  
+  &__item-link{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: all  0.3s ;
+    
+  }
+  &__item-link:hover{
+    transform: scale(1.1);
+  }
+  &__item-link--discord:hover {
+    background-color: #7289da;
+   
+  }
+  &__item-link--github:hover {
+    background-color: #231e1b;
+  }
+}

@@ -1,0 +1,99 @@
+.community{
+  margin-bottom: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 200px;
+  
+  &__logo {
+    position: relative;
+    z-index: 10;
+    font-weight: 700;
+  }
+  &__decor{
+    width: 845px;
+    height: 740px;
+  }
+  &__logo-title {
+    
+    font-size: 72px;
+    line-height: 62px;
+    color: #121212;
+
+    padding: 47px 46px 0px 46px;
+    width: 260px;
+    height: 260px;
+
+    background: linear-gradient(315deg, rgba(71, 112, 255, 0.4) 0%, rgba(255, 255, 255, 0.6) 100%), rgba(255, 255, 255, 1);
+    // background: linear-gradient(315deg, rgba(71, 112, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 100%), rgba(255, 255, 255, 0.7);
+    
+    backdrop-filter: blur(6px);
+    border-radius: 80px;
+  
+    z-index: 10;
+  }
+  &__logo-subtitle{
+
+    font-size: 30px;
+    line-height: 34px;
+
+    position: absolute;
+    bottom:55px;
+    left: 50px;
+  }
+  &__logo-text {
+    position: absolute;
+    left: 70px;
+    top: 0;
+
+    width: 650px;
+    height: 260px;
+
+    border-radius: 80px;
+    background: linear-gradient(315deg, rgba(71, 112, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 100%), rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    align-items:center;
+    color: #010010;
+
+    transition: transform 0.4s ease-out;
+    transform: scaleX(0);
+    transform-origin: left;
+
+    z-index: -1;
+  }
+   &__logo:hover .community__logo-text {
+    width: 650px;
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.3s ease-out;  
+  } 
+
+  &__logo-text::after{
+    position: absolute;
+    content:"A community of people interested in IT wants to find like-minded people and realize their fantasies. Community members are involved in the implementation of various projects using modern technologies. It is a platform for everyone who wants to learn, create, learn, and communicate.";
+
+    top: 35px;
+    left: 230px;
+    right: 35px;
+    bottom:35px;
+    
+    transition: opacity 0.1s ease-out;
+    transition-delay: 0.4s;
+    opacity: 0;
+  }
+
+  &__logo:hover .community__logo-text::after{
+    opacity: 1;
+    transition: opacity 0.1s ease-out;
+    transition-delay: 0.4s;  
+  }
+  &__logo .community__logo-text::after{
+     transition-delay: 0.000ms; 
+     
+  }
+}

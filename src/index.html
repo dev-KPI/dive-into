@@ -1,14 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-  </head>
-  <body>
-    <div class="abrakadabra">index</div>
-  </body>
-  <script src="bundle.js"></script>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+  <div class="frame">
+    <div class="blur">
+      <header class="header">
+        <div class="container">
+          <div class="header__inner">
+            <img class="header__logo" src="./assets/img/header-logo.svg" alt="logo">
+            <nav class="menu">
+              <ul class="menu__list">
+                <li class="menu__list-item">
+                  <a href="#" class="menu__list-link">Members</a>
+                </li>
+                <li class="menu__list-item">
+                  <a href="#" class="menu__list-link">Projects</a>
+                </li>
+                <li class="menu__list-item">
+                  <a href="#" class="menu__list-link">About Us</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+      </header>
+      <main class="main">
+        <div class="container">
+          <section class="community">
+            <div class="community__logo">
+              <div class="community__logo-box">
+                <h2 class="community__logo-title">DIVE INTO</h2>
+                <span class="community__logo-subtitle">community</span>
+              </div>
+              <p class="community__logo-text"></p>
+            </div>
+            <img class="community__decor" src="./assets/img/community-decor.svg" alt="decor" />
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container">
+          <div class="footer__inner">
+            <ul class="social">
+              <li class="social__item">
+                <a class="social__item-link social__item-link--discord" href="#">
+                  <img class="footer__social-img" src="./assets/img/discord-icon.svg" alt="icon">
+                </a>
+              </li>
+              <li class="social__item">
+                <a class="social__item-link social__item-link--github" href="#">
+                  <img class="footer__social-img" src="./assets/img/github-icon.svg" alt="icon">
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+<script src="bundle.js"></script>
 </html>

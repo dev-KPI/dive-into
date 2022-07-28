@@ -1,0 +1,9 @@
+.footer {
+  background: $bgColor;
+  &__inner {
+    display: flex;
+    height: 140px;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
