@@ -4,13 +4,13 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 //TODO auto 
 module.exports = {
-  mode: 'development',
+  mode: "development",
   entry: {
-    bundle: ['@babel/polyfill', path.resolve(__dirname, "src/index.js")],
+    bundle: ["@babel/polyfill", path.resolve(__dirname, "src/index.js")],
   },
   output: {
-    path: path.resolve(__dirname, 'public'),
-    filename: "[name].js"
+    path: path.resolve(__dirname, "public"),
+    filename: "[name].js",
   },
   module: {
     rules: [
@@ -18,11 +18,11 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
+            presets: ["@babel/preset-env"],
+          },
+        },
       },
       {
         test: /\.scss$/,
@@ -34,28 +34,58 @@ module.exports = {
           // Compiles Sass to CSS
           "sass-loader",
         ],
-      }
+      },
+      // for loading images from htm with src attribute
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      },
+      {
+        test: /\.(svg|png|jpg|gif)$/,
+        type: "asset/resource",
+        generator: {
+          filename: "assets/img/[name][ext]",
+        },
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf)$/,
+        type: "asset/resource",
+        generator: {
+          filename: "assets/fonts/[name][ext]",
+        },
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: '/src/index.html'
+      template: "./src/index.html",
     }),
     new HtmlWebpackPlugin({
-      filename: 'about-us.html',
-      template: '/src/project-blocks/page/about-us/about-us.html'
+      filename: "about-us.html",
+      template: path.resolve(
+        __dirname,
+        "src/project-blocks/page/about-us",
+        "about-us.html"
+      ),
     }),
     new HtmlWebpackPlugin({
-      filename: 'members.html',
-      template: '/src/project-blocks/page/members/members.html'
+      filename: "members.html",
+      template: path.resolve(
+        __dirname,
+        "src/project-blocks/page/members",
+        "members.html"
+      ),
     }),
     new HtmlWebpackPlugin({
-      filename: 'projects.html',
-      template: '/src/project-blocks/page/projects/projects.html'
+      filename: "projects.html",
+      template: path.resolve(
+        __dirname,
+        "src/project-blocks/page/projects",
+        "projects.html"
+      ),
     }),
     new MiniCssExtractPlugin({
-      filename: 'style.css'
-    })
-  ]
-}
+      filename: "style.css",
+    }),
+  ],
+};

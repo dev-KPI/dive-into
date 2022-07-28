@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "clear && npm run build && webpack serve"
+    "start": "cls && npm run build && webpack serve"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +22,7 @@
     "@babel/preset-env": "^7.18.9",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
+    "html-loader": "^0.5.5",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
     "sass": "^1.53.0",
