@@ -1,0 +1,117 @@
+.community {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 200px;
+
+	&__logo {
+		position: relative;
+		z-index: 10;
+		font-weight: 700;
+	}
+
+	&__logo-title {
+		font-size: 72px;
+		line-height: 62px;
+		letter-spacing: -3px;
+		color: #121212;
+
+		padding: 47px 39px 47.34px 41px;
+
+		width: 260px;
+		height: 260px;
+
+		background: linear-gradient(315deg, rgba(71, 112, 255, 0.16) 0%, rgba(255, 255, 255, 0.4) 100%), rgba(255, 255, 255, 0.6);
+
+		border-radius: 80px;
+
+		z-index: 10;
+	}
+
+	&__logo-title-first {
+		letter-spacing: 3px;
+	}
+
+	&__logo-title-second {
+		letter-spacing: -1.85px;
+	}
+
+	&__logo-subtitle {
+		color: black;
+		font-size: 30px;
+		line-height: 34px;
+		letter-spacing: -0.85px;
+
+		position: absolute;
+		bottom: 55px;
+		left: 45px;
+	}
+
+	&__logo-text {
+		position: absolute;
+		left: 0;
+		top: 0;
+
+		width: 260px;
+		height: 260px;
+
+		border-radius: 80px;
+		background: linear-gradient(315deg, rgba(71, 112, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 100%), rgba(255, 255, 255, 0.6);
+
+		font-weight: 600;
+		font-size: 20px;
+		line-height: 25px;
+		align-items: center;
+		color: #010010;
+
+		transition: width 0.3s ease-out;
+
+		z-index: -5;
+	}
+
+	&__logo:hover {
+
+		.community__logo-text {
+			width: 720px;
+			transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+		}
+	}
+
+	&__logo-text::after {
+		position: absolute;
+		content: "A community of people interested in IT wants to find like-minded people and realize their fantasies. Community members are involved in the implementation of various projects using modern technologies. It is a platform for everyone who wants to learn, create and communicate.";
+
+		left: 300px;
+		right: 35px;
+		bottom: 35px;
+
+		transition: opacity 0.1s ease-out;
+		transition-delay: 0.4s;
+		opacity: 0;
+		visibility: hidden;
+
+	}
+
+	&__logo:hover {
+
+		.community__logo-text::after {
+			opacity: 1;
+			visibility: visible;
+			transition: opacity 0.1s ease-out;
+			transition-delay: 0.4s;
+		}
+	}
+
+	&__logo {
+
+		.community__logo-text::after {
+			transition-delay: 0.000ms;
+		}
+	}
+
+	&__image {
+		padding-bottom: 60px;
+		width: 85%;
+		height: 85%;
+	}
+}
