@@ -1,0 +1,21 @@
+.home-frame {
+	height: fit-content;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-frame::before{
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  z-index: -1;
+ 
+  display: block;
+  width: 101%;
+  height: 100%;
+
+	background: linear-gradient(rgba(9, 7, 47, 0.4), rgba(9, 7, 47, 0.4)), url(assets/img/frame-bg.jpg) no-repeat center -185px/cover;
+
+  filter: blur(8px);
+}
