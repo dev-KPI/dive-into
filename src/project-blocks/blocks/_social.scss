@@ -10,11 +10,11 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    transition: all  0.3s ;
+    transition: all  0.2s ;
     
   }
   &__item-link:hover{
-    transform: scale(1.1);
+    transform: scale(1.12);
   }
   &__item-link--discord:hover {
     background-color: #7289da;
