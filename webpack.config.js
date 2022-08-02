@@ -52,19 +52,19 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
-			template: 'D:/Прочее/web/2022/other/iatp-dev-website-frontend/src/index.html'
+			template: 'D:/Other/web/2022/other/iatp-dev-website-frontend/src/index.html'
 		}),
 		new HtmlWebpackPlugin({
 			filename: 'about-us.html',
-			template: 'D:/Прочее/web/2022/other/iatp-dev-website-frontend/src/project-blocks/page/about-us/about-us.html'
+			template: 'D:/Other/web/2022/other/iatp-dev-website-frontend/src/project-blocks/page/about-us/about-us.html'
 		}),
 		new HtmlWebpackPlugin({
 			filename: 'members.html',
-			template: 'D:/Прочее/web/2022/other/iatp-dev-website-frontend/src/project-blocks/page/members/members.html'
+			template: 'D:/Other/web/2022/other/iatp-dev-website-frontend/src/project-blocks/page/members/members.html'
 		}),
 		new HtmlWebpackPlugin({
 			filename: 'projects.html',
-			template: 'D:/Прочее/web/2022/other/iatp-dev-website-frontend/src/project-blocks/page/projects/projects.html'
+			template: 'D:/Other/web/2022/other/iatp-dev-website-frontend/src/project-blocks/page/projects/projects.html'
 		}),
 		new MiniCssExtractPlugin({
 			filename: 'style.css'
