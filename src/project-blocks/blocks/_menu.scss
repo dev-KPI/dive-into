@@ -4,11 +4,13 @@
     gap: 90px;
   }
   &__list-link {
+    position: relative;
+
     font-weight: 700;
     font-size: 24px;
     line-height: 33px;
     color: $textColor;
-    position: relative;
+    text-decoration: none;
     &::before {
       position: absolute;
       content: "";
