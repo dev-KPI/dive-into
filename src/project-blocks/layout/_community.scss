@@ -1,16 +1,16 @@
 .community {
-  max-height: 740px;
-  margin-bottom: 70px;
-
+  min-height: 740px;
+  margin: 20px 0px 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 200px;
-
+  
   &__logo {
     position: relative;
     z-index: 10;
     font-weight: 700;
+    margin-top: 30px;
   }
 
   &__logo::after {
@@ -35,7 +35,6 @@
   }
 
   &__decor {
-    width: 845px;
     height: 740px;
   }
 
@@ -59,6 +58,13 @@
     border-radius: 80px;
 
     z-index: 10;
+  }
+  &__logo-title-first {
+    letter-spacing: 3px;
+  }
+
+  &__logo-title-second {
+    letter-spacing: -1.85px;
   }
 
   &__logo-subtitle {
