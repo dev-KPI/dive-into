@@ -101,6 +101,7 @@
   }
 
   &__logo:hover {
+    cursor: pointer;
     .community__logo-text::after {
       opacity: 1;
       visibility: visible;
