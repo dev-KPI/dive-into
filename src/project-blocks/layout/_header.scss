@@ -1,5 +1,6 @@
 .header {
   min-height: 14vh;
+  @extend %container;
   &-page {
     background-color:$mainColor;
   }

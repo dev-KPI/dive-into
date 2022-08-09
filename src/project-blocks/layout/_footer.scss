@@ -1,5 +1,6 @@
 .footer {
   background: $mainColor;
+  @extend %container;
   &__inner {
     display: flex;
     height: 140px;

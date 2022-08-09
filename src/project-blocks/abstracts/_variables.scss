@@ -2,3 +2,9 @@
 $textColor:#f0f0f0;
 $mainColor:#0C073E;
 $titleColor:#121212;
+
+
+%container{
+  padding-left:  calc(50vw - 588px);
+  padding-right:  calc(50vw - 588px);
+}

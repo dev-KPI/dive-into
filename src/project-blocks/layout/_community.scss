@@ -1,12 +1,15 @@
 .community {
   min-height: 86vh;
+  @extend %container;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 200px;
-  margin-top: -50px;
-  margin-bottom: 50px;
-  
+
+  margin-top: -20px;
+  margin-bottom: 35px;
+
   &__logo {
     position: relative;
     z-index: 10;
