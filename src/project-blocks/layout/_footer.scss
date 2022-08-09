@@ -1,6 +1,9 @@
 .footer {
   background-color: #0c073e;
   height: 140px;
-  display: flex;
-  align-items: center;
+  @include flex-v-center;
+  &__inner {
+    width: 1158px;
+    margin: 0 auto;
+  }
 }
