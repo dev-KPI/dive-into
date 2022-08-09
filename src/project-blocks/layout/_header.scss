@@ -1,18 +1,18 @@
 .header {
-  // background-color:$bgColor;
-  height: 140px;
-  &__inner{
-    padding-top: 20px;
-    width: 100%;
+  min-height: 14vh;
+  &-page {
+    background-color:$mainColor;
+  }
 
+  &__inner{
+    padding: 20px 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    padding-bottom: 30px;
   }
+  
   &__logo{
     height: 100px;
     width: 215px;
-  }
+  } 
 }

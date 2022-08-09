@@ -5,12 +5,13 @@
   }
   &__list-link {
     position: relative;
-
+    
     font-weight: 700;
     font-size: 24px;
     line-height: 33px;
     color: $textColor;
     text-decoration: none;
+    
     &::before {
       position: absolute;
       content: "";
@@ -26,6 +27,7 @@
       transform-origin: right;
     }
   }
+
   &__list-link:hover:before {
     width: 100%;
 

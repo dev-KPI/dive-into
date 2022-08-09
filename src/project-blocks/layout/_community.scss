@@ -1,10 +1,11 @@
 .community {
-  min-height: 740px;
-  margin: 20px 0px 60px;
+  min-height: 86vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 200px;
+  margin-top: -50px;
+  margin-bottom: 50px;
   
   &__logo {
     position: relative;
@@ -22,12 +23,12 @@
 
     height: 260px;
     width: 259px;
-
     background-color: #3a50bf;
     border-radius: 80px;
 
     z-index: -1;
   }
+  
   &__logo:hover .community__logo-title{
     background: linear-gradient(315deg, rgba(71, 112, 255, 0.16) 0%, rgba(255, 255, 255, 0.4) 100%),
       rgba(255, 255, 255, 0.68);
@@ -42,14 +43,12 @@
     box-sizing: border-box;
     font-size: 72px;
     line-height: 62px;
-    color: #121212;
+    color: $titleColor;
 
     padding: 47px 46px 0px 46px;
     width: 260px;
     height: 260px;
 
-    // background: linear-gradient(315deg, rgba(71, 112, 255, 0.4) 0%, rgba(255, 255, 255, 0.6) 100%), rgba(255, 255, 255, 1);
-    // background: linear-gradient(315deg, rgba(71, 112, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 100%), rgba(255, 255, 255, 0.7);
     background: linear-gradient(315deg, rgba(71, 112, 255, 0.16) 0%, rgba(255, 255, 255, 0.4) 100%),
       rgba(255, 255, 255, 0.6);
     transition: background 0.1s ease-out;
@@ -70,7 +69,7 @@
   &__logo-subtitle {
     font-size: 30px;
     line-height: 34px;
-
+    
     position: absolute;
     bottom: 55px;
     left: 50px;
@@ -84,7 +83,6 @@
     
     width: 260px;
     height: 260px;
-
     padding-left: 230px;
 
     border-radius: 80px;
@@ -102,6 +100,7 @@
 
     z-index: -5;
   }
+
   &__logo-text{
     position: absolute;
     content: '';
@@ -122,6 +121,7 @@
     padding-left: 300px;
     width: 720px;
     transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); //ease-out-back;
+
   }
 
   &__logo:hover .community__logo-text {
