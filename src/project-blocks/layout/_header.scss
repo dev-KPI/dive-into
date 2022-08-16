@@ -1,8 +1,10 @@
 .header {
   min-height: 14vh;
+  
   @extend %container;
   &-page {
     background-color:$mainColor;
+    min-height: 0;
   }
 
   &__inner{
@@ -11,9 +13,4 @@
     justify-content: space-between;
     align-items: center;
   }
-  
-  &__logo{
-    height: 100px;
-    width: 215px;
-  } 
 }
