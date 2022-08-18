@@ -1,0 +1,16 @@
+.communities {
+  height: 1940px;
+  background-color: white;
+  &__heading {
+    @include heading;
+    width: 628px;
+    padding-top: 50px;
+  }
+  &__article-block {
+    margin-top: 90px;
+    display: grid;
+    grid-template-columns: 410px 410px;
+    grid-column-gap: 339px;
+    grid-row-gap: 100px;
+  }
+}
