@@ -1,34 +1,15 @@
 {
-  "name": "frontend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "iatp-dev-website-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "start": "cls && npm run build && webpack serve"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@babel/polyfill": "^7.12.1",
-    "package-lock.json": "^1.0.0",
-    "package.json": "^2.0.1",
-    "webpack-cli": "^4.10.0"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.9",
-    "@babel/preset-env": "^7.18.9",
-    "babel-loader": "^8.2.5",
-    "css-loader": "^6.7.1",
-    "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^5.5.0",
-    "mini-css-extract-plugin": "^2.6.1",
-    "sass": "^1.53.0",
-    "sass-loader": "^13.0.2",
-    "style-loader": "^3.3.1",
-    "webpack": "^5.73.0",
-    "webpack-dev-server": "^4.9.3"
+    "sass": "^1.54.4",
+    "vite": "^3.0.7"
   }
 }

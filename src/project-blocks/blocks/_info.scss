@@ -1,0 +1,14 @@
+.info {
+  height: 432px;
+  background-color: #eaeaea;
+  &__heading {
+    width: 752px;
+    @include heading;
+    padding-top: 50px;
+  }
+  &__text {
+    @include text;
+    height: 175px;
+    margin-top: 50px;
+  }
+}

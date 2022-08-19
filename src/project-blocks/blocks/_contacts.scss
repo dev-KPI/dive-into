@@ -1,0 +1,30 @@
+.contacts {
+  height: 550px;
+  background-color: #eaeaea;
+  &__heading {
+    width: 282px;
+    @include heading;
+    padding-top: 50px;
+  }
+  &__discord-block {
+    @include flex-v-center;
+    gap: 60px;
+    margin-top: 40px;
+  }
+  &__github-block {
+    @include flex-v-center;
+    gap: 60px;
+    margin-top: 40px;
+  }
+  &__text-discord {
+    @include text;
+    height: 93px;
+    width: 959px;
+  }
+  &__text-github {
+    @include text;
+    height: 62px;
+    width: 959px;
+  }
+  @include social-link;
+}

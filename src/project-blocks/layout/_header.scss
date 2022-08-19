@@ -1,16 +1,17 @@
 .header {
-  min-height: 14vh;
-  
-  @extend %container;
-  &-page {
-    background-color:$mainColor;
-    min-height: 0;
+  &--main {
+    background: none;
+    position: static;
   }
-
-  &__inner{
-    padding: 20px 0px;
+  position: sticky;
+  top: 0;
+  background: #0c073e;
+  height: 140px;
+  &__inner {
+    width: 1158px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    gap: 485px;
+    margin: 0 auto;
+    padding: 20px 0;
   }
 }

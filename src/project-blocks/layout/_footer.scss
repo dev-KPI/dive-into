@@ -1,10 +1,10 @@
 .footer {
-  background: $mainColor;
-  @extend %container;
+  background-color: #0c073e;
+  height: 140px;
+  margin-top: auto;
+  @include flex-v-center;
   &__inner {
-    display: flex;
-    height: 140px;
-    justify-content: flex-end;
-    align-items: center;
+    width: 1158px;
+    margin: 0 auto;
   }
 }

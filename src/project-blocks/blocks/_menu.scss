@@ -1,38 +1,6 @@
 .menu {
-  &__list {
-    display: flex;
-    gap: 90px;
-  }
-  &__list-link {
-    position: relative;
-    
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 33px;
-    color: $textColor;
-    text-decoration: none;
-    
-    &::before {
-      position: absolute;
-      content: "";
-      bottom: -3px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-
-      background: #fff;
-
-      transition: transform 0.3s;
-      transform: scaleX(0);
-      transform-origin: right;
-    }
-  }
-
-  &__list-link:hover:before {
-    width: 100%;
-
-    transform: scaleX(1);
-    transform-origin: left;
-    transition: transform 0.3s;
-  }
+  @include flex-v-center;
+  justify-content: flex-end;
+  gap: 50px;
+  @include social-link;
 }

@@ -1,1 +1,2 @@
-console.log('hi');
+import "../../../index.scss";
+console.log("hi");
