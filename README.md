@@ -6,14 +6,14 @@ npm install package-lock.json
 ```
 ## npm scripts
 ### 🔨 build
-Builds project into /public/ using webpack with SASS, Babel and HTMLplugin
+Builds project into /public/ using Vite with SASS
 ```bash
 npm run build
 ```
 ### ⚡ start
-First builds project with build, then runs live-server on localhost:8080 with index.html file from /public
+First builds project with build, then runs live-server on localhost with index.html file from /public
 ```bash
-npm run start
+npm run dev
 ```
 ## Project structure
 ```
@@ -22,10 +22,10 @@ npm run start
  ┣ 📂.node_modules
  ┣ 📂public
  ┃ ┣ 📂img
- ┃ ┗ 📂fonts
- ┣ 📂public
+ ┃ ┣ 📂fonts
+ ┃ ┣ 📂css
+ ┃ ┣ 📂js
  ┃ ┣ 📜about-us.html
- ┃ ┣ 📜bundle.js
  ┃ ┣ 📜index.html
  ┃ ┣ 📜members.html
  ┃ ┗ 📜projects.html
@@ -61,5 +61,5 @@ npm run start
  ┣ 📜README.md
  ┣ 📜package-lock.json
  ┣ 📜package.json
- ┗ 📜webpack.config.js
+ ┗ vite.config.js
  ```
