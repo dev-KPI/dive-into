@@ -1,0 +1,19 @@
+.search-field {
+  width: 560px;
+  height: 70px;
+  background-color: #dcdaeb;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  padding: 20px 70px;
+  background-image: url(assets/img/search.svg);
+  background-repeat: no-repeat;
+  background-position: 21px;
+  font-size: 24px;
+  line-height: 31px;
+  color: #0c073e;
+}
+.search-field:active {
+  border: none;
+  outline: none;
+}

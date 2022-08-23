@@ -8,13 +8,6 @@
   line-height: 31px;
   text-align: left;
 }
-@mixin heading {
-  display: block;
-  font-size: 64px;
-  font-weight: 700;
-  line-height: 87px;
-  color: #0c073e;
-}
 @mixin social-link {
   &__link {
     .discord {
