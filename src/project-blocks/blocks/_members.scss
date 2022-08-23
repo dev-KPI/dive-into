@@ -1,0 +1,118 @@
+.members {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  &__main {
+    display: flex;
+    gap: 40px;
+    margin-top: 90px;
+    margin-bottom: 48px;
+  }
+  &__filters {
+    width: 560px;
+  }
+  &__list {
+    width: 560px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  &__item {
+    box-sizing: border-box;
+    height: 70px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 33px;
+    background-color: #dcdaeb;
+    border-radius: 20px;
+    @include flex-v-center;
+    justify-content: space-between;
+    padding: 0 30px;
+    color: #121212;
+    &-name {
+      position: relative;
+    }
+    &-name::after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 30px;
+      background-color: #0c073e;
+      right: -128px;
+      top: 3px;
+      border-radius: 100px;
+    }
+    &-counter {
+      color: #121212;
+      text-decoration: none;
+      position: relative;
+    }
+    &-counter::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      width: 0;
+      bottom: -3px;
+      height: 2px;
+      background-color: #121212;
+      transition: width 250ms;
+    }
+    &-counter:hover::after {
+      right: auto;
+      width: 100%;
+      left: 0;
+    }
+  }
+  &__filters {
+    box-sizing: border-box;
+    background-color: #dcdaeb;
+    border-radius: 20px;
+    padding: 0 25px;
+    &-heading {
+      display: inline-block;
+      position: relative;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 33px;
+      margin-top: 17px;
+    }
+    &-heading::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      width: 0;
+      bottom: -3px;
+      height: 2px;
+      background-color: #121212;
+      transition: width 250ms;
+    }
+    &-heading:hover::after {
+      right: auto;
+      width: 100%;
+      left: 0;
+    }
+  }
+  &__buttons {
+    border-bottom: 2px solid #bab8cc;
+    margin-top: 40px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  &__btn {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    padding: 3px 12px;
+    border: 5px solid black;
+    border-radius: 50px;
+    background: none;
+    cursor: pointer;
+  }
+  &__btn:active {
+    background-color: red;
+  }
+}

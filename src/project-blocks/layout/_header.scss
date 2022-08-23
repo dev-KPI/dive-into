@@ -1,0 +1,18 @@
+.header {
+  &--main {
+    background: none;
+    position: static;
+  }
+  position: sticky;
+  top: 0;
+  background: #0c073e;
+  height: 140px;
+  z-index: 10;
+  &__inner {
+    width: 1158px;
+    display: flex;
+    gap: 485px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+}
