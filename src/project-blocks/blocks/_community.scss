@@ -1,8 +1,10 @@
 .community {
+  width: 1158px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 200px;
+  margin: 0 auto;
   &__logo {
     position: relative;
     z-index: 10;
@@ -91,5 +93,7 @@
     .community__logo-text::after {
       transition-delay: 0ms;
     }
+  }
+  &__image {
   }
 }

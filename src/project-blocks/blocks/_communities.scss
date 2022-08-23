@@ -1,11 +1,6 @@
 .communities {
   height: 1940px;
   background-color: white;
-  &__heading {
-    @include heading;
-    width: 628px;
-    padding-top: 50px;
-  }
   &__article-block {
     margin-top: 90px;
     display: grid;
