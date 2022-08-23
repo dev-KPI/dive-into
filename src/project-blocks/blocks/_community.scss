@@ -5,95 +5,132 @@
   align-items: center;
   gap: 200px;
   margin: 0 auto;
+
   &__logo {
     position: relative;
     z-index: 10;
     font-weight: 700;
+    margin-top: 30px;
   }
+
+  &__logo::after {
+    // for similar bg
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0.53px; // fix border
+
+    height: 260px;
+    width: 259px;
+    background-color: #3a50bf;
+    border-radius: 80px;
+
+    z-index: -1;
+  }
+  
+  &__logo:hover .community__logo-title{
+    background: linear-gradient(315deg, rgba(71, 112, 255, 0.16) 0%, rgba(255, 255, 255, 0.4) 100%),
+      rgba(255, 255, 255, 0.68);
+    transition: background 0.1s ease-out;
+  }
+
+  &__decor {
+    height: 740px;
+  }
+
   &__logo-title {
     box-sizing: border-box;
     font-size: 72px;
     line-height: 62px;
-    letter-spacing: -3px;
-    color: #121212;
-    padding: 47px 39px 47.34px 41px;
+    // color: $titleColor;
+
+    padding: 47px 46px 0px 46px;
     width: 260px;
     height: 260px;
-    background: linear-gradient(
-        315deg,
-        rgba(71, 112, 255, 0.16) 0%,
-        rgba(255, 255, 255, 0.4) 100%
-      ),
+
+    background: linear-gradient(315deg, rgba(71, 112, 255, 0.16) 0%, rgba(255, 255, 255, 0.4) 100%),
       rgba(255, 255, 255, 0.6);
+    transition: background 0.1s ease-out;
+
+    backdrop-filter: blur(6px);
     border-radius: 80px;
+
     z-index: 10;
   }
   &__logo-title-first {
     letter-spacing: 3px;
   }
+
   &__logo-title-second {
     letter-spacing: -1.85px;
   }
+
   &__logo-subtitle {
-    color: black;
     font-size: 30px;
     line-height: 34px;
-    letter-spacing: -0.85px;
+    
     position: absolute;
     bottom: 55px;
-    left: 45px;
+    left: 50px;
   }
-  &__logo-text {
+
+  &__logo-about {
+    box-sizing: border-box;
     position: absolute;
     left: 0;
     top: 0;
+    
     width: 260px;
     height: 260px;
+    padding-left: 230px;
+
     border-radius: 80px;
-    background: linear-gradient(
-        315deg,
-        rgba(71, 112, 255, 0.2) 0%,
-        rgba(255, 255, 255, 0.5) 100%
-      ),
+    background: linear-gradient(315deg, rgba(71, 112, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 100%),
       rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(6px);
+
     font-weight: 600;
     font-size: 20px;
     line-height: 25px;
+    align-items: center;
     color: #010010;
-    transition: width 300ms ease-out;
+
+    transition: width 0.3s ease-out;
+
     z-index: -5;
   }
-  &__logo:hover {
-    .community__logo-text {
-      width: 720px;
-      transition: width 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-  }
-  &__logo-text::after {
+
+  &__logo-text{
     position: absolute;
-    content: "A community of people interested in IT wants to find like-minded people and realize their fantasies. Community members are involved in the implementation of various projects using modern technologies. It is a platform for everyone who wants to learn, create and communicate.";
+    content: '';
+    
+    top: 35px;
     left: 300px;
     right: 35px;
     bottom: 35px;
-    transition: opacity 100ms ease-out;
-    transition-delay: 400ms;
+
+    transition: opacity 0.1s ease-out;
+    transition-delay: 0.3s;
+
     opacity: 0;
-    visibility: hidden;
+    font-size: 0px;
   }
-  &__logo:hover {
-    cursor: pointer;
-    .community__logo-text::after {
+
+  &__logo:hover .community__logo-about {
+    padding-left: 300px;
+    width: 720px;
+    transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); //ease-out-back;
+
+  }
+
+  &__logo:hover .community__logo-text {
+      font-size: 20px;
       opacity: 1;
-      visibility: visible;
-      transition: opacity 100ms ease-out;
-      transition-delay: 400ms;
-    }
+      transition: opacity 0.1s ease-out;
+      transition-delay: 0.3s;
   }
-  &__logo {
-    .community__logo-text::after {
-      transition-delay: 0ms;
-    }
-  }
-  &__image {
+
+   &__logo .community__logo-text{
+      transition-delay: 0s;
   }
 }

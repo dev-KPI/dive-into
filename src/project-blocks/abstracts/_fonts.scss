@@ -1,20 +1,18 @@
-@font-face {
-  font-family: "Open Sans";
-  src: local("☺"),
-    url("../src/assets/fonts/OpenSans-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Open Sans";
-  src: local("☺"),
-    url("../src/assets/fonts/OpenSans-SemiBold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Open Sans";
-  src: local("☺"), url("../src/assets/fonts/OpenSans-Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-}
+@include font-face(
+  "Open Sans",
+  normal,
+  400,
+  "assets/fonts/OpenSans-Regular.woff2"
+);
+@include font-face(
+  "Open Sans",
+  normal,
+  600,
+  "assets/fonts/OpenSans-SemiBold.woff2"
+);
+@include font-face(
+  "Open Sans",
+  normal,
+  700,
+  "assets/fonts/OpenSans-Bold.woff2"
+);
