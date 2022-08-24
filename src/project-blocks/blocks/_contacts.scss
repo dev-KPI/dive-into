@@ -1,6 +1,14 @@
 .contacts {
-  height: 550px;
   background-color: #eaeaea;
+  &__inner{
+    padding: 50px 0;
+  }
+  &__title{
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 87px;
+    color: #0c073e;
+  }
   &__discord-block {
     @include flex-v-center;
     gap: 60px;

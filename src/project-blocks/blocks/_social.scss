@@ -10,7 +10,8 @@
     transition: fill 0.2s ease-in-out;
   }
   &__item-link .social__item-link--discord, 
-  &__item-link .social__item-link--github  {
+  &__item-link .social__item-link--github,
+  &__item-link .social__item-link--linkedin  {
     transition: transform 0.2s ease-in-out;
   }
 
@@ -21,7 +22,8 @@
     transition: fill 0.2s ease-in-out;
   }
    &__item-link:hover .social__item-link--discord, 
-   &__item-link:hover .social__item-link--github {
+   &__item-link:hover .social__item-link--github,
+   &__item-link:hover .social__item-link--linkedin{
     transition: transform 0.2s ease-in-out;
     transform: scale(1.12);
    }

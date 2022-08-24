@@ -1,14 +1,22 @@
 .members {
-  &__header {
+  &__top {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+  }
+  &__inner{
+    padding: 50px 0;
+  }
+  &__title{
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 87px;
+    color: #0c073e;
   }
   &__main {
     display: flex;
     gap: 40px;
     margin-top: 90px;
-    margin-bottom: 48px;
   }
   &__filters {
     width: 560px;
