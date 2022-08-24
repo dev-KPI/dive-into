@@ -14,12 +14,11 @@
   &__text-discord {
     @include text;
     height: 93px;
-    width: 959px;
+    max-width: 959px;
   }
   &__text-github {
     @include text;
     height: 62px;
-    width: 959px;
+    max-width: 959px;
   }
-  @include social-link;
 }
