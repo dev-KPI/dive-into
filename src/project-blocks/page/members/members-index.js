@@ -9,3 +9,25 @@ circles.forEach((circle) => {
     circle.setAttribute("cy", "0");
   });
 });
+
+const modalTrigger = document.querySelectorAll("[data-modal]"),
+      modal = document.querySelector(".modal");
+
+function openModal() {
+  modal.style.display = "block";
+  document.body.style.overflow = "hidden";
+}
+modalTrigger.forEach((btn) => {
+  btn.addEventListener("click", openModal);
+});
+
+function closeModal() {
+  modal.style.display = "none";
+  document.body.style.overflow = "";
+}
+
+modal.addEventListener("click", (e) => {
+  if (e.target === modal || e.target.getAttribute("data-close") == "") {
+    closeModal();
+  }
+});

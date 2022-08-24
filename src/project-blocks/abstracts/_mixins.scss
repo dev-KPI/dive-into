@@ -36,6 +36,12 @@
       }
       transition: transform 200ms ease-in-out;
     }
+    .linkedin {
+      rect {
+        transition: fill 200ms ease-in-out;
+      }
+      transition: transform 200ms ease-in-out;
+    }
   }
   &__link:hover {
     .discord {
@@ -48,6 +54,14 @@
     }
     .github {
       path:nth-child(1) {
+        fill: #032ec9;
+        transition: fill 200ms ease-in-out;
+      }
+      transition: transform 200ms ease-in-out;
+      transform: scale(1.12);
+    }
+    .linkedin {
+      rect {
         fill: #032ec9;
         transition: fill 200ms ease-in-out;
       }
