@@ -1,32 +1,26 @@
-.contacts {
-  background-color: #eaeaea;
+.contacts{
+  min-height: 550px;
+  background-color:#EAEAEA;
   &__inner{
-    padding: 50px 0;
+    padding: 50px 0px 50px;
+    @extend %container;
   }
   &__title{
-    font-size: 64px;
-    font-weight: 700;
-    line-height: 87px;
-    color: #0c073e;
+    @extend %title-font;
   }
-  &__discord-block {
-    @include flex-v-center;
+  &__items-box{
+    padding-top: 40px;
+  }
+  &__item{
+    display: flex;
     gap: 60px;
+  }
+  &__item + .contacts__item {
     margin-top: 40px;
   }
-  &__github-block {
-    @include flex-v-center;
-    gap: 60px;
-    margin-top: 40px;
-  }
-  &__text-discord {
-    @include text;
-    height: 93px;
-    max-width: 959px;
-  }
-  &__text-github {
-    @include text;
-    height: 62px;
-    max-width: 959px;
+  &__item-text{
+    @extend %about-text;
+    align-items:center;
+    display: flex;
   }
 }

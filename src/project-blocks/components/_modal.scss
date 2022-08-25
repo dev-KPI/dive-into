@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1050;
+  z-index: 50;
   display: none;
   width: 100%;
   height: 100%;
@@ -22,7 +22,6 @@
     border-radius: 50px;
     max-height: 80vh;
     overflow-y: auto;
-    color:#0C073E;
   }
   &__info{
     display: flex;
@@ -35,14 +34,11 @@
     gap: 20px;
   }
   &__personal-title{
-    font-weight: 700;
-    font-size:64px;
-    line-height: 87px;
+    @extend %title-font;
   }
   &__personal p{
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 44px;
+    @extend %subtitle-font;
+    color:$mainColor;
   }
   &__filters{
     margin-top: 25px;
@@ -53,9 +49,7 @@
   }
   &__filters-item{
     color: #F0F0F0;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 22px;
+    @extend %filters-font;
     border-radius: 100px;
     background: #2B03C9;
     padding: 10px 20px;
@@ -65,9 +59,8 @@
   }
   &__text{
     margin-top: 20px;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 33px;
+    @extend %text-font;
+    color:$mainColor;
   }
   &__close{
     position: absolute;

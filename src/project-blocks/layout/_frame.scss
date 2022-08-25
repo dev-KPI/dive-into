@@ -1,13 +1,6 @@
 .frame {
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
-  // overflow: hidden;
-  &--main {
-    background: linear-gradient(rgba(9, 7, 47, 0.4), rgba(9, 7, 47, 0.4)),
-      url(assets/img/background.png) no-repeat center center/cover;
-  }
-  // &--about {
-  //   height: 3202px;
-  // }
+  overflow: hidden;
+  background: linear-gradient(rgba(9, 7, 47, 0.4), rgba(9, 7, 47, 0.4)),
+    url(assets/img/background.png) no-repeat center center/cover;
 }

@@ -1,6 +1,10 @@
 .communities{
+  // min-height: 100vh;
+  // display: flex;
+  // align-items:center;
   &__inner{
     padding:50px 0px 80px;
+    @extend %container;
   }
   &__item{
     display: flex;
@@ -11,10 +15,7 @@
     margin-top: 100px;
   }
   &__title{
-    font-size: 64px;
-    font-weight: 700;
-    line-height: 87px;
-    color: #0C073E;
+    @extend %title-font;
   }
   &__items-box{
     margin-left:50px;
@@ -25,10 +26,7 @@
     grid-row-gap: 0px;
   }
   &__item-title{
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 44px;
-    color: #121212;
+    @extend %subtitle-font;
     justify-content: center;
     width: 400px;
   }
