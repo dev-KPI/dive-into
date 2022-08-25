@@ -1,0 +1,52 @@
+.btn {
+  background: none;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  border-radius: 50px;
+  &--red {
+    border: 5px solid #c90303;
+    color: #c90303;
+  }
+  &--purple {
+    border: 5px solid #a103c9;
+    color: #a103c9;
+  }
+  &--orange {
+    border: 5px solid #c97a03;
+    color: #c97a03;
+  }
+  &--yellow {
+    border: 5px solid #c9b503;
+    color: #c9b503;
+  }
+  &--blue {
+    border: 5px solid #0352c9;
+    color: #0352c9;
+  }
+  &--light-blue {
+    border: 5px solid #038ec9;
+    color: #038ec9;
+  }
+  &--dark-blue {
+    border: 5px solid #2b03c9;
+    color: #2b03c9;
+  }
+  &--green {
+    border: 5px solid #03c952;
+    color: #03c952;
+  }
+  &--pink {
+    border: 5px solid #c9037a;
+    color: #c9037a;
+  }
+  &--red-pink {
+    border: 5px solid #c9033e;
+    color: #c9033e;
+  }
+  &__name {
+    cursor: pointer;
+    display: inline-block;
+    padding: 3px 12px;
+  }
+}

@@ -1,25 +1,26 @@
 .contacts {
-  height: 550px;
+  min-height: 550px;
   background-color: #eaeaea;
-  &__discord-block {
-    @include flex-v-center;
+  &__inner {
+    padding: 50px 0px 50px;
+    @extend %container;
+  }
+  &__title {
+    @extend %title-font;
+  }
+  &__items-box {
+    padding-top: 40px;
+  }
+  &__item {
+    display: flex;
     gap: 60px;
+  }
+  &__item + .contacts__item {
     margin-top: 40px;
   }
-  &__github-block {
-    @include flex-v-center;
-    gap: 60px;
-    margin-top: 40px;
+  &__item-text {
+    @extend %about-text;
+    align-items: center;
+    display: flex;
   }
-  &__text-discord {
-    @include text;
-    height: 93px;
-    width: 959px;
-  }
-  &__text-github {
-    @include text;
-    height: 62px;
-    width: 959px;
-  }
-  @include social-link;
 }

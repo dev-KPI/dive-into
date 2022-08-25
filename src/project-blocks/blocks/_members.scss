@@ -1,14 +1,20 @@
 .members {
-  &__header {
+  &__top {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+  }
+  &__inner {
+    padding: 50px 0;
+    @extend %container;
+  }
+  &__title {
+    @extend %title-font;
   }
   &__main {
     display: flex;
     gap: 40px;
     margin-top: 90px;
-    margin-bottom: 48px;
   }
   &__filters {
     width: 560px;
@@ -21,16 +27,16 @@
   }
   &__item {
     box-sizing: border-box;
+    padding: 0 30px;
     height: 70px;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 33px;
+
+    @extend %text-font;
     background-color: #dcdaeb;
     border-radius: 20px;
     @include flex-v-center;
     justify-content: space-between;
-    padding: 0 30px;
-    color: #121212;
+
+    cursor: pointer;
     &-name {
       position: relative;
     }
@@ -39,13 +45,13 @@
       position: absolute;
       width: 2px;
       height: 30px;
-      background-color: #0c073e;
+      background-color: $mainColor;
       right: -128px;
       top: 3px;
       border-radius: 100px;
     }
     &-counter {
-      color: #121212;
+      color: $textColor;
       text-decoration: none;
       position: relative;
     }
@@ -56,7 +62,7 @@
       width: 0;
       bottom: -3px;
       height: 2px;
-      background-color: #121212;
+      background-color: $textColor;
       transition: width 250ms;
     }
     &-counter:hover::after {
@@ -73,9 +79,7 @@
     &-heading {
       display: inline-block;
       position: relative;
-      font-size: 24px;
-      font-weight: 700;
-      line-height: 33px;
+      @extend %text-font;
       margin-top: 17px;
     }
     &-heading::after {
@@ -85,7 +89,7 @@
       width: 0;
       bottom: -3px;
       height: 2px;
-      background-color: #121212;
+      background-color: $textColor;
       transition: width 250ms;
     }
     &-heading:hover::after {
@@ -102,10 +106,8 @@
     flex-wrap: wrap;
     gap: 10px;
   }
-  &__btn {
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 22px;
+  /* &__btn {
+    @extend %filters-font;
     padding: 3px 12px;
     border: 5px solid black;
     border-radius: 50px;
@@ -114,5 +116,5 @@
   }
   &__btn:active {
     background-color: red;
-  }
+  } */
 }

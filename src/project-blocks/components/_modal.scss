@@ -1,0 +1,71 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(12, 7, 62, 0.8);
+  &__dialog {
+    max-width: 1160px;
+    margin: 90px auto;
+  }
+  &__content {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    padding: 40px 60px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  &__info {
+    display: flex;
+    gap: 60px;
+  }
+  &__personal {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    gap: 20px;
+  }
+  &__personal-title {
+    @extend %title-font;
+  }
+  &__personal p {
+    @extend %subtitle-font;
+    color: $mainColor;
+  }
+  &__filters {
+    margin-top: 25px;
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+  }
+  &__filters-item {
+    color: #f0f0f0;
+    @extend %filters-font;
+    border-radius: 100px;
+    background: #2b03c9;
+    padding: 10px 20px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  &__text {
+    margin-top: 20px;
+    @extend %text-font;
+    color: $mainColor;
+  }
+  &__close {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    cursor: pointer;
+  }
+}

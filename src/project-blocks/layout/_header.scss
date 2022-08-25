@@ -3,16 +3,17 @@
     background: none;
     position: static;
   }
+  overflow: hidden;
   position: sticky;
   top: 0;
-  background: #0c073e;
+  background: $mainColor;
   height: 140px;
   z-index: 10;
   &__inner {
-    width: 1158px;
+    padding: 20px 0px;
     display: flex;
-    gap: 485px;
-    margin: 0 auto;
-    padding: 20px 0;
+    justify-content: space-between;
+    align-items: center;
+    @extend %container;
   }
 }
