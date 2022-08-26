@@ -1,5 +1,6 @@
 import "../../../index.scss";
 
+
 const circles = document.querySelectorAll("#circle");
 const atom = document.querySelector("#atom");
 
@@ -30,4 +31,12 @@ modal.addEventListener("click", (e) => {
   if (e.target === modal || e.target.getAttribute("data-close") == "") {
     closeModal();
   }
+});
+
+
+const btns = document.querySelectorAll('.btn');
+btns.forEach(btn => {
+  btn.addEventListener("click", function () {
+    this.classList.toggle('is-checked');
+  });
 });
