@@ -15,6 +15,9 @@ $redPink: #c9033e;
   @extend %filters-font;
   border-radius: 50px;
   cursor: pointer;
+  &:focus{
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
   &--red {
     border: 5px solid $red;
     color: $red ;
@@ -97,11 +100,23 @@ $redPink: #c9033e;
   }
 }
 
-// .btn{
-//   transition: all  .2s ease-in-out;
+// .hide{
+//   opacity: 1;
+//   animation-name: hide-list;
+//   animation-duration: 2s;
+//   animation-fill-mode: forwards;
 // }
 
-
+// @keyframes hide-list {
+//   to {
+//     opacity: 0;
+//     min-height: 0;
+//     min-width: 0;
+//     padding: 0;
+//     margin: 0;
+//     border: 0;
+//   }
+// }
 
 
 
