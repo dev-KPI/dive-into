@@ -136,10 +136,15 @@
   <main class="main">
     <div class="members">
       <div class="members__inner">
-        <section class="members__top">
-          <h1 class="members__title">Members</h1>
-          <input class="search-field" type="search" />
-        </section>
+        <div class="members__top">
+          <h2 class="members__title">Members</h2>
+          <form class="members__search search">
+            <button class="search-btn" type="submit">
+              <img src="/assets/img/search.svg" alt="search">
+            </button>
+            <input class="search-input" type="text" placeholder="">
+          </form>
+        </div>
 
         <section class="members__main">
           <ul class="members__list">
@@ -182,39 +187,38 @@
           </ul>
 
           <div class="members__filters">
-            <div class="directions">
-              <h2 class="members__filters-heading">Professional Direction</h2>
+            <div class="members__filters-directions">
+              <h3 class="members__filters-heading">Professional Direction</h3>
               <div class="members__buttons">
-                <button class="btn btn--red" data-filter="front-end">Front-End</button>
-                <button class="btn btn--purple" data-filter="back-end">Back end</button>
-                <button class="btn btn--orange" data-filter="design">Design</button>
-                <button class="btn btn--yellow" data-filter="gameDev">GameDEV</button>
-                <button class="btn btn--blue" data-filter="systemDevelopment">System Development</button>
-                <button class="btn btn--light-blue" data-filter="qa">QA</button>
-                <button class="btn btn--blue" data-filter="projectManager">Project Manager</button>
+                <button class="members__btn btn btn--red" data-filter="front-end">Front-End</button>
+                <button class="members__btn btn btn--purple" data-filter="back-end">Back end</button>
+                <button class="members__btn btn btn--orange" data-filter="design">Design</button>
+                <button class="members__btn btn btn--yellow" data-filter="gameDev">GameDEV</button>
+                <button class="members__btn btn btn--blue" data-filter="systemDevelopment">System Development</button>
+                <button class="members__btn btn btn--light-blue" data-filter="qa">QA</button>
+                <button class="members__btn btn btn--blue" data-filter="projectManager">Project Manager</button>
               </div>
             </div>
-            <div class="languages">
-              <h2 class="members__filters-heading">Programming Languages</h2>
+            <div class="memmbers__filters-languages">
+              <h3 class="members__filters-heading">Programming Languages</h3>
               <div class="members__buttons">
-                <button class="btn btn--red" type="button">JAVA</button>
-                <button class="btn btn--purple" type="button">Kotlin</button>
-                <button class="btn btn--orange" type="button">JavaScript</button>
-                <button class="btn btn--yellow" type="button">TypeScript</button>
-                <button class="btn btn--light-blue" type="button">C++</button>
-                <button class="btn btn--blue" type="button">C</button>
-                <button class="btn btn--dark-blue" type="button">C#</button>
-                <button class="btn btn--green" type="button">Python</button>
-                <button class="btn btn--pink" type="button">Design</button>
-                <button class="btn btn--red-pink" type="button">
+                <button class="members__btn btn btn--red" type="button">JAVA</button>
+                <button class="members__btn btn btn--purple" type="button">Kotlin</button>
+                <button class="members__btn btn btn--orange" type="button">JavaScript</button>
+                <button class="members__btn btn btn--yellow" type="button">TypeScript</button>
+                <button class="members__btn btn btn--light-blue" type="button">C++</button>
+                <button class="members__btn btn btn--blue" type="button">C</button>
+                <button class="members__btn btn btn--dark-blue" type="button">C#</button>
+                <button class="members__btn btn btn--green" type="button">Python</button>
+                <button class="members__btn btn btn--pink" type="button">Design</button>
+                <button class="members__btn btn btn--red-pink" type="button">
                   Node.js
                 </button>
               </div>
             </div>
-            <div class="projects">
-              <h2 class="members__filters-heading">Number of projects</h2>
-              <br />
-              <!-- <input class="range" type="range" /> -->
+            <div class="members__filters-projects">
+              <h3 class="members__filters-heading">Number of projects</h3>
+              <input class="members__range range" type="range" />
             </div>
           </div>
         </section>
