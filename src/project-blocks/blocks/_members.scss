@@ -17,6 +17,7 @@
     gap: 40px;
     margin-top: 90px;
   }
+
   &__list {
     width: 560px;
     display: flex;
@@ -35,7 +36,7 @@
     justify-content: space-between;
 
     cursor: pointer;
-    &-counter::before {
+    &-counter::after{
       content: "";
       position: absolute;
       width: 2px;
@@ -47,24 +48,8 @@
     }
     &-counter {
       color: $textColor;
-      text-decoration: none;
-      position: relative;
     }
-    &-counter::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      width: 0;
-      bottom: -3px;
-      height: 2px;
-      background-color: $textColor;
-      transition: width 250ms;
-    }
-    &-counter:hover::after {
-      right: auto;
-      width: 100%;
-      left: 0;
-    }
+    @include underline('&-counter', $textColor);
   }
   &__filters {
     max-width: 560px;
@@ -74,25 +59,10 @@
     padding: 0 25px;
     &-heading {
       display: inline-block;
-      position: relative;
       @extend %text-font;
       margin-top: 17px;
     }
-    &-heading::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      width: 0;
-      bottom: -3px;
-      height: 2px;
-      background-color: $textColor;
-      transition: width 250ms;
-    }
-    &-heading:hover::after {
-      right: auto;
-      width: 100%;
-      left: 0;
-    }
+    @include underline('&-heading',$textColor);
   }
   &__buttons {
     border-bottom: 2px solid #bab8cc;
@@ -106,5 +76,9 @@
     min-width: 60px;
     min-height: 40px;
     padding: 4px 10px;
+  }
+
+  &__range{
+    margin: 40px auto 0 auto
   }
 }

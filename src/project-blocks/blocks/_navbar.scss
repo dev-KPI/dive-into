@@ -4,25 +4,8 @@
     gap: 90px;
   }
   &__link {
-    position: relative;
     @extend %text-font;
     color:#F0F0F0;
-    text-decoration: none;
   }
-  &__link::before {
-    content: "";
-    position: absolute;
-    right: 0;
-    width: 0;
-    bottom: -3px;
-    height: 2px;
-    background-color: #F0F0F0;;
-    transition: width 0.25s;
-  }
-  &__link:hover::before,
-  &__link:focus::before {
-    right: auto;
-    width: 100%;
-    left: 0;
-  }
+  @include underline('&__link', #F0F0F0);
 }

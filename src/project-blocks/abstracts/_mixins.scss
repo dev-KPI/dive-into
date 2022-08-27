@@ -23,3 +23,25 @@
   text-align: left;
 }
 
+@mixin underline($element, $color) {
+  #{$element}{
+    position: relative;
+    text-decoration: none;
+  }
+  #{$element}::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 0;
+    bottom: -3px;
+    height: 2px;
+    background-color: $color;
+    transition: width 0.25s;
+  }
+  #{$element}:hover::before,
+  #{$element}:focus::before {
+    right: auto;
+    width: 100%;
+    left: 0;
+  }
+}

@@ -14,11 +14,12 @@
 }
 
 .search{
+  
   position: relative;
 
   &-input{
-    // max-width: 450px;
-    width: 440px;
+    box-sizing:border-box;
+    width: 560px;
     background: #DCDAEB;
     border-radius: 20px;
 
