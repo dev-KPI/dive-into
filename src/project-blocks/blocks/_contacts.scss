@@ -19,7 +19,7 @@
     margin-top: 40px;
   }
   &__item-text {
-    @extend %about-text;
+    @extend %light-font;
     align-items: center;
     display: flex;
   }

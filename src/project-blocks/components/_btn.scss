@@ -1,52 +1,119 @@
+$defColor: #dcdaeb;
+$red: #c90303;
+$purple: #a103c9;
+$orange: #c97a03;
+$yellow: #c9b503;
+$blue: #0352c9;
+$lightBlue: #038ec9;
+$darkBlue: #2b03c9;
+$green: #03c952;
+$pink: #c9037a;
+$redPink: #c9033e;
+
 .btn {
   background: none;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 22px;
+  @extend %filters-font;
   border-radius: 50px;
+  cursor: pointer;
+  &:focus {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
   &--red {
-    border: 5px solid #c90303;
-    color: #c90303;
+    border: 5px solid $red;
+    color: $red;
+    &.is-checked {
+      background: $red;
+      color: #fff;
+    }
   }
   &--purple {
-    border: 5px solid #a103c9;
-    color: #a103c9;
+    border: 5px solid $purple;
+    color: $purple;
+    &.is-checked {
+      background: $purple;
+      color: #fff;
+    }
   }
   &--orange {
-    border: 5px solid #c97a03;
-    color: #c97a03;
+    border: 5px solid $orange;
+    color: $orange;
+    &.is-checked {
+      background: $orange;
+      color: #fff;
+    }
   }
   &--yellow {
-    border: 5px solid #c9b503;
-    color: #c9b503;
+    border: 5px solid $yellow;
+    color: $yellow;
+    &.is-checked {
+      background: $yellow;
+      color: #fff;
+    }
   }
   &--blue {
-    border: 5px solid #0352c9;
-    color: #0352c9;
+    border: 5px solid $blue;
+    color: $blue;
+    &.is-checked {
+      background: $blue;
+      color: #fff;
+    }
   }
   &--light-blue {
-    border: 5px solid #038ec9;
-    color: #038ec9;
+    border: 5px solid $lightBlue;
+    color: $lightBlue;
+    &.is-checked {
+      background: $lightBlue;
+      color: #fff;
+    }
   }
   &--dark-blue {
-    border: 5px solid #2b03c9;
-    color: #2b03c9;
+    border: 5px solid $darkBlue;
+    color: $darkBlue;
+    &.is-checked {
+      background: $darkBlue;
+      color: #fff;
+    }
   }
   &--green {
-    border: 5px solid #03c952;
-    color: #03c952;
+    border: 5px solid $green;
+    color: $green;
+    &.is-checked {
+      background: $green;
+      color: #fff;
+    }
   }
   &--pink {
-    border: 5px solid #c9037a;
-    color: #c9037a;
+    border: 5px solid $pink;
+    color: $pink;
+    &.is-checked {
+      background: $pink;
+      color: #fff;
+    }
   }
   &--red-pink {
-    border: 5px solid #c9033e;
-    color: #c9033e;
-  }
-  &__name {
-    cursor: pointer;
-    display: inline-block;
-    padding: 3px 12px;
+    border: 5px solid $redPink;
+    color: $redPink;
+    &.is-checked {
+      background: $redPink;
+      color: #fff;
+    }
   }
 }
+
+// .hide{
+//   opacity: 1;
+//   animation-name: hide-list;
+//   animation-duration: 2s;
+//   animation-fill-mode: forwards;
+// }
+
+// @keyframes hide-list {
+//   to {
+//     opacity: 0;
+//     min-height: 0;
+//     min-width: 0;
+//     padding: 0;
+//     margin: 0;
+//     border: 0;
+//   }
+// }

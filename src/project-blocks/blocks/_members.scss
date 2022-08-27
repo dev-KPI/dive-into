@@ -1,8 +1,9 @@
 .members {
   &__top {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
   }
   &__inner {
     padding: 50px 0;
@@ -15,9 +16,6 @@
     display: flex;
     gap: 40px;
     margin-top: 90px;
-  }
-  &__filters {
-    width: 560px;
   }
   &__list {
     width: 560px;
@@ -37,17 +35,14 @@
     justify-content: space-between;
 
     cursor: pointer;
-    &-name {
-      position: relative;
-    }
-    &-name::after {
+    &-counter::before {
       content: "";
       position: absolute;
       width: 2px;
       height: 30px;
       background-color: $mainColor;
-      right: -128px;
-      top: 3px;
+      right: 115%;
+      top: 15%;
       border-radius: 100px;
     }
     &-counter {
@@ -72,6 +67,7 @@
     }
   }
   &__filters {
+    max-width: 560px;
     box-sizing: border-box;
     background-color: #dcdaeb;
     border-radius: 20px;
@@ -106,15 +102,9 @@
     flex-wrap: wrap;
     gap: 10px;
   }
-  /* &__btn {
-    @extend %filters-font;
-    padding: 3px 12px;
-    border: 5px solid black;
-    border-radius: 50px;
-    background: none;
-    cursor: pointer;
+  &__btn {
+    min-width: 60px;
+    min-height: 40px;
+    padding: 4px 10px;
   }
-  &__btn:active {
-    background-color: red;
-  } */
 }
