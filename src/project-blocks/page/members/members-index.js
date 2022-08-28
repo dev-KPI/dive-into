@@ -35,13 +35,13 @@ modal.addEventListener("click", (e) => {
 
 
 const btns = document.querySelectorAll(".btn"),
-      list = document.querySelectorAll(".members__item");
+      list = document.querySelectorAll(".section__item");
 
-btns.forEach( (btn) => {
-  btn.addEventListener('click', ()=> {
-     btn.classList.toggle("is-checked");
-  });
-});
+// btns.forEach( (btn) => {
+//   btn.addEventListener('click', ()=> {
+//      btn.classList.toggle("is-checked");
+//   });
+// });
 
 const range = document.querySelector('.range-input'),
       output = document.querySelector('.range-output');
@@ -109,3 +109,51 @@ function setOutput(range,output) {
 //   });
 // });
 
+
+// btns.forEach( (btn) => {
+//   btn.addEventListener("click", function (evt) {
+//     evt.target.classList.toggle("is-checked");
+
+//     let filterArr = Array.from(document
+//       .querySelectorAll(".members__btn .is-checked"))
+//       .map(function () {
+//         return this.dataset.filter;
+//       });
+
+//     let filterItem = document.querySelectorAll(".members__item");
+//     // let filterItem = evt.target.dataset["filter"];
+    
+//     if (filterArr.length <= 0) {
+//       filterItem.classList.add("show");
+//       filterItem.classList.remove("hide");
+//     } else {
+//       filterItem.classList.add("hide");
+//       filterItem.classList.remove("show");
+//       filterItem.each(function () {
+//         for (let i = 0; i < filterArr.length; i++) {
+//           if (this.classList.contains(filterArr[i])) {
+//             this.classList.remove("hide");
+//             this.classList.add("show");
+//           }
+//         }
+//       });
+//     }
+//   });
+// });
+
+
+btns.forEach(btn => {
+  btn.addEventListener("click", function () {
+    Array.from(list).forEach((item) => item.classList.remove("hide"));
+    if(btn.classList.contains('is-checked')){
+      btn.classList.remove('is-checked');
+      
+    } else {
+      Array.from(list)
+      .filter( (item) => !item.classList.contains(btn.dataset.filter))
+      .forEach(item => item.classList.add('hide'));
+
+      btn.classList.add('is-checked');
+    }
+  });
+});
