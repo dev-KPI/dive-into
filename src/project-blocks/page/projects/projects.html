@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dive Into</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dive Into</title>
+</head>
+
+<body>
+  <div class="wrapper">
     <header class="header">
       <div class="header__inner">
         <a class="header__link" href="./index.html">
@@ -63,7 +65,8 @@
               <path
                 d="M132.7 130.7V122.9H130.7V119.3H132.7V113.7H136.8V119.3H139.9V122.9H136.8V129.6C136.8 130.7 137.1 131.4 137.6 131.7C138.1 132 138.9 132 139.9 131.6V135.2C139 135.5 138 135.7 136.9 135.7C135.5 135.7 134.4 135.2 133.8 134.3C133.1 133.5 132.7 132.2 132.7 130.7Z"
                 fill="#F0F0F0" />
-              <path d="M153.7 119.4H158.3L148.1 143.5H143.5L147.5 134L141.4 119.4H146L149.8 128.6L153.7 119.4Z" fill="#F0F0F0" />
+              <path d="M153.7 119.4H158.3L148.1 143.5H143.5L147.5 134L141.4 119.4H146L149.8 128.6L153.7 119.4Z"
+                fill="#F0F0F0" />
               <path id="path1"
                 d="m 261.5188,13.984962 c 3.07752,4.777375 4.69035,10.334366 6.06015,15.849624 1.67939,6.761778 3.05519,13.603387 3.9624,20.511279 1.20649,9.186772 1.58134,18.480525 1.16542,27.736842 -0.31604,7.033566 -1.08819,14.047307 -2.33083,20.977443 -1.13986,6.35697 -2.68372,12.6686 -5.12782,18.64662 -2.02563,4.95448 -4.68103,9.68229 -8.15789,13.75188 -1.0472,1.22573 -2.17547,2.39718 -3.49079,3.32939 -1.31531,0.9322 -2.83176,1.62015 -4.43403,1.79843 -1.46251,0.16273 -2.95272,-0.10424 -4.32761,-0.62873 -1.37489,-0.52449 -2.64207,-1.30019 -3.83028,-2.16827 -3.67581,-2.68545 -6.64159,-6.27889 -8.85714,-10.25564 -2.35164,-4.22104 -3.87183,-8.85297 -5.12782,-13.51879 -2.46055,-9.14056 -3.95865,-18.530118 -4.66166,-27.969927 -0.5601,-7.520848 -0.61723,-15.077138 -0.23308,-22.609023 0.50142,-9.831128 1.76236,-19.659377 4.42857,-29.135338 1.95822,-6.959717 4.69055,-13.745745 8.62406,-19.81203 1.72191,-2.6555404 3.75126,-5.2375933 6.52632,-6.7593987 2.04524,-1.121581 4.46862,-1.6050592 6.7594,-1.1654135 1.62482,0.3118346 3.14001,1.0704593 4.48543,2.0333365 1.34541,0.9628773 2.5327,2.1283129 3.67246,3.3275657 1.7915,1.8850057 3.48643,3.873968 4.89474,6.06015 z"
                 fill="none" />
@@ -105,12 +108,12 @@
               <radialGradient id="Rg">
                 <stop stop-color="#032EC9" offset="0%">
                   <!-- Анимация смены цвета градиента -->
-                  <animate attributeName="stop-color" dur="1s" values="#032EC9;#ffffff;#032EC9;#ffffff;#032EC9;" repeatCount="1"
-                    restart="whenNotActive" begin="atom.mouseenter" />
+                  <animate attributeName="stop-color" dur="1s" values="#032EC9;#ffffff;#032EC9;#ffffff;#032EC9;"
+                    repeatCount="1" restart="whenNotActive" begin="atom.mouseenter" />
                 </stop>
                 <stop stop-color="#ffffff" offset="1%">
-                  <animate attributeName="stop-color" dur="1s" values="#ffffff;#032EC9;#ffffff;#032EC9;#ffffff;" repeatCount="1"
-                    restart="whenNotActive" begin="atom.mouseenter" />
+                  <animate attributeName="stop-color" dur="1s" values="#ffffff;#032EC9;#ffffff;#032EC9;#ffffff;"
+                    repeatCount="1" restart="whenNotActive" begin="atom.mouseenter" />
                 </stop>
               </radialGradient>
             </defs>
@@ -131,9 +134,8 @@
         </nav>
       </div>
     </header>
-  <main class="main">
-    <div class="projects">
-      <div class="projects__inner">
+    <main class="main">
+      <section class="projects">
         <div class="projects__top">
           <h2 class="projects__title">Projects</h2>
           <form class="projects__search search">
@@ -143,8 +145,8 @@
             <input class="search-input" type="text" placeholder="">
           </form>
         </div>
-  
-        <section class="projects__main">
+
+        <div class="projects__main">
           <ul class="section__list">
             <li class="section__item" data-modal>
               <span class="section__item-name">DIVE INTO site</span>
@@ -159,7 +161,8 @@
                     fill="white" />
                 </svg>
               </a>
-              <a class="section__item-counter" href="http://127.0.0.1:5173/project-blocks/page/projects/projects.html">10
+              <a class="section__item-counter"
+                href="http://127.0.0.1:5173/project-blocks/page/projects/projects.html">10
                 members
               </a>
             </li>
@@ -176,7 +179,8 @@
                     fill="white" />
                 </svg>
               </a>
-              <a class="section__item-counter" href="http://127.0.0.1:5173/project-blocks/page/projects/projects.html">10
+              <a class="section__item-counter"
+                href="http://127.0.0.1:5173/project-blocks/page/projects/projects.html">10
                 members
               </a>
             </li>
@@ -193,7 +197,8 @@
                     fill="white" />
                 </svg>
               </a>
-              <a class="section__item-counter" href="http://127.0.0.1:5173/project-blocks/page/projects/projects.html">10
+              <a class="section__item-counter"
+                href="http://127.0.0.1:5173/project-blocks/page/projects/projects.html">10
                 members
               </a>
             </li>
@@ -210,7 +215,8 @@
                     fill="white" />
                 </svg>
               </a>
-              <a class="section__item-counter" href="http://127.0.0.1:5173/project-blocks/page/projects/projects.html">10
+              <a class="section__item-counter"
+                href="http://127.0.0.1:5173/project-blocks/page/projects/projects.html">10
                 members
               </a>
             </li>
@@ -227,7 +233,8 @@
                     fill="white" />
                 </svg>
               </a>
-              <a class="section__item-counter" href="http://127.0.0.1:5173/project-blocks/page/projects/projects.html">10
+              <a class="section__item-counter"
+                href="http://127.0.0.1:5173/project-blocks/page/projects/projects.html">10
                 members
               </a>
             </li>
@@ -244,12 +251,13 @@
                     fill="white" />
                 </svg>
               </a>
-              <a class="section__item-counter" href="http://127.0.0.1:5173/project-blocks/page/projects/projects.html">10
+              <a class="section__item-counter"
+                href="http://127.0.0.1:5173/project-blocks/page/projects/projects.html">10
                 members
               </a>
             </li>
           </ul>
-  
+
           <div class="section__filters projects__filters">
             <div class="sections__filters-languages">
               <h3 class="section__filters-heading">Project direction</h3>
@@ -259,7 +267,8 @@
                 <button class="section__btn btn btn--orange" data-filter="desktop">Desktop</button>
                 <button class="section__btn btn btn--yellow" data-filter="gameDev">GameDEV</button>
                 <button class="section__btn btn btn--light-blue" data-filter="ml">ML</button>
-                <button class="section__btn btn btn--light-blue" data-filter="systemDevelopment">System Development</button>
+                <button class="section__btn btn btn--light-blue" data-filter="systemDevelopment">System
+                  Development</button>
                 <button class="section__btn btn btn--red" data-filter="study">Study</button>
                 <button class="section__btn btn btn--green" data-filter="commercial">Commercial</button>
               </div>
@@ -272,84 +281,15 @@
               </div>
             </div>
           </div>
-        </section>
-      </div>
-    </div>
-  </main>
-  <footer class="footer">
-    <div class="footer__inner">
-      <ul class="social">
-        <li class="social__item">
-          <a class="social__item-link" href="https://discord.gg/nCKzvVXZ">
-            <svg class="social__item-link--discord" width="50" height="50" viewBox="0 0 50 50" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <rect width="50" height="50" rx="25" fill="#0C073E" />
-              <path
-                d="M36.2844 17.5333C34.2202 15.9333 31.7432 15.1333 29.1285 15L28.7156 15.4C31.055 15.9333 33.1193 17 35.0459 18.4666C32.7064 17.2667 30.0917 16.4667 27.3394 16.2C26.5138 16.0667 25.8257 16.0667 25 16.0667C24.1743 16.0667 23.4862 16.0667 22.6606 16.2C19.9083 16.4667 17.2936 17.2667 14.9541 18.4666C16.8807 17 18.945 15.9333 21.2844 15.4L20.8715 15C18.2568 15.1333 15.7798 15.9333 13.7156 17.5333C11.3761 21.8 10.1376 26.6 10 31.5333C12.0642 33.6667 14.9541 35 17.9817 35C17.9817 35 18.945 33.9333 19.633 32.9999C17.8441 32.6 16.1927 31.6666 15.0918 30.2C16.055 30.7333 17.0183 31.2667 17.9817 31.6666C19.2202 32.2 20.4588 32.4667 21.6973 32.7334C22.7982 32.8666 23.8991 32.9999 25 32.9999C26.1009 32.9999 27.2018 32.8666 28.3027 32.7334C29.5413 32.4667 30.7798 32.2 32.0183 31.6666C32.9817 31.2667 33.945 30.7333 34.9083 30.2C33.8073 31.6666 32.1559 32.6 30.367 32.9999C31.055 33.9333 32.0183 35 32.0183 35C35.0459 35 37.9358 33.6667 40 31.5333C39.8624 26.6 38.6238 21.8 36.2844 17.5333ZM20.4587 29.1333C19.0826 29.1333 17.8441 27.9333 17.8441 26.4667C17.8441 25 19.0826 23.8 20.4587 23.8C21.8349 23.8 23.0734 25 23.0734 26.4667C23.0734 27.9333 21.8349 29.1333 20.4587 29.1333ZM29.5413 29.1333C28.1651 29.1333 26.9266 27.9333 26.9266 26.4667C26.9266 25 28.1651 23.8 29.5413 23.8C30.9174 23.8 32.1559 25 32.1559 26.4667C32.1559 27.9333 30.9174 29.1333 29.5413 29.1333Z"
-                fill="white" />
-            </svg>
-          </a>
-        </li>
-        <li class="social__item">
-          <a class="social__item-link" href="https://github.com/dev-KPI">
-            <svg class="social__item-link--github" width="50" height="50" viewBox="0 0 50 50" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M50 25C50 11.1929 38.8071 0 25 0C11.1929 0 0 11.1929 0 25C0 38.8071 11.1929 50 25 50C38.8071 50 50 38.8071 50 25Z"
-                fill="#0C073E" />
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M24.9618 12.8C18.081 12.8 12.5 18.381 12.5 25.2618C12.5 30.7663 16.0933 35.43 20.9862 37.1119C21.5979 37.1884 21.8272 36.8061 21.8272 36.5003C21.8272 36.1945 21.8272 35.43 21.8272 34.3596C18.3868 35.1241 17.6223 32.6777 17.6223 32.6777C17.0872 31.2251 16.2462 30.8428 16.2462 30.8428C15.0994 30.0783 16.3226 30.0783 16.3226 30.0783C17.5459 30.1547 18.2339 31.378 18.2339 31.378C19.3807 33.2893 21.1391 32.7541 21.8272 32.4483C21.9037 31.6073 22.2859 31.0722 22.5917 30.7663C19.8394 30.4605 16.9343 29.3902 16.9343 24.5737C16.9343 23.1975 17.393 22.1272 18.2339 21.2098C18.1575 20.9804 17.6988 19.6807 18.3868 17.9988C18.3868 17.9988 19.4572 17.693 21.8272 19.2985C22.8211 18.9926 23.8914 18.9162 24.9618 18.9162C26.0321 18.9162 27.1024 19.0691 28.0963 19.2985C30.4664 17.693 31.5367 17.9988 31.5367 17.9988C32.2248 19.6807 31.7661 20.9804 31.6896 21.2862C32.4541 22.1272 32.9893 23.274 32.9893 24.6501C32.9893 29.4667 30.0841 30.4605 27.3318 30.7663C27.7905 31.1486 28.1728 31.9131 28.1728 33.0599C28.1728 34.7419 28.1728 36.0416 28.1728 36.5003C28.1728 36.8061 28.4021 37.1884 29.0138 37.1119C33.9832 35.43 37.5 30.7663 37.5 25.2618C37.4235 18.381 31.8425 12.8 24.9618 12.8Z"
-                fill="white" />
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </footer>
-  <div class="modal">
-    <img class="modal__close" src="/assets/img/modal-close.svg" alt="close" data-close />
-    <div class="modal__dialog">
-      <div class="modal__content">
-        <div class="modal__info">
-          <img class="modal__info-img" src="/assets/img/modal-img.png" alt="photo" />
-          <div class="modal__personal">
-            <h2 class="modal__personal-title">Kyrylo Bortnikov</h2>
-            <p class="modal__personal-age">18 years (06.08.2004)</p>
-            <p class="modal__personal-email">kirfilbor@gmail.com</p>
-          </div>
         </div>
-        <div class="modal__filters">
-          <span class="modal__filters-item">QA</span>
-          <span class="modal__filters-item">Design</span>
-          <span class="modal__filters-item">GameDEV</span>
-          <span class="modal__filters-item">JAVA</span>
-          <span class="modal__filters-item">C++</span>
-          <span class="modal__filters-item">C</span>
-          <span class="modal__filters-item">C#</span>
-        </div>
-        <p class="modal__text">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text
-          ever since the 1500s, when an unknown printer took a galley of type
-          and scrambled it to make a type specimen book. It has survived not
-          only five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged.
-        </p>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__inner">
         <ul class="social">
           <li class="social__item">
-            <a class="social__item-link" href="#">
-              <svg class="social__item-link--linkedin" width="100" height="100" viewBox="0 0 100 100" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <rect width="100" height="100" rx="50" fill="#0C073E" />
-                <path
-                  d="M70 51.861V65.6502H61.9283V52.7018C61.9283 49.5067 60.7511 47.3206 57.8924 47.3206C55.7063 47.3206 54.361 48.8341 53.8565 50.1794C53.6883 50.6839 53.5202 51.3565 53.5202 52.1973V65.6502H45.4484C45.4484 65.6502 45.6166 43.7892 45.4484 41.6031H53.5202V44.9664C54.5292 43.2848 56.5471 40.9305 60.7511 40.9305C65.9641 40.9305 70 44.4619 70 51.861ZM37.0404 30C34.3498 30 32.5 31.8498 32.5 34.204C32.5 36.5583 34.1816 38.4081 36.8722 38.4081C39.7309 38.4081 41.4126 36.5583 41.4126 34.204C41.5807 31.6816 39.8991 30 37.0404 30ZM33.0045 65.6502H41.0762V41.6031H33.0045V65.6502Z"
-                  fill="white" />
-              </svg>
-            </a>
-          </li>
-          <li class="social__item">
             <a class="social__item-link" href="https://discord.gg/nCKzvVXZ">
-              <svg class="social__item-link--discord" width="100" height="100" viewBox="0 0 50 50" fill="none"
+              <svg class="social__item-link--discord" width="50" height="50" viewBox="0 0 50 50" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <rect width="50" height="50" rx="25" fill="#0C073E" />
                 <path
@@ -360,7 +300,7 @@
           </li>
           <li class="social__item">
             <a class="social__item-link" href="https://github.com/dev-KPI">
-              <svg class="social__item-link--github" width="100" height="100" viewBox="0 0 50 50" fill="none"
+              <svg class="social__item-link--github" width="50" height="50" viewBox="0 0 50 50" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M50 25C50 11.1929 38.8071 0 25 0C11.1929 0 0 11.1929 0 25C0 38.8071 11.1929 50 25 50C38.8071 50 50 38.8071 50 25Z"
@@ -373,8 +313,78 @@
           </li>
         </ul>
       </div>
+    </footer>
+    <div class="modal">
+      <img class="modal__close" src="/assets/img/modal-close.svg" alt="close" data-close />
+      <div class="modal__dialog">
+        <div class="modal__content">
+          <div class="modal__info">
+            <img class="modal__info-img" src="/assets/img/modal-img.png" alt="photo" />
+            <div class="modal__personal">
+              <h2 class="modal__personal-title">Kyrylo Bortnikov</h2>
+              <p class="modal__personal-age">18 years (06.08.2004)</p>
+              <p class="modal__personal-email">kirfilbor@gmail.com</p>
+            </div>
+          </div>
+          <div class="modal__filters">
+            <span class="modal__filters-item">QA</span>
+            <span class="modal__filters-item">Design</span>
+            <span class="modal__filters-item">GameDEV</span>
+            <span class="modal__filters-item">JAVA</span>
+            <span class="modal__filters-item">C++</span>
+            <span class="modal__filters-item">C</span>
+            <span class="modal__filters-item">C#</span>
+          </div>
+          <p class="modal__text">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </p>
+          <ul class="social">
+            <li class="social__item">
+              <a class="social__item-link" href="#">
+                <svg class="social__item-link--linkedin" width="100" height="100" viewBox="0 0 100 100" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100" height="100" rx="50" fill="#0C073E" />
+                  <path
+                    d="M70 51.861V65.6502H61.9283V52.7018C61.9283 49.5067 60.7511 47.3206 57.8924 47.3206C55.7063 47.3206 54.361 48.8341 53.8565 50.1794C53.6883 50.6839 53.5202 51.3565 53.5202 52.1973V65.6502H45.4484C45.4484 65.6502 45.6166 43.7892 45.4484 41.6031H53.5202V44.9664C54.5292 43.2848 56.5471 40.9305 60.7511 40.9305C65.9641 40.9305 70 44.4619 70 51.861ZM37.0404 30C34.3498 30 32.5 31.8498 32.5 34.204C32.5 36.5583 34.1816 38.4081 36.8722 38.4081C39.7309 38.4081 41.4126 36.5583 41.4126 34.204C41.5807 31.6816 39.8991 30 37.0404 30ZM33.0045 65.6502H41.0762V41.6031H33.0045V65.6502Z"
+                    fill="white" />
+                </svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__item-link" href="https://discord.gg/nCKzvVXZ">
+                <svg class="social__item-link--discord" width="100" height="100" viewBox="0 0 50 50" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <rect width="50" height="50" rx="25" fill="#0C073E" />
+                  <path
+                    d="M36.2844 17.5333C34.2202 15.9333 31.7432 15.1333 29.1285 15L28.7156 15.4C31.055 15.9333 33.1193 17 35.0459 18.4666C32.7064 17.2667 30.0917 16.4667 27.3394 16.2C26.5138 16.0667 25.8257 16.0667 25 16.0667C24.1743 16.0667 23.4862 16.0667 22.6606 16.2C19.9083 16.4667 17.2936 17.2667 14.9541 18.4666C16.8807 17 18.945 15.9333 21.2844 15.4L20.8715 15C18.2568 15.1333 15.7798 15.9333 13.7156 17.5333C11.3761 21.8 10.1376 26.6 10 31.5333C12.0642 33.6667 14.9541 35 17.9817 35C17.9817 35 18.945 33.9333 19.633 32.9999C17.8441 32.6 16.1927 31.6666 15.0918 30.2C16.055 30.7333 17.0183 31.2667 17.9817 31.6666C19.2202 32.2 20.4588 32.4667 21.6973 32.7334C22.7982 32.8666 23.8991 32.9999 25 32.9999C26.1009 32.9999 27.2018 32.8666 28.3027 32.7334C29.5413 32.4667 30.7798 32.2 32.0183 31.6666C32.9817 31.2667 33.945 30.7333 34.9083 30.2C33.8073 31.6666 32.1559 32.6 30.367 32.9999C31.055 33.9333 32.0183 35 32.0183 35C35.0459 35 37.9358 33.6667 40 31.5333C39.8624 26.6 38.6238 21.8 36.2844 17.5333ZM20.4587 29.1333C19.0826 29.1333 17.8441 27.9333 17.8441 26.4667C17.8441 25 19.0826 23.8 20.4587 23.8C21.8349 23.8 23.0734 25 23.0734 26.4667C23.0734 27.9333 21.8349 29.1333 20.4587 29.1333ZM29.5413 29.1333C28.1651 29.1333 26.9266 27.9333 26.9266 26.4667C26.9266 25 28.1651 23.8 29.5413 23.8C30.9174 23.8 32.1559 25 32.1559 26.4667C32.1559 27.9333 30.9174 29.1333 29.5413 29.1333Z"
+                    fill="white" />
+                </svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__item-link" href="https://github.com/dev-KPI">
+                <svg class="social__item-link--github" width="100" height="100" viewBox="0 0 50 50" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M50 25C50 11.1929 38.8071 0 25 0C11.1929 0 0 11.1929 0 25C0 38.8071 11.1929 50 25 50C38.8071 50 50 38.8071 50 25Z"
+                    fill="#0C073E" />
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M24.9618 12.8C18.081 12.8 12.5 18.381 12.5 25.2618C12.5 30.7663 16.0933 35.43 20.9862 37.1119C21.5979 37.1884 21.8272 36.8061 21.8272 36.5003C21.8272 36.1945 21.8272 35.43 21.8272 34.3596C18.3868 35.1241 17.6223 32.6777 17.6223 32.6777C17.0872 31.2251 16.2462 30.8428 16.2462 30.8428C15.0994 30.0783 16.3226 30.0783 16.3226 30.0783C17.5459 30.1547 18.2339 31.378 18.2339 31.378C19.3807 33.2893 21.1391 32.7541 21.8272 32.4483C21.9037 31.6073 22.2859 31.0722 22.5917 30.7663C19.8394 30.4605 16.9343 29.3902 16.9343 24.5737C16.9343 23.1975 17.393 22.1272 18.2339 21.2098C18.1575 20.9804 17.6988 19.6807 18.3868 17.9988C18.3868 17.9988 19.4572 17.693 21.8272 19.2985C22.8211 18.9926 23.8914 18.9162 24.9618 18.9162C26.0321 18.9162 27.1024 19.0691 28.0963 19.2985C30.4664 17.693 31.5367 17.9988 31.5367 17.9988C32.2248 19.6807 31.7661 20.9804 31.6896 21.2862C32.4541 22.1272 32.9893 23.274 32.9893 24.6501C32.9893 29.4667 30.0841 30.4605 27.3318 30.7663C27.7905 31.1486 28.1728 31.9131 28.1728 33.0599C28.1728 34.7419 28.1728 36.0416 28.1728 36.5003C28.1728 36.8061 28.4021 37.1884 29.0138 37.1119C33.9832 35.43 37.5 30.7663 37.5 25.2618C37.4235 18.381 31.8425 12.8 24.9618 12.8Z"
+                    fill="white" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
-  </body>
-  <script src="projects-index.js" type="module"></script>
+</body>
+<script src="projects-index.js" type="module"></script>
+
 </html>
