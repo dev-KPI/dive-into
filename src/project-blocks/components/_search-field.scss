@@ -14,7 +14,6 @@
 }
 
 .search{
-  
   position: relative;
 
   &-input{
@@ -23,7 +22,7 @@
     background: #DCDAEB;
     border-radius: 20px;
 
-    padding: 19.5px 30px 19.5px 90px;
+    padding: 19.5px 30px 19.5px 80px;
 
     @extend %light-font;
     font-weight: 600;
@@ -35,16 +34,5 @@
     left: 0;
     top: 25%;
     margin-left: 20px;
-    &::after{
-      position: absolute;
-      content:'';
-      top: 0;
-      bottom: 0;
-      border-radius:2px;
-      background: $mainColor;
-      width: 2px;
-      margin-left: 15px;
-      cursor: text;
-    }
   }
 }
