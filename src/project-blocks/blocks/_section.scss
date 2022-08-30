@@ -3,35 +3,65 @@
     width: 560px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
   }
   &__item {
     box-sizing: border-box;
     padding: 0 30px;
     height: 70px;
 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
     @extend %text-font;
     background-color: #dcdaeb;
     border-radius: 20px;
-    @include flex-v-center;
-    justify-content: space-between;
 
-    cursor: pointer;
-    &-counter::after{
-      content: "";
-      position: absolute;
-      width: 2px;
-      height: 30px;
-      background-color: $mainColor;
-      right: 115%;
-      top: 15%;
-      border-radius: 100px;
-    }
-    &-counter {
-      color: $textColor;
-    }
+    opacity: 1;
+    
     @include underline('&-counter', $textColor);
+    cursor: pointer;
   }
+
+  &__item-counter::after{
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    background-color: $mainColor;
+    right: 115%;
+    top: 15%;
+    border-radius: 100px;
+  }
+
+  &__item-counter {
+    color: $textColor;
+  }
+
+  &__item{
+    margin-bottom: 25px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  
+  &__item-link{
+    height: 50px;
+  }
+
+  &__item.hide {
+    transition: all 0.4s ease-out;
+    opacity: 0;
+    height: 0px;
+    margin-bottom: 0px;
+    .section__item-counter, 
+    .section__item-name, 
+    .section__item-counter::after{
+      opacity:0;
+      transition: all 0.2s ease-out;
+    }
+  }
+
   &__filters {
     box-sizing: border-box;
     max-width: 560px;
@@ -45,6 +75,7 @@
     }
     @include underline('&-heading',$textColor);
   }
+
   &__buttons {
     border-bottom: 2px solid #bab8cc;
     margin-top: 40px;
@@ -53,6 +84,7 @@
     flex-wrap: wrap;
     gap: 10px;
   }
+  
   &__btn {
     min-width: 60px;
     min-height: 40px;
@@ -61,9 +93,5 @@
 
   &__range{
     margin: 40px auto 0 auto
-  }
-
-  &__item-link{
-    height: 50px;
   }
 }
