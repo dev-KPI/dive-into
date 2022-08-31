@@ -60,6 +60,10 @@
       opacity:0;
       transition: all 0.2s ease-out;
     }
+    .section__item-link{
+      opacity:0;
+      transition: all 0.1s ease-out;
+    }
   }
 
   &__filters {

@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
   //             href="${this.link}">${this.projects} projects
   //           </a>
   //         `;
-  //     el.setAttribute("data-modal", "");
   //     this.parent.append(el);
   //   }
   // }
@@ -78,9 +77,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
     }
   });
 
-  // input-range
+  // custom input-range 
   const range = document.querySelector(".range-input"),
-    output = document.querySelector(".range-output");
+        output = document.querySelector(".range-output");
 
   range.addEventListener("input", () => {
     setOutput(range, output);
@@ -97,9 +96,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
     output.style.left = `calc(${newValue}% + (${14 - newValue * 0.25}px))`;
   }
 
-  //filters
+  // button filters
   const btns = document.querySelectorAll(".btn"),
-    list = document.querySelectorAll(".section__item");
+        list = document.querySelectorAll(".section__item");
 
   window.onload = () => {
     Array.from(list).forEach(
@@ -109,7 +108,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
   let filters = [];
   btns.forEach((btn) => {
-    btn.addEventListener("click", function () {
+    btn.addEventListener("click", ()=> {
       Array.from(list).forEach((item) => item.classList.remove("hide"));
       if (btn.classList.contains("is-checked")) {
         btn.classList.remove("is-checked");
@@ -120,14 +119,32 @@ document.addEventListener('DOMContentLoaded', ()=> {
         filters.push(btn.dataset.filter);
       }
       Array.from(list)
-        .filter(
-          (item) =>
-            !Array.from(item.classList).some((el) => filters.includes(el))
-        )
+        .filter((item) =>!Array.from(item.classList).some((el) => filters.includes(el)))
         .forEach((item) => item.classList.add("hide"));
-      if (filters.length === 0) {
-        Array.from(list).forEach((item) => item.classList.remove("hide"));
-      }
+      search();
     });
   });
+
+  //search-field && input-range filters
+
+  const searchInput = document.querySelector(".search-input");
+  // const searchBtn = document.querySelector(".search-btn");
+  searchInput.addEventListener("keyup", search);
+  range.addEventListener("input", search);
+  // searchBtn.addEventListener("click", search);
+ 
+  function search() {
+    let searchWord = searchInput.value.toLowerCase();
+    list.forEach((item) => {
+      const projValue = +item.children[1].textContent.replace(/projects/, "");
+      const title = item.firstElementChild.textContent.toLowerCase();
+      if(filters.length!==0){
+        title.includes(searchWord) && Array.from(item.classList).some((el) => filters.includes(el)) && projValue>=range.value? item.classList.remove("hide") : item.classList.add("hide");
+      }
+      else {
+        title.includes(searchWord) && projValue>=range.value ? item.classList.remove("hide") : item.classList.add("hide");
+      }
+    });
+  }
+
 });
