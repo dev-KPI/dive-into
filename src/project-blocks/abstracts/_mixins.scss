@@ -16,12 +16,12 @@
   display: flex;
   align-items: center;
 }
-@mixin text {
-  display: block;
-  font-size: 24px;
-  line-height: 31px;
-  text-align: left;
-}
+// @mixin text {
+//   display: block;
+//   font-size: 24px;
+//   line-height: 31px;
+//   text-align: left;
+// }
 
 @mixin underline($element, $color) {
   #{$element}{
@@ -43,5 +43,17 @@
     right: auto;
     width: 100%;
     left: 0;
+  }
+}
+
+
+@mixin btnColor ($element, $color) {
+  #{$element} {
+    border: 5px solid $color;
+    color: $color;
+    &.is-checked{
+      background: $color;
+      color:#fff;
+    }
   }
 }

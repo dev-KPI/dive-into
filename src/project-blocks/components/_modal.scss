@@ -45,7 +45,7 @@
     gap: 10px;
     display: flex;
     flex-wrap: wrap;
-    width: 300px;
+    width: 340px;
   }
   &__filters-item{
     color: #F0F0F0;
@@ -56,6 +56,36 @@
     align-items:center;
     display: flex;
     justify-content: center;
+    &--red{
+      background-color: $red;
+    }
+    &--purple{
+      background-color: $purple;
+    }
+    &--orange{
+      background-color: $orange;
+    }
+    &--yellow{
+      background-color: $yellow;
+    }
+    &--blue{
+      background-color: $blue;
+    }
+    &--light-blue{
+      background-color: $lightBlue;
+    }
+    &--dark-blue{
+      background-color: $darkBlue;
+    }
+    &--green{
+      background-color: $green;
+    }
+    &--pink{
+      background-color: $pink;
+    }
+    &--red-pink{
+      background-color: $redPink;
+    }
   }
   &__text{
     margin-top: 20px;
@@ -69,6 +99,3 @@
     cursor: pointer;
   }
 }
-
-
-
