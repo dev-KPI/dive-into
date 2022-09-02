@@ -14,10 +14,10 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
   // add member
   class MembersCard {
-    constructor(id, name, age, dateOfBirth, email, photoSrc, about, linkedinLink, discordLink, githubLink, numProjects, classes, features) {
+    constructor(id, name, surname, dateOfBirth, email, photoSrc, about, linkedinLink, discordLink, githubLink, numProjects, features) {
       this.id=id;
       this.name = name;
-      this.age = age;
+      this.surname = surname;
       this.dateOfBirth = dateOfBirth;
       this.email = email;
       this.photoSrc = photoSrc;
@@ -26,22 +26,29 @@ document.addEventListener('DOMContentLoaded', ()=> {
       this.discordLink = discordLink;
       this.githubLink = githubLink;
       this.numProjects = numProjects;
-      this.classes = classes;
       this.features = features;
+
       this.modalId = `modal-${this.id}`;  
+      this.age = this.getAge();   
+    }
+    // count age of members
+    getAge() {
+      let dateOfBirth = this.dateOfBirth.split('.');
+      let ageInMilliseconds = new Date() - new Date(dateOfBirth[2], dateOfBirth[1]-1, dateOfBirth[0]);
+      return Math.floor(ageInMilliseconds/1000/60/60/24/365.25); // convert to years
     }
     render() {
       const el = document.createElement("li");
 
       el.setAttribute("data-modal", `${this.id}`);
-      if (this.classes.length === 0) {
+      if (this.features.length === 0) {
         el.classList.add("section__item");
       } else {
         el.classList.add("section__item");
-        this.classes.split(', ').forEach((className) => el.classList.add(className));
+        this.features.split(', ').forEach((feature) => el.classList.add(feature.toLowerCase().replace(/ |\./, "")));
       }
       el.innerHTML = `
-            <span class="section__item-name">${this.name}</span>
+            <span class="section__item-name">${this.name} ${this.surname}</span>
             <a class="section__item-counter"
               href="${this.githubLink}">${this.numProjects} projects
             </a>
@@ -62,7 +69,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
           <div class="modal__info">
             <img class="modal__info-img" src="${this.photoSrc ? this.photoSrc : "/assets/img/modal-img.png"}" alt="photo" />
             <div class="modal__personal">
-              <h2 class="modal__personal-title">${this.name}</h2>
+              <h2 class="modal__personal-title">${this.name} ${this.surname}</h2>
               <p class="modal__personal-age">${this.age} years (${this.dateOfBirth})</p>
               <p class="modal__personal-email">${this.email}</p>
             </div>
@@ -112,19 +119,23 @@ document.addEventListener('DOMContentLoaded', ()=> {
         </div>
       </div>
           `;
-      document.querySelector(".wrapper").append(el);
-      this.features.split(", ").forEach((feature) => {
-        const el = document.createElement("span");
-        el.classList.add("modal__filters-item");
-        el.textContent = `${feature}`;
-        document.querySelector(`.${this.modalId} .modal__filters`).append(el);
-      });
+      document.querySelector(".wrapper").append(el);   
+      //add features to member in modal window
+      if (this.features.length !== 0) {
+        this.features.split(", ").forEach((feature) => {
+          const el = document.createElement("span");
+          el.classList.add("modal__filters-item");
+          el.textContent = `${feature}`;
+          console.log(el);
+          document.querySelector(`.${this.modalId} .modal__filters`).append(el);
+        });
+      }
     }
   }
   new MembersCard(
     "1",
-    "Dima Pestenkov",
-    "17",
+    "Dima",
+    "Pestenkov",
     "28.11.2004",
     "test@gmail.com",
     "",
@@ -133,14 +144,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
     "#",
     "#",
     "10",
-    "javaScript, front-end",
     "QA, Design, Front End"
   ).render();
   new MembersCard(
     "2",
-    "Jack Smith",
-    "22",
-    "12.01.2000",
+    "Dmitriy",
+    "Rezenkov",
+    "02.09.2000",
     "test@gmail.com",
     "",
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
@@ -148,8 +158,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     "#",
     "#",
     "33",
-    "python, back-end",
-    "Back End, Python"
+    "Back End, Python, node.JS"
   ).render();
 
   // modal window
@@ -209,10 +218,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
     list = document.querySelectorAll(".section__item");
 
   window.onload = () => {
-    Array.from(list).forEach(
-      (item) => (item.style.transition = "all 0.4s ease-out")
-      );
-      search();
+    Array.from(list).forEach((item) => (item.style.transition = "all 0.4s ease-out"));
+    search();
   };
   // search();
   let filters = [];
@@ -228,10 +235,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         filters.push(btn.dataset.filter);
       }
       Array.from(list)
-        .filter(
-          (item) =>
-            !Array.from(item.classList).some((el) => filters.includes(el))
-        )
+        .filter((item) =>!Array.from(item.classList).some((el) => filters.includes(el)))
         .forEach((item) => item.classList.add("hide"));
       search();
     });
@@ -252,14 +256,14 @@ document.addEventListener('DOMContentLoaded', ()=> {
       if (filters.length !== 0) {
         title.includes(searchWord) &&
         Array.from(item.classList).some((el) => filters.includes(el)) &&
-        projValue >= range.value
+        projValue >= range.value 
           ? item.classList.remove("hide")
           : item.classList.add("hide");
       } else {
-        title.includes(searchWord) && projValue >= range.value
+        title.includes(searchWord) && projValue >= range.value 
           ? item.classList.remove("hide")
           : item.classList.add("hide");
       }
     });
-  }
+  } 
 });
