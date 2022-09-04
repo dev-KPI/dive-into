@@ -1,6 +1,6 @@
 .members {
   padding: 50px 0;
-    @extend %container;
+  @extend %container;
   &__top {
     display: flex;
     flex-wrap: wrap;

@@ -16,12 +16,6 @@
   display: flex;
   align-items: center;
 }
-// @mixin text {
-//   display: block;
-//   font-size: 24px;
-//   line-height: 31px;
-//   text-align: left;
-// }
 
 @mixin underline($element, $color) {
   #{$element}{
@@ -46,7 +40,6 @@
   }
 }
 
-
 @mixin btnColor ($element, $color) {
   #{$element} {
     border: 5px solid $color;
@@ -56,4 +49,30 @@
       color:#fff;
     }
   }
+}
+
+@mixin _1440{
+    @media (max-width: 1440px){
+        @content;
+    }
+}
+@mixin _1000 {
+    @media (max-width: 1000px){
+        @content;
+    }
+}
+@mixin _768 {
+    @media (max-width: 768px){
+        @content;
+    }
+}
+@mixin _480 {
+    @media (max-width: 480px){
+        @content;
+    }
+}
+@mixin _320{
+    @media (max-width: 320px){
+        @content;
+    }
 }

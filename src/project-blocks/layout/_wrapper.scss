@@ -4,6 +4,9 @@
   flex-direction: column;
   z-index: 0;
   overflow: clip;
+  @include _768{
+    overflow: hidden;
+  }
   &-main{
     position: relative;
     background: linear-gradient(rgba(4, 3, 24, 0.4), rgba(4, 3, 24, 0.4)), url(assets/img/background.png) no-repeat center center/cover;

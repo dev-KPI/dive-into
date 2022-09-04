@@ -9,11 +9,21 @@
   background: $mainColor;
   height: 140px;
   z-index: 10;
+  @include _768{
+    overflow: visible;
+    position: static
+  }
   &__inner {
-    padding: 20px 0px;
+    @extend %container;
+    padding: 20px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    @extend %container;
+  }
+  &__link svg{
+    @include _320{
+      height: 80px;
+      width: 200px;
+    }
   }
 }

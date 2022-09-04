@@ -1,4 +1,5 @@
 .navbar {
+  z-index: 15;
   &__list {
     display: flex;
     gap: 90px;
@@ -8,4 +9,34 @@
     color:#F0F0F0;
   }
   @include underline('&__link', #F0F0F0);
+
+  @include _768{
+    &--open{
+      opacity: 1;
+      visibility: visible;
+    }
+      visibility: hidden;
+      box-sizing: border-box;
+      position: absolute;
+      width: 320px;
+      padding: 50px;
+      padding-top: 145px;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: #f0f0f0;
+      opacity: 0;
+      transition: opacity 0.5s cubic-bezier(0.77,0.2,0.05,1.0), visibility 0.5s cubic-bezier(0.77,0.2,0.05,1.0);;
+    &__list{
+      flex-direction: column;
+      gap:53px;
+      display: flex;
+    }
+    &__link{
+      color: $mainColor;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 44px;
+    }
+  }
 }

@@ -21,10 +21,16 @@
     fill: #032EC9;
     transition: fill 0.2s ease-in-out;
   }
-   &__item-link:hover .social__item-link--discord, 
-   &__item-link:hover .social__item-link--github,
-   &__item-link:hover .social__item-link--linkedin{
-    transition: transform 0.2s ease-in-out;
-    transform: scale(1.12);
-   }
+  &__item-link:hover .social__item-link--discord, 
+  &__item-link:hover .social__item-link--github,
+  &__item-link:hover .social__item-link--linkedin{
+  transition: transform 0.2s ease-in-out;
+  transform: scale(1.12);
+  }
+  &__item-link svg{
+      @include _1000{
+      height: 60px;
+      width: 60px;
+    }
+  }
 }

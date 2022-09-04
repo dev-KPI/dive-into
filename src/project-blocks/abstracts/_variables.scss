@@ -3,8 +3,11 @@ $mainColor:#0C073E;
 $textColor:#121212;
 
 %container{
-  max-width: 1158px;
+  box-sizing: border-box;
+  max-width: 1188px;
   margin: 0 auto;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
 }
 
 %title-font{

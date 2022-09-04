@@ -4,17 +4,42 @@
   border-radius: 80px;
 }
 .community {
+  height: 70vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 200px;
   @extend %container;
-  // min-height: 80vh;
+  @include _1440{
+    gap: 50px;
+  }
+  @include _1000{
+    gap: 0;
+  }
+  @include _768{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  @include _480{
+    height: fit-content;
+    flex-wrap: nowrap;
+    margin: 115px auto 0 auto;
+    width: 300px;
+  }
   &__logo {
     position: relative;
-    z-index: 10;
+    z-index: 9;
     font-weight: 700;
     margin-top: 30px;
+    @include _768{
+      margin-top: 0px;
+    }  
+    @include _480{
+      position: absolute;
+      top: 319px;
+      margin-left: 89px;
+    }  
   }
 
   &__logo::after {
@@ -29,16 +54,34 @@
     width: 258px;
     background-color: #3a50bf;
     z-index: -1;
+    @include _480{
+      background:none;
+    }
   }
   
   &__logo:hover .community__logo-title{
     background: linear-gradient(315deg, rgba(71, 112, 255, 0.16) 0%, rgba(255, 255, 255, 0.4) 100%),
       rgba(255, 255, 255, 0.68);
     transition: background 0.1s ease-out;
+    @include _480{
+      background: none;
+    } 
   }
 
   &__decor {
     height: 740px;
+    @include _1440{
+      height: 660px;
+    }
+    @include _1000{
+      height: 447px;
+    }
+    @include _768{
+      height: 414px;
+    }
+    @include _480{
+      height: 312px;
+    }
   }
 
   &__logo-title {
@@ -54,9 +97,18 @@
     backdrop-filter: blur(6px);
 
     z-index: 10;
+    @include _480{
+      font-size:38px;
+      line-height: 28px;
+      background:none;
+      backdrop-filter:none;
+    }
   }
   &__logo-title-first {
     letter-spacing: 3px;
+    @include _480{
+      letter-spacing: 1px;
+    }
   }
 
   &__logo-title-second {
@@ -70,6 +122,11 @@
     position: absolute;
     bottom: 55px;
     left: 50px;
+    @include _480{
+      bottom: 141px;
+      font-size: 15px;
+      line-height: 18px;
+    }
   }
 
   &__logo-about {
@@ -94,6 +151,10 @@
     transition: width 0.3s ease-out;
 
     z-index: -5;
+    @include _480{
+      background:none;
+      backdrop-filter:none;
+    }
   }
 
   &__logo-text{
@@ -116,14 +177,21 @@
     padding-left: 300px;
     width: 720px;
     transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); //ease-out-back;
+    @include _768{
+      padding-left: 260px;
+      width: 0;
+    }
 
   }
 
   &__logo:hover .community__logo-text {
-      font-size: 20px;
-      opacity: 1;
-      transition: opacity 0.1s ease-out;
-      transition-delay: 0.3s;
+    font-size: 20px;
+    opacity: 1;
+    transition: opacity 0.1s ease-out;
+    transition-delay: 0.3s;
+    @include _768{
+      font-size: 0px;
+    }
   }
 
    &__logo .community__logo-text{

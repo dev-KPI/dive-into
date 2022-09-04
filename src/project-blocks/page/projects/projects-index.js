@@ -12,6 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // burger menu
+  document.querySelector(".burger").addEventListener("click", () => {
+    document.querySelector(".navbar").classList.toggle("navbar--open");
+    document.querySelector(".burger").classList.toggle("burger--open");
+  });
+
   // add project
   class ProjectsCard {
     constructor(id, name, age, dateOfBirth, email, photoSrc, about, linkedinLink, discordLink, githubLink, numMembers, classes, features) {
@@ -255,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function search() {
     let searchWord = searchInput.value.toLowerCase();
     list.forEach((item) => {
-      const membersValue = +item.children[2].textContent.replace(/members/, "");
+      const membersValue = +item.children[2].textContent.match(/\d/g).join('');
       const title = item.firstElementChild.textContent.toLowerCase();
       if (filters.length !== 0) {
         title.includes(searchWord) && Array.from(item.classList).some((el) => filters.includes(el)) && 
