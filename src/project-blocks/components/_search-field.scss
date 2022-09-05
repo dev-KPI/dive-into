@@ -15,10 +15,13 @@
 
 .search{
   position: relative;
-
+  width: 560px;
+  @include _768{
+    width: 100%;
+  }
   &-input{
     box-sizing:border-box;
-    width: 560px;
+    width: 100%;
     background: #DCDAEB;
     border-radius: 20px;
 
@@ -27,6 +30,9 @@
     @extend %light-font;
     font-weight: 600;
     color:$mainColor;
+    @include _768{
+      width: 100%;
+  }
   }
 
   &-btn{

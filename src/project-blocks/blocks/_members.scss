@@ -3,9 +3,12 @@
   @extend %container;
   &__top {
     display: flex;
-    flex-wrap: wrap;
+    gap: 30px;
     justify-content: space-between;
     align-items: center;
+    @include _768{
+      flex-wrap: wrap;
+    }
   }
   &__title{
     @extend %title-font;
@@ -14,8 +17,20 @@
     display: flex;
     gap: 40px;
     margin-top: 90px;
+    @include _768{
+      flex-wrap: wrap;
+    }
   }
   &__filters{
-    min-height: 545px;
+    @include _768{
+    order: 1;
+    max-width: 100%;
+    }
+  }
+  &__list{
+    @include _768{
+    order: 2;
+    width: 100%;
+    }
   }
 }
