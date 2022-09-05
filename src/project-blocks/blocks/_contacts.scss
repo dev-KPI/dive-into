@@ -24,3 +24,38 @@
     display: flex;
   }
 }
+@media (max-width: 1188px) {
+  .communities {
+    &__items-box {
+      display: flex;
+      flex-direction: column;
+    }
+    &__item {
+      gap: 30px;
+    }
+    &__title {
+      text-align: center;
+    }
+  }
+  .about {
+    &__title {
+      text-align: center;
+    }
+  }
+  .contacts {
+    &__title {
+      text-align: center;
+    }
+    &__item {
+      align-items: center;
+    }
+  }
+  .social {
+    &__item-link .social__item-link--discord rect,
+    &__item-link .social__item-link--discord path,
+    &__item-link .social__item-link--github {
+      width: 100px;
+      height: 100px;
+    }
+  }
+}

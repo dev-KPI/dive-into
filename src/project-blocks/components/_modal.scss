@@ -1,4 +1,4 @@
-.modal {
+.modal{
   position: fixed;
   top: 0;
   left: 0;
@@ -8,12 +8,12 @@
   height: 100%;
   overflow: hidden;
   background-color: rgba(12, 7, 62, 0.8);
-  &__dialog {
+  &__dialog{
     max-width: 1160px;
     margin: 90px auto;
   }
-  &__content {
-    box-sizing: border-box;
+  &__content{
+    box-sizing:border-box;
     position: relative;
     width: 100%;
     padding: 40px 60px;
@@ -23,46 +23,76 @@
     max-height: 80vh;
     overflow-y: auto;
   }
-  &__info {
+  &__info{
     display: flex;
     gap: 60px;
   }
-  &__personal {
+  &__personal{
     display: flex;
     flex-direction: column;
     margin-top: 10px;
     gap: 20px;
   }
-  &__personal-title {
+  &__personal-title{
     @extend %title-font;
   }
-  &__personal p {
+  &__personal p{
     @extend %subtitle-font;
-    color: $mainColor;
+    color:$mainColor;
   }
-  &__filters {
+  &__filters{
     margin-top: 25px;
     gap: 10px;
     display: flex;
     flex-wrap: wrap;
-    width: 300px;
+    width: 340px;
   }
-  &__filters-item {
-    color: #f0f0f0;
+  &__filters-item{
+    color: #F0F0F0;
     @extend %filters-font;
     border-radius: 100px;
-    background: #2b03c9;
+    background: #2B03C9;
     padding: 10px 20px;
-    align-items: center;
+    align-items:center;
     display: flex;
     justify-content: center;
+    &--red{
+      background-color: $red;
+    }
+    &--purple{
+      background-color: $purple;
+    }
+    &--orange{
+      background-color: $orange;
+    }
+    &--yellow{
+      background-color: $yellow;
+    }
+    &--blue{
+      background-color: $blue;
+    }
+    &--light-blue{
+      background-color: $lightBlue;
+    }
+    &--dark-blue{
+      background-color: $darkBlue;
+    }
+    &--green{
+      background-color: $green;
+    }
+    &--pink{
+      background-color: $pink;
+    }
+    &--red-pink{
+      background-color: $redPink;
+    }
   }
-  &__text {
+  &__text{
     margin-top: 20px;
     @extend %text-font;
-    color: $mainColor;
+    color:$mainColor;
   }
-  &__close {
+  &__close{
     position: absolute;
     top: 40px;
     right: 50px;

@@ -1,5 +1,6 @@
-.members {
+.projects {
   padding: 50px 0;
+  min-height: 722px;
   @extend %container;
   &__top {
     display: flex;
@@ -16,6 +17,6 @@
     margin-top: 90px;
   }
   &__filters{
-    min-height: 545px;
+    height: 355px;
   }
 }
