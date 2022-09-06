@@ -18,7 +18,7 @@
 }
 
 @mixin underline($element, $color) {
-  #{$element}{
+  #{$element} {
     position: relative;
     text-decoration: none;
   }
@@ -40,39 +40,44 @@
   }
 }
 
-@mixin btnColor ($element, $color) {
+@mixin btnColor($element, $color) {
   #{$element} {
     border: 5px solid $color;
     color: $color;
-    &.is-checked{
+    &.is-checked {
       background: $color;
-      color:#fff;
+      color: #fff;
     }
   }
 }
 
-@mixin _1440{
-    @media (max-width: 1440px){
-        @content;
-    }
+@mixin _1440 {
+  @media (max-width: 1440px) {
+    @content;
+  }
+}
+@mixin _1188 {
+  @media (max-width: 1188px) {
+    @content;
+  }
 }
 @mixin _1000 {
-    @media (max-width: 1000px){
-        @content;
-    }
+  @media (max-width: 1000px) {
+    @content;
+  }
 }
 @mixin _768 {
-    @media (max-width: 768px){
-        @content;
-    }
+  @media (max-width: 768px) {
+    @content;
+  }
 }
 @mixin _480 {
-    @media (max-width: 480px){
-        @content;
-    }
+  @media (max-width: 480px) {
+    @content;
+  }
 }
-@mixin _320{
-    @media (max-width: 320px){
-        @content;
-    }
+@mixin _320 {
+  @media (max-width: 320px) {
+    @content;
+  }
 }
