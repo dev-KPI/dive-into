@@ -1,44 +1,78 @@
+@mixin font-face(
+  $font-family,
+  $font-style: normal,
+  $font-weight: 400,
+  $path,
+  $font-format: "woff2"
+) {
+  @font-face {
+    font-family: $font-family;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    src: url($path) format($font-format);
+  }
+}
 @mixin flex-v-center {
   display: flex;
   align-items: center;
 }
-@mixin text {
-  display: block;
-  font-size: 24px;
-  line-height: 31px;
-  text-align: left;
+
+@mixin underline($element, $color) {
+  #{$element}{
+    position: relative;
+    text-decoration: none;
+  }
+  #{$element}::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 0;
+    bottom: -3px;
+    height: 2px;
+    background-color: $color;
+    transition: width 0.25s;
+  }
+  #{$element}:hover::before,
+  #{$element}:focus::before {
+    right: auto;
+    width: 100%;
+    left: 0;
+  }
 }
-@mixin social-link {
-  &__link {
-    .discord {
-      rect {
-        transition: fill 200ms ease-in-out;
-      }
-      transition: transform 200ms ease-in-out;
-    }
-    .github {
-      path:nth-child(1) {
-        transition: fill 200ms ease-in-out;
-      }
-      transition: transform 200ms ease-in-out;
+
+@mixin btnColor ($element, $color) {
+  #{$element} {
+    border: 5px solid $color;
+    color: $color;
+    &.is-checked{
+      background: $color;
+      color:#fff;
     }
   }
-  &__link:hover {
-    .discord {
-      rect {
-        fill: #032ec9;
-        transition: fill 200ms ease-in-out;
-      }
-      transition: transform 200ms ease-in-out;
-      transform: scale(1.12);
+}
+
+@mixin _1440{
+    @media (max-width: 1440px){
+        @content;
     }
-    .github {
-      path:nth-child(1) {
-        fill: #032ec9;
-        transition: fill 200ms ease-in-out;
-      }
-      transition: transform 200ms ease-in-out;
-      transform: scale(1.12);
+}
+@mixin _1000 {
+    @media (max-width: 1000px){
+        @content;
     }
-  }
+}
+@mixin _768 {
+    @media (max-width: 768px){
+        @content;
+    }
+}
+@mixin _480 {
+    @media (max-width: 480px){
+        @content;
+    }
+}
+@mixin _320{
+    @media (max-width: 320px){
+        @content;
+    }
 }

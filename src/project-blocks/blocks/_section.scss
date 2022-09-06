@@ -1,0 +1,119 @@
+.section{
+  &__list {
+    width: 560px;
+    display: flex;
+    flex-direction: column;
+  }
+  &__item {
+    box-sizing: border-box;
+    padding: 0 30px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    @extend %text-font;
+    background-color: #dcdaeb;
+    border-radius: 20px;
+
+    opacity: 1;
+    
+    @include underline('&-counter', $textColor);
+    cursor: pointer;
+  }
+
+  &__item-counter::after{
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    background-color: $mainColor;
+    right: 115%;
+    top: 15%;
+    border-radius: 100px;
+  }
+
+  &__item-counter {
+    color: $textColor;
+  }
+
+  &__item{
+    margin-bottom: 25px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  
+  &__item-link{
+    height: 50px;
+  }
+
+  &__item.hide {
+    transition: all 0.4s ease-out;
+    opacity: 0;
+    height: 0px;
+    margin-bottom: 0px;
+    .section__item-counter, 
+    .section__item-name, 
+    .section__item-counter::after{
+      opacity:0;
+      transition: all 0.2s ease-out;
+    }
+    .section__item-link{
+      opacity:0;
+      transition: all 0.1s ease-out;
+    }
+  }
+
+  &__filters {
+    box-sizing: border-box;
+    max-width: 560px;
+    height: 100%;
+    background-color: #dcdaeb;
+    border-radius: 20px;
+    padding: 0 25px 19px;
+    &-heading {
+      display: inline-block;
+      @extend %text-font;
+    }
+    @include underline('&-heading',$textColor);
+    &-block{
+      box-sizing: border-box;
+      margin-top: 17px;
+      padding-bottom: 20px;
+      position: relative;
+      &::after{
+        position: absolute;
+        content:'';
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background: #bab8cc;
+        border-radius:2px;
+      }
+      &:last-child::after{
+        background:none;
+      }
+    }
+    
+  }
+
+  &__buttons {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  &__btn {
+    min-width: 60px;
+    min-height: 40px;
+    padding: 4px 10px;
+  }
+
+  &__range{
+    margin: 40px auto 0 auto
+  }
+}

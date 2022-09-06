@@ -1,0 +1,56 @@
+
+$mainColor:#0C073E;
+$textColor:#121212;
+
+%container{
+  box-sizing: border-box;
+  max-width: 1188px;
+  margin: 0 auto;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+%title-font{
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 87px;
+  color:$mainColor;
+}
+%subtitle-font{
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 44px;
+  color: $textColor;
+}
+%text-font{
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+  color:$textColor;
+}
+
+%filters-font{
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+%light-font{
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 31px;
+  color:#000;
+}
+
+//colors for buttons and filters
+$defColor: #dcdaeb;
+$red: #c90303;
+$purple: #a103c9;
+$orange: #c97a03;
+$yellow: #c9b503;
+$blue: #0352c9;
+$lightBlue: #038ec9;
+$darkBlue: #2b03c9;
+$green:#03c952;
+$pink: #c9037a;
+$redPink: #c9033e;

@@ -1,12 +1,13 @@
-.members {
+.projects {
   padding: 50px 0;
+  min-height: 722px;
   @extend %container;
   &__top {
-    display: flex;
     gap: 30px;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    @include _768{
+     @include _768{
       flex-wrap: wrap;
     }
   }
@@ -21,7 +22,7 @@
       flex-wrap: wrap;
     }
   }
-  &__filters{
+   &__filters{
     @include _768{
     order: 1;
     max-width: 100%;

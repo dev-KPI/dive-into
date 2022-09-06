@@ -3,16 +3,27 @@
     background: none;
     position: static;
   }
+  overflow: hidden;
   position: sticky;
   top: 0;
-  background: #0c073e;
+  background: $mainColor;
   height: 140px;
   z-index: 10;
+  @include _768{
+    overflow: visible;
+    position: static
+  }
   &__inner {
-    width: 1158px;
-    display: flex;
-    gap: 485px;
-    margin: 0 auto;
+    @extend %container;
     padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__link svg{
+    @include _320{
+      height: 80px;
+      width: 200px;
+    }
   }
 }

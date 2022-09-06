@@ -1,32 +1,42 @@
 .navbar {
+  z-index: 15;
   &__list {
-    width: 460px;
-    height: 100%;
-    @include flex-v-center;
-    gap: 70px;
+    display: flex;
+    gap: 90px;
   }
   &__link {
-    position: relative;
-    color: white;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 33px;
-    text-decoration: none;
+    @extend %text-font;
+    color:#F0F0F0;
   }
-  &__link::before {
-    content: "";
-    position: absolute;
-    right: 0;
-    width: 0;
-    bottom: -3px;
-    height: 2px;
-    background-color: white;
-    transition: width 250ms;
-  }
-  &__link:hover::before,
-  &__link:focus::before {
-    right: auto;
-    width: 100%;
-    left: 0;
+  @include underline('&__link', #F0F0F0);
+
+  @include _768{
+    &--open{
+      opacity: 1;
+      visibility: visible;
+    }
+      visibility: hidden;
+      box-sizing: border-box;
+      position: absolute;
+      width: 320px;
+      padding: 50px;
+      padding-top: 145px;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: #f0f0f0;
+      opacity: 0;
+      transition: opacity 0.5s cubic-bezier(0.77,0.2,0.05,1.0), visibility 0.5s cubic-bezier(0.77,0.2,0.05,1.0);;
+    &__list{
+      flex-direction: column;
+      gap:53px;
+      display: flex;
+    }
+    &__link{
+      color: $mainColor;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 44px;
+    }
   }
 }
