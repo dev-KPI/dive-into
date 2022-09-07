@@ -4,13 +4,14 @@
   flex-direction: column;
   z-index: 0;
   overflow: clip;
+  
   @include _768{
-    overflow: hidden;
+    // overflow: hidden;
   }
   &-main{
     position: relative;
     background: linear-gradient(rgba(4, 3, 24, 0.4), rgba(4, 3, 24, 0.4)), url(assets/img/background.png) no-repeat center center/cover;
-    &::before{
+    &::after{
       content: "";
       position: absolute;
       top: 0px;
@@ -21,4 +22,20 @@
       backdrop-filter:blur(8px);
     }
   }
+
+  &-blur{
+    position: relative;
+    &::before{
+      content: "";
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      backdrop-filter:blur(3px);
+      background-color:rgba(12, 7, 62, 0.4);
+    }
+  }
 }
+

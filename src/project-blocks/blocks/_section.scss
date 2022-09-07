@@ -69,21 +69,39 @@
   &__filters {
     box-sizing: border-box;
     max-width: 560px;
+    height: 100%;
     background-color: #dcdaeb;
     border-radius: 20px;
-    padding: 0 25px;
+    padding: 0 25px 19px;
     &-heading {
       display: inline-block;
       @extend %text-font;
-      margin-top: 17px;
     }
     @include underline('&-heading',$textColor);
+    &-block{
+      box-sizing: border-box;
+      margin-top: 17px;
+      padding-bottom: 20px;
+      position: relative;
+      &::after{
+        position: absolute;
+        content:'';
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background: #bab8cc;
+        border-radius:2px;
+      }
+      &:last-child::after{
+        background:none;
+      }
+    }
+    
   }
 
   &__buttons {
-    border-bottom: 2px solid #bab8cc;
     margin-top: 40px;
-    padding-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;

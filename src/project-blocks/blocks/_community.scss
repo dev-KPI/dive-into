@@ -2,6 +2,10 @@
   height: 260px;
   width: 260px;
   border-radius: 80px;
+  @include _480{
+    height: 80px;
+    width: 90px;
+  }
 }
 .community {
   height: 70vh;
@@ -9,6 +13,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 200px;
+  margin-top: 25px;
   @extend %container;
   @include _1440{
     gap: 50px;
@@ -25,7 +30,7 @@
     height: fit-content;
     flex-wrap: nowrap;
     margin: 115px auto 0 auto;
-    width: 300px;
+    // width: 300px;
   }
   &__logo {
     position: relative;
@@ -37,8 +42,10 @@
     }  
     @include _480{
       position: absolute;
-      top: 319px;
-      margin-left: 89px;
+      // top: 319px;
+      // margin-left: 89px;
+      margin-left: 12px;
+      margin-bottom: 14px;
     }  
   }
 
@@ -52,10 +59,12 @@
     bottom:0;
     @extend %community-logo;
     width: 258px;
+    height: 258px;
     background-color: #3a50bf;
     z-index: -1;
     @include _480{
       background:none;
+      position: unset;
     }
   }
   
@@ -102,6 +111,7 @@
       line-height: 28px;
       background:none;
       backdrop-filter:none;
+      padding: 0;
     }
   }
   &__logo-title-first {
@@ -123,7 +133,9 @@
     bottom: 55px;
     left: 50px;
     @include _480{
-      bottom: 141px;
+      // bottom: 141px;
+      bottom: 7px;
+      left: 3px;
       font-size: 15px;
       line-height: 18px;
     }
@@ -149,11 +161,36 @@
     color: #010010;
 
     transition: width 0.3s ease-out;
-
+    
     z-index: -5;
+   
     @include _480{
       background:none;
       backdrop-filter:none;
+      padding-left: 0;
+      left: 0px;
+    }
+    
+  }
+
+  &__logo:hover .community__logo-about {
+    padding-left: 300px;
+    width: 720px;
+    transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); //ease-out-back;
+    @include _768{
+      padding-left: 260px;
+      padding-top: 260px;
+      width: 0;
+      height: 690px;
+      transition: height 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); //ease-out-back;
+    }
+    @include _480{
+      width: 450px;
+      height: 0;
+      background: linear-gradient(315deg, rgba(71, 112, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 100%), rgba(255, 255, 255, 0.6);
+      left: -120px;
+      backdrop-filter:blur(8px);
+      z-index: 20;
     }
   }
 
@@ -171,17 +208,18 @@
 
     opacity: 0;
     font-size: 0px;
-  }
-
-  &__logo:hover .community__logo-about {
-    padding-left: 300px;
-    width: 720px;
-    transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); //ease-out-back;
-    @include _768{
-      padding-left: 260px;
-      width: 0;
+     @include _768{
+      left: 20px;
+      right: 20px;
+      top: 275px;
+      text-align: justify;
     }
-
+    @include _480{
+      top: 0;
+      left: 0px;
+      right: 0;
+      bottom: 0;
+    }
   }
 
   &__logo:hover .community__logo-text {
@@ -190,7 +228,11 @@
     transition: opacity 0.1s ease-out;
     transition-delay: 0.3s;
     @include _768{
-      font-size: 0px;
+      font-size: 20px;
+    }
+    @include _480{
+      font-size: 20px;
+      padding: 35px 30px;
     }
   }
 

@@ -2,7 +2,9 @@
   &--main {
     background: none;
     position: static;
+    transition: background 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
   }
+  transition: background 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
   overflow: hidden;
   position: sticky;
   top: 0;

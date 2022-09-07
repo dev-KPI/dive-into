@@ -1,6 +1,7 @@
 .footer {
   background-color: $mainColor;
   margin-top: auto;
+  z-index: 30;
   &__inner {
     @extend %container;
     display: flex;
