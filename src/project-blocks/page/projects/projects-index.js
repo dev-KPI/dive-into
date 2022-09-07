@@ -12,16 +12,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // burger menu
+  //burger menu
   document.querySelector(".burger").addEventListener("click", () => {
     document.querySelector(".navbar").classList.toggle("navbar--open");
     document.querySelector(".burger").classList.toggle("burger--open");
+    document.querySelector(".wrapper").classList.toggle("wrapper-blur");
   });
 
   // add project
   class ProjectsCard {
-    constructor(id, name, age, dateOfBirth, email, photoSrc, about, linkedinLink, discordLink, githubLink, numMembers, classes, features) {
-      this.id=id;
+    constructor(
+      id,
+      name,
+      age,
+      dateOfBirth,
+      email,
+      photoSrc,
+      about,
+      linkedinLink,
+      discordLink,
+      githubLink,
+      numMembers,
+      classes,
+      features
+    ) {
+      this.id = id;
       this.name = name;
       this.age = age;
       this.dateOfBirth = dateOfBirth;
@@ -34,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
       this.numMembers = numMembers;
       this.classes = classes;
       this.features = features;
-      this.modalId = `modal-${this.id}`;  
+      this.modalId = `modal-${this.id}`;
     }
     render() {
       const el = document.createElement("li");
@@ -44,7 +59,9 @@ document.addEventListener("DOMContentLoaded", () => {
         el.classList.add("section__item");
       } else {
         el.classList.add("section__item");
-        this.classes.split(', ').forEach((className) => el.classList.add(className));
+        this.classes
+          .split(", ")
+          .forEach((className) => el.classList.add(className));
       }
       el.innerHTML = `
            <span class="section__item-name">${this.name}</span>
@@ -60,10 +77,10 @@ document.addEventListener("DOMContentLoaded", () => {
               href="${this.githubLink}">${this.numMembers} members
             </a>
           `;
-      document.querySelector('.section__list').append(el);
+      document.querySelector(".section__list").append(el);
       this.modal();
     }
-    modal(){
+    modal() {
       const el = document.createElement("div");
       this.el = `modal`;
       el.classList.add(this.el);
@@ -74,10 +91,14 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="modal__dialog">
         <div class="modal__content">
           <div class="modal__info">
-            <img class="modal__info-img" src="${this.photoSrc ? this.photoSrc : "/assets/img/modal-img.png"}" alt="photo" />
+            <img class="modal__info-img" src="${
+              this.photoSrc ? this.photoSrc : "/assets/img/modal-img.png"
+            }" alt="photo" />
             <div class="modal__personal">
               <h2 class="modal__personal-title">${this.name}</h2>
-              <p class="modal__personal-age">${this.age} years (${this.dateOfBirth})</p>
+              <p class="modal__personal-age">${this.age} years (${
+        this.dateOfBirth
+      })</p>
               <p class="modal__personal-email">${this.email}</p>
             </div>
           </div>
@@ -220,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // button filters
   const btns = document.querySelectorAll(".btn"),
-        list = document.querySelectorAll(".section__item");
+    list = document.querySelectorAll(".section__item");
 
   window.onload = () => {
     Array.from(list).forEach(
@@ -261,11 +282,12 @@ document.addEventListener("DOMContentLoaded", () => {
   function search() {
     let searchWord = searchInput.value.toLowerCase();
     list.forEach((item) => {
-      const membersValue = +item.children[2].textContent.match(/\d/g).join('');
+      const membersValue = +item.children[2].textContent.match(/\d/g).join("");
       const title = item.firstElementChild.textContent.toLowerCase();
       if (filters.length !== 0) {
-        title.includes(searchWord) && Array.from(item.classList).some((el) => filters.includes(el)) && 
-          membersValue >= range.value
+        title.includes(searchWord) &&
+        Array.from(item.classList).some((el) => filters.includes(el)) &&
+        membersValue >= range.value
           ? item.classList.remove("hide")
           : item.classList.add("hide");
       } else {

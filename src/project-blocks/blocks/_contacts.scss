@@ -29,4 +29,12 @@
     align-items: center;
     display: flex;
   }
+  &__item-link svg{
+    height: 140px; 
+    width: 140px;
+    @include _1000{
+      height: 100px;
+      width: 100px;
+    }
+  }
 }

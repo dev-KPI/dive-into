@@ -228,7 +228,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
     Array.from(list).forEach((item) => (item.style.transition = "all 0.4s ease-out"));
     search();
   };
-
   let filters = [];
   btns.forEach((btn) => {
     btn.addEventListener("click", () => {
