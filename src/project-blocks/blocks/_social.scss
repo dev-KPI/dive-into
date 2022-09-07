@@ -28,9 +28,13 @@
   transform: scale(1.12);
   }
   &__item-link svg{
-      @include _1000{
-      height: 60px;
-      width: 60px;
-    }
+    //   @include _1000{
+    //   height: 60px;
+    //   width: 60px;
+    // }
+    @include _1000 {
+      height: 5rem;
+      width: 5rem;
+    } 
   }
 }

@@ -1,26 +1,32 @@
-.contacts{
+.contacts {
   min-height: 550px;
-  background-color:#EAEAEA;
-  &__inner{
+  background-color: #eaeaea;
+  &__inner {
     padding: 50px 0px 50px;
     @extend %container;
   }
-  &__title{
+  &__title {
     @extend %title-font;
+    @include _1188 {
+      text-align: center;
+    }
   }
-  &__items-box{
+  &__items-box {
     padding-top: 40px;
   }
-  &__item{
+  &__item {
     display: flex;
     gap: 60px;
+    @include _1188 {
+      align-items: center;
+    }
   }
   &__item + .contacts__item {
     margin-top: 40px;
   }
-  &__item-text{
+  &__item-text {
     @extend %light-font;
-    align-items:center;
+    align-items: center;
     display: flex;
   }
 }
