@@ -1,6 +1,6 @@
-.section{
+.section {
   &__list {
-    width: 560px;
+    //width: 560px;
     display: flex;
     flex-direction: column;
   }
@@ -12,40 +12,57 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+
     @extend %text-font;
     background-color: #dcdaeb;
     border-radius: 20px;
 
     opacity: 1;
-    
-    @include underline('&-counter', $textColor);
+
+    @include underline("&-counter", $textColor);
     cursor: pointer;
   }
 
-  &__item-counter::after{
+  /* &__item-counter::after {
     content: "";
     position: absolute;
     width: 2px;
     height: 30px;
     background-color: $mainColor;
     right: 115%;
-    top: 15%;
+    top: 10%;
     border-radius: 100px;
-  }
+	
+  } */
 
   &__item-counter {
     color: $textColor;
   }
 
-  &__item{
+  &__item {
+    min-width: 560px;
     margin-bottom: 25px;
-    &:last-child{
+    &:last-child {
       margin-bottom: 0;
     }
+    @include _1188 {
+      min-width: 760px;
+    }
+    @include _768 {
+      min-width: 100%;
+    }
+    @include _480 {
+      font-size: 20px;
+      line-height: 27px;
+      height: 60px;
+    }
+    @include _320 {
+      font-size: 16px;
+      line-height: 22px;
+    }
   }
-  
-  &__item-link{
+
+  &__item-link {
     height: 50px;
   }
 
@@ -54,21 +71,21 @@
     opacity: 0;
     height: 0px;
     margin-bottom: 0px;
-    .section__item-counter, 
-    .section__item-name, 
-    .section__item-counter::after{
-      opacity:0;
+    .section__item-counter,
+    .section__item-name,
+    .section__item-counter::after {
+      opacity: 0;
       transition: all 0.2s ease-out;
     }
-    .section__item-link{
-      opacity:0;
+    .section__item-link {
+      opacity: 0;
       transition: all 0.1s ease-out;
     }
   }
 
   &__filters {
     box-sizing: border-box;
-    max-width: 560px;
+    min-width: 560px;
     height: 100%;
     background-color: #dcdaeb;
     border-radius: 20px;
@@ -77,27 +94,32 @@
       display: inline-block;
       @extend %text-font;
     }
-    @include underline('&-heading',$textColor);
-    &-block{
+    @include underline("&-heading", $textColor);
+    &-block {
       box-sizing: border-box;
       margin-top: 17px;
       padding-bottom: 20px;
       position: relative;
-      &::after{
+      &::after {
         position: absolute;
-        content:'';
+        content: "";
         left: 0;
         right: 0;
         bottom: 0;
         height: 2px;
         background: #bab8cc;
-        border-radius:2px;
+        border-radius: 2px;
       }
-      &:last-child::after{
-        background:none;
+      &:last-child::after {
+        background: none;
       }
     }
-    
+    @include _1188 {
+      width: 760px;
+    }
+    @include _768 {
+      min-width: 100%;
+    }
   }
 
   &__buttons {
@@ -106,14 +128,14 @@
     flex-wrap: wrap;
     gap: 10px;
   }
-  
+
   &__btn {
     min-width: 60px;
     min-height: 40px;
     padding: 4px 10px;
   }
 
-  &__range{
-    margin: 40px auto 0 auto
+  &__range {
+    margin: 40px auto 0 auto;
   }
 }

@@ -20,4 +20,10 @@
     margin-top: 30px;
     @extend %light-font;
   }
+  &__social-link svg {
+    @include _1000 {
+      height: 5rem;
+      width: 5rem;
+    }
+  }
 }

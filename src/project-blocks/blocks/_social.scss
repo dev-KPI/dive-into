@@ -4,37 +4,41 @@
   justify-content: flex-end;
   gap: 50px;
   margin-right: 20px;
-  &__item-link .social__item-link--discord rect, 
-  &__item-link .social__item-link--github path:first-child, 
-  &__item-link .social__item-link--linkedin rect{
+  &__item-link .social__item-link--discord rect,
+  &__item-link .social__item-link--github path:first-child,
+  &__item-link .social__item-link--linkedin rect {
     transition: fill 0.2s ease-in-out;
   }
-  &__item-link .social__item-link--discord, 
+  &__item-link .social__item-link--discord,
   &__item-link .social__item-link--github,
-  &__item-link .social__item-link--linkedin  {
+  &__item-link .social__item-link--linkedin {
     transition: transform 0.2s ease-in-out;
   }
 
-  &__item-link:hover .social__item-link--discord rect,  
-  &__item-link:hover .social__item-link--github path:first-child, 
-  &__item-link:hover .social__item-link--linkedin rect{
-    fill: #032EC9;
+  &__item-link:hover .social__item-link--discord rect,
+  &__item-link:hover .social__item-link--github path:first-child,
+  &__item-link:hover .social__item-link--linkedin rect {
+    fill: #032ec9;
     transition: fill 0.2s ease-in-out;
   }
-  &__item-link:hover .social__item-link--discord, 
+  &__item-link:hover .social__item-link--discord,
   &__item-link:hover .social__item-link--github,
-  &__item-link:hover .social__item-link--linkedin{
-  transition: transform 0.2s ease-in-out;
-  transform: scale(1.12);
+  &__item-link:hover .social__item-link--linkedin {
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1.12);
   }
-  &__item-link svg{
-    //   @include _1000{
-    //   height: 60px;
-    //   width: 60px;
-    // }
+  /* &__item-link svg {
     @include _1000 {
       height: 5rem;
       width: 5rem;
-    } 
+    }
+  } */
+  &__item-link svg {
+    @include _480 {
+      margin: 0 10px;
+    }
+  }
+  @include _768 {
+    margin-right: 0;
   }
 }
