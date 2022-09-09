@@ -297,23 +297,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-/* filtersBtn.addEventListener("click", function () {
-  filtersBlock.style.display = "block";
-});
-filtersClose.addEventListener("click", function () {
-  filtersBlock.style.display = "none";
-}); */
+
 if (window.matchMedia("(max-width: 1188px)").matches) {
   const filtersBtn = document.querySelector(".filters-btn");
   const filtersBlock = document.querySelector(".projects__filters");
   const filtersClose = document.querySelector(".section__filters-close");
+  const projects = document.querySelector(".projects");
+  const searchInput = document.querySelector(".search");
   filtersBtn.addEventListener("click", function () {
-    filtersBlock.style.display = "block";
+    filtersBlock.style.visibility = "visible";
+    filtersBlock.style.opacity = "1";
+    projects.style.backgroundColor = "rgba(12, 9, 43, 0.5)";
+    searchInput.style.zIndex = "-1";
   });
   filtersClose.addEventListener("click", function () {
-    filtersBlock.style.display = "none";
+    filtersBlock.style.visibility = "hidden";
+    filtersBlock.style.opacity = "0";
+    projects.style.backgroundColor = "white";
+    searchInput.style.zIndex = "1";
   });
-  filtersBlock.style.display = "block";
+  filtersBlock.style.transition = "visibility 0.2s, opacity 0.2s linear";
+  projects.style.transition = "background-color 0.2s linear";
 }
 
 if (window.matchMedia("(min-width: 1188px)").matches) {
