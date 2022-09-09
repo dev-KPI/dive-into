@@ -100,6 +100,10 @@
       margin-top: 17px;
       padding-bottom: 20px;
       position: relative;
+      &-header {
+        display: flex;
+        justify-content: space-between;
+      }
       &::after {
         position: absolute;
         content: "";
@@ -113,6 +117,15 @@
       &:last-child::after {
         background: none;
       }
+    }
+    &-close {
+      display: none;
+      @include _1188 {
+        display: block;
+      }
+    }
+    &-close:hover {
+      cursor: pointer;
     }
     @include _1188 {
       width: 760px;

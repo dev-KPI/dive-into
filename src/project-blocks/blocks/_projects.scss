@@ -7,7 +7,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    @include _320 {
+    @include _480 {
       flex-wrap: wrap;
       gap: 15px;
     }
@@ -39,6 +39,9 @@
     }
   }
   &__filters {
+    /* @include _1188 {
+      display: none;
+    } */
     @include _768 {
       order: 2;
       max-width: 100%;
