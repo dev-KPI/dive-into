@@ -13,12 +13,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
   });
 
   //burger menu
-   document.querySelector(".burger").addEventListener("click", () => {
-     document.querySelector(".navbar").classList.toggle("navbar--open");
-     document.querySelector(".burger").classList.toggle("burger--open");
-     document.querySelector(".wrapper").classList.toggle("wrapper-blur");
-   });
-
+  document.querySelector('.burger').addEventListener('click', ()=> {
+    document.querySelector('.navbar').classList.toggle('navbar--open');
+    document.querySelector(".burger").classList.toggle("burger--open");
+    document.querySelector(".wrapper-blur").classList.toggle('wrapper-blur--show');
+  });
   // add member
   class MembersCard {
     constructor(id, name, surname, dateOfBirth, email, photoSrc, about, linkedinLink, discordLink, githubLink, numProjects, features) {
