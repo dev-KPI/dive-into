@@ -13,11 +13,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   //burger menu
-  document.querySelector('.burger').addEventListener('click', ()=> {
+  function toggleMenu() {
     document.querySelector('.navbar').classList.toggle('navbar--open');
     document.querySelector(".burger").classList.toggle("burger--open");
     document.querySelector(".wrapper-blur").classList.toggle('wrapper-blur--show');
     document.body.style.overflow === "" ? document.body.style.overflow="hidden" : document.body.style.overflow="";
+  };
+
+  document.querySelector(".burger").addEventListener("click", toggleMenu);
+  document.querySelector('.wrapper-blur').addEventListener('click', ()=>{
+    if(document.querySelector('.wrapper-blur').classList.contains('wrapper-blur--show')){
+      toggleMenu();
+    }
   });
 
   // add project
