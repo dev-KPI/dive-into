@@ -300,7 +300,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 if (window.matchMedia("(max-width: 1188px)").matches) {
   const filtersBtn = document.querySelector(".filters-btn");
-  const filtersBlock = document.querySelector(".projects__filters");
+  const filtersBlock = document.querySelector(".section__filters");
   const filtersClose = document.querySelector(".section__filters-close");
   const projects = document.querySelector(".projects");
   const searchInput = document.querySelector(".search");
@@ -318,9 +318,4 @@ if (window.matchMedia("(max-width: 1188px)").matches) {
   });
   filtersBlock.style.transition = "visibility 0.2s, opacity 0.2s linear";
   projects.style.transition = "background-color 0.2s linear";
-}
-
-if (window.matchMedia("(min-width: 1188px)").matches) {
-  const filtersBlock = document.querySelector(".projects__filters");
-  filtersBlock.style.display = "block";
 }
