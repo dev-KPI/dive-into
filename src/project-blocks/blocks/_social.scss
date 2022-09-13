@@ -37,6 +37,10 @@
     @include _480 {
       margin: 0 10px;
     }
+    @include _320 {
+      height: 30px;
+      width: 30px;
+    }
   }
   @include _768 {
     margin-right: 0;

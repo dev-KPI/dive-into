@@ -4,21 +4,35 @@
   &__inner {
     padding: 50px 0px 50px;
     @extend %container;
+    @include _320 {
+      padding-top: 30px;
+    }
   }
   &__title {
     @extend %title-font;
     @include _1188 {
       text-align: center;
     }
+    @include _320 {
+      font-size: 36px;
+      line-height: 40px;
+    }
   }
   &__items-box {
     padding-top: 40px;
+    @include _320 {
+      padding-top: 30px;
+    }
   }
   &__item {
     display: flex;
     gap: 60px;
     @include _1188 {
       align-items: center;
+    }
+    @include _320 {
+      gap: 15px;
+      flex-direction: column;
     }
   }
   &__item + .contacts__item {
@@ -28,5 +42,10 @@
     @extend %light-font;
     align-items: center;
     display: flex;
+    @include _320 {
+      text-align: center;
+      font-size: 18px;
+      line-height: 27px;
+    }
   }
 }
