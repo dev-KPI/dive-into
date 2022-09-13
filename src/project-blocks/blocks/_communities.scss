@@ -16,6 +16,10 @@
     @include _1188 {
       gap: 30px;
     }
+    @include _480 {
+      margin-top: 80px;
+      gap: 25px;
+    }
     @include _320 {
       margin-top: 60px;
       gap: 20px;
@@ -32,9 +36,13 @@
       @extend %subtitle-font;
       justify-content: center;
       max-width: 400px;
+      @include _480 {
+        font-size: 28px;
+        line-height: 38px;
+      }
       @include _320 {
         font-size: 24px;
-        line-height: 40px;
+        line-height: 32px;
       }
     }
   }
@@ -42,6 +50,10 @@
     @extend %title-font;
     @include _1188 {
       text-align: center;
+    }
+    @include _480 {
+      font-size: 48px;
+      line-height: 61px;
     }
     @include _320 {
       font-size: 36px;
