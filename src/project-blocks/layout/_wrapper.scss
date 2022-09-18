@@ -22,7 +22,7 @@
 
   &-blur{
     position: unset;
-    @include _768{
+    @include _1000{
       visibility: hidden;
       position: absolute;
       top: 0px;

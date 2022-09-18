@@ -16,7 +16,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
     document.querySelector('.navbar').classList.toggle('navbar--open');
     document.querySelector(".burger").classList.toggle("burger--open");
     document.querySelector(".wrapper-blur").classList.toggle('wrapper-blur--show');
-    document.body.style.overflow === "" ? document.body.style.overflow="hidden" : document.body.style.overflow="";
+    document.body.classList.toggle("lock-scroll");
   };
 
   document.querySelector(".burger").addEventListener("click", toggleMenu);
