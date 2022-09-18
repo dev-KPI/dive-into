@@ -12,20 +12,53 @@ document.addEventListener('DOMContentLoaded', ()=> {
     });
   });
 
+  const navbar = document.querySelector('.navbar');
+  const burger = document.querySelector(".burger");
+  const blur = document.querySelector(".wrapper-blur");
   //burger menu
   function toggleMenu() {
-    document.querySelector('.navbar').classList.toggle('navbar--open');
-    document.querySelector(".burger").classList.toggle("burger--open");
-    document.querySelector(".wrapper-blur").classList.toggle('wrapper-blur--show');
-    document.body.style.overflow === "" ? document.body.style.overflow="hidden" : document.body.style.overflow="";
+    navbar.classList.toggle('navbar--open');
+    burger.classList.toggle("burger--open");
+    document.body.classList.toggle("lock-scroll");
+    blur.classList.toggle('wrapper-blur--show');
   };
+  // burger open
+  burger.addEventListener("click", ()=>{
+    if(filtersWindow.classList.contains('section__filters-open')){
+      toggleFiltersWindow();
+    }
+    toggleMenu();
+  });
 
-  document.querySelector(".burger").addEventListener("click", toggleMenu);
-  document.querySelector('.wrapper-blur').addEventListener('click', ()=>{
-    if(document.querySelector('.wrapper-blur').classList.contains('wrapper-blur--show')){
+  // filters menu
+  const filtersModalBtn = document.querySelector(".search-filters-btn");
+  const filtersWindow = document.querySelector(".section__filters");
+  const filtersClose = document.querySelector('.section__filters-close');
+  filtersModalBtn.addEventListener("click", toggleFiltersWindow);
+  filtersClose.addEventListener("click", toggleFiltersWindow);
+  function toggleFiltersWindow() {
+    filtersWindow.classList.toggle('section__filters-open');
+    document.body.classList.toggle("lock-scroll");
+    blur.classList.toggle('wrapper-blur--show');
+  }
+
+  // close menu
+  blur.addEventListener('click', ()=>{
+    if(blur.classList.contains('wrapper-blur--show') && navbar.classList.contains('navbar--open') ){
       toggleMenu();
+    } else if(blur.classList.contains('wrapper-blur--show') && filtersWindow.classList.contains('section__filters-open')){
+      toggleFiltersWindow();
     }
   });
+
+  // fix menu on resizing window
+    window.addEventListener('resize', ()=>{
+    if(window.matchMedia('(min-width: 1000px)').matches && document.querySelector('.section__filters').classList.contains('section__filters-open')){
+      toggleFiltersWindow();
+    } else if (window.matchMedia('(min-width: 768px)').matches && navbar.classList.contains('navbar--open')){
+      toggleMenu();
+    }
+  })
   
   // add member
   class MembersCard {
@@ -94,7 +127,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
           <p class="modal__text">
             ${this.about}
           </p>
-          <ul class="social">
+          <ul class="modal__social social">
             <li class="social__item">
               <a class="social__item-link" href="${this.linkedinLink}">
                 <svg class="social__item-link--linkedin" width="100" height="100" viewBox="0 0 100 100" fill="none"
@@ -141,7 +174,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
           const el = document.createElement("span");
           el.classList.add("modal__filters-item");
           el.textContent = `${feature}`;
-          console.log(el);
           document.querySelector(`.${this.modalId} .modal__filters`).append(el);
         });
       }
@@ -179,15 +211,15 @@ document.addEventListener('DOMContentLoaded', ()=> {
   // modal window
   const modalTrigger = document.querySelectorAll("[data-modal]"),
         modals = document.querySelectorAll('.modal');
-
+  
   function openModal(modal) {
     modal.style.display = "block";
-    document.body.style.overflow = "hidden";
+    document.body.classList.add('lock-scroll');
   }
 
   function closeModal(modal) {
     modal.style.display = "none";
-    document.body.style.overflow = "";
+    document.body.classList.remove("lock-scroll");
   }
 
   modalTrigger.forEach((btn) => {
@@ -212,7 +244,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   // custom input-range
   const range = document.querySelector(".range-input"),
     output = document.querySelector(".range-output");
-
+  
   range.addEventListener("input", () => {
     setOutput(range, output);
   });
@@ -233,7 +265,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     list = document.querySelectorAll(".section__item");
 
   window.onload = () => {
-    Array.from(list).forEach((item) => (item.style.transition = "all 0.4s ease-out"));
+    // Array.from(list).forEach((item) => (item.style.transition = "all 0.4s ease-out"));
     search();
   };
   let filters = [];

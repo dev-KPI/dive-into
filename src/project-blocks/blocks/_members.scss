@@ -1,14 +1,23 @@
 .members {
   padding: 50px 0;
   @extend %container;
+  min-height: 86vh;
+  @include _480{
+    padding: 30px 0;
+  }
   &__top {
     display: flex;
-    gap: 30px;
+    gap: 100px;
     justify-content: space-between;
     align-items: center;
-    @include _320 {
-      flex-wrap: wrap;
+    @include _1000{
+      gap: 30px;
+    }
+    @include _768{
       gap: 15px;
+    }
+    @include _480 {
+      flex-wrap: wrap;
     }
   }
   &__title {
@@ -18,40 +27,22 @@
       font-weight: 700;
       line-height: 54px;
     }
-    @include _480 {
-      font-size: 32px;
-      font-weight: 700;
-      line-height: 44px;
-    }
   }
   &__main {
     display: flex;
     gap: 40px;
     margin-top: 90px;
-    @include _1188 {
-      flex-direction: column-reverse;
-      align-items: center;
+    justify-content: center;
+    @include _1000{
       margin-top: 50px;
     }
-    @include _320 {
+    @include _480 {
       margin-top: 25px;
-    }
-  }
-  &__filters {
-    @include _768 {
-      order: 2;
-      max-width: 100%;
     }
   }
   &__list {
     @include _768 {
-      order: 1;
       width: 100%;
-    }
-  }
-  &__search {
-    @include _768 {
-      max-width: 420px;
     }
   }
 }
