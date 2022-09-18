@@ -1,29 +1,65 @@
 .about {
   background-color: #eaeaea;
-  min-height: 432px;
   &__inner {
-    padding: 50px 0px 70px;
+    padding: 60px 0px 70px;
     @extend %container;
+    @include _1000{
+      padding: 30px 0 50px;
+    }
+    @include _768 {
+      padding: 20px 0 30px;
+    }
+    @include _480 {
+      padding: 10px 0 20px;
+    }
   }
   &__title {
     @extend %title-font;
     text-transform: uppercase;
     @include _1188 {
       text-align: center;
+      font-size: 60px;
+    }
+    @include _480 {
+      font-size: 45px;
+      line-height: 54px;
+    }
+    @include _320 {
+      font-size: 36px;
+      line-height: 40px;
     }
   }
   &__text {
-    margin-top: 50px;
-    max-width: 1159px;
-  }
-  &__text-item {
     margin-top: 30px;
-    @extend %light-font;
+    @include _1000{
+      margin-top: 30px;
+    }
+    @include _768 {
+      margin-top: 15px;
+    }
+    @include _480 {
+      margin-top: 10px;
+    }
   }
-  &__social-link svg {
-    @include _1000 {
-      height: 5rem;
-      width: 5rem;
+  &__text-item{
+    @extend %light-font;
+    @include _480 {
+      text-align: center;
+      font-size: 21px;
+      line-height: 29px;
+    }
+    @include _320 {
+      font-size: 18px;
+      line-height: 27px;
+    }
+  }
+  &__text-item + .about__text-item{
+    margin-top: 30px;
+    @include _768{
+      margin-top: 20px;
+    }
+    @include _480{
+      margin-top: 10px;
     }
   }
 }

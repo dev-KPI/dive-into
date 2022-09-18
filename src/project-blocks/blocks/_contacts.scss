@@ -1,24 +1,50 @@
 .contacts {
-  min-height: 550px;
   background-color: #eaeaea;
   &__inner {
-    padding: 50px 0px 50px;
+    padding: 50px 0px;
     @extend %container;
+    @include _1000{
+      padding: 35px 0;
+    }
+    @include _768 {
+      padding: 25px 0;
+    }
+    @include _480 {
+      padding: 15px 0;
+    }
   }
   &__title {
     @extend %title-font;
     @include _1188 {
       text-align: center;
     }
+    @include _480 {
+      font-size: 48px;
+      line-height: 61px;
+    }
+    @include _320 {
+      font-size: 36px;
+      line-height: 40px;
+    }
   }
   &__items-box {
     padding-top: 40px;
+    @include _768 {
+      padding-top: 10px;
+    }
   }
   &__item {
     display: flex;
     gap: 60px;
     @include _1188 {
       align-items: center;
+    }
+    @include _480 {
+      flex-direction: column;
+      gap: 25px;
+    }
+    @include _320 {
+      gap: 15px;
     }
   }
   &__item + .contacts__item {
@@ -28,13 +54,28 @@
     @extend %light-font;
     align-items: center;
     display: flex;
+    @include _480 {
+      text-align: center;
+      font-size: 21px;
+      line-height: 29px;
+    }
+    @include _320 {
+      font-size: 18px;
+      line-height: 27px;
+    }
   }
-  &__item-link svg{
-    height: 140px; 
-    width: 140px;
-    @include _1000{
-      height: 100px;
-      width: 100px;
+  &__item-link svg {
+    @include _1000 {
+      height: 6rem;
+      width: 6rem;
+    }
+    @include _480 {
+      width: 5rem;
+      height: 5rem;
+    }
+    @include _320 {
+      width: 4rem;
+      height: 4rem;
     }
   }
 }
