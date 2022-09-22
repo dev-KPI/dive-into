@@ -1,6 +1,15 @@
 import "../../../index.scss";
-
+ 
 document.addEventListener('DOMContentLoaded', ()=> {
+  // fix transition on page load
+  function returnTransition() {
+    document.querySelector("body").classList.remove("no-transition");
+  }
+  window.onload = () => {
+    search();
+    returnTransition();
+  };
+
   // atom animation
   const circles = document.querySelectorAll("#circle");
   const atom = document.querySelector("#atom");
@@ -12,16 +21,37 @@ document.addEventListener('DOMContentLoaded', ()=> {
     });
   });
 
-  const navbar = document.querySelector('.navbar');
-  const burger = document.querySelector(".burger");
-  const blur = document.querySelector(".wrapper-blur");
-  //burger menu
-  function toggleMenu() {
-    navbar.classList.toggle('navbar--open');
-    burger.classList.toggle("burger--open");
-    document.body.classList.toggle("lock-scroll");
-    blur.classList.toggle('wrapper-blur--show');
-  };
+   var winX = null;
+   var winY = null;
+
+   window.addEventListener("scroll", function () {
+     if (winX !== null && winY !== null) {
+       window.scrollTo(winX, winY);
+     }
+   });
+
+   function disableWindowScroll() {
+     winX = window.scrollX;
+     winY = window.scrollY;
+   }
+
+   function enableWindowScroll() {
+     winX = null;
+     winY = null;
+   }
+
+   const navbar = document.querySelector(".navbar");
+   const burger = document.querySelector(".burger");
+   const blur = document.querySelector(".wrapper-blur");
+
+   //burger menu
+   function toggleMenu() {
+     navbar.classList.toggle("navbar--open");
+     burger.classList.toggle("burger--open");
+     blur.classList.toggle("wrapper-blur--show");
+     winX == null ? disableWindowScroll() : enableWindowScroll();
+   }
+
   // burger open
   burger.addEventListener("click", ()=>{
     if(filtersWindow.classList.contains('section__filters-open')){
@@ -38,8 +68,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
   filtersClose.addEventListener("click", toggleFiltersWindow);
   function toggleFiltersWindow() {
     filtersWindow.classList.toggle('section__filters-open');
-    document.body.classList.toggle("lock-scroll");
     blur.classList.toggle('wrapper-blur--show');
+    winX == null ? disableWindowScroll() : enableWindowScroll();
   }
 
   // close menu
@@ -51,14 +81,20 @@ document.addEventListener('DOMContentLoaded', ()=> {
     }
   });
 
-  // fix menu on resizing window
-    window.addEventListener('resize', ()=>{
+  
+  // fix menu and window on resizing window
+  let timeOutFunctionId;
+  window.addEventListener('resize', ()=>{
+    document.body.classList.add("no-transition");
     if(window.matchMedia('(min-width: 1000px)').matches && document.querySelector('.section__filters').classList.contains('section__filters-open')){
       toggleFiltersWindow();
     } else if (window.matchMedia('(min-width: 768px)').matches && navbar.classList.contains('navbar--open')){
       toggleMenu();
     }
-  })
+    clearTimeout(timeOutFunctionId);
+    timeOutFunctionId = setTimeout(returnTransition, 250);
+  });
+
   
   // add member
   class MembersCard {
@@ -214,12 +250,12 @@ document.addEventListener('DOMContentLoaded', ()=> {
   
   function openModal(modal) {
     modal.style.display = "block";
-    document.body.classList.add('lock-scroll');
+    disableWindowScroll();
   }
 
   function closeModal(modal) {
     modal.style.display = "none";
-    document.body.classList.remove("lock-scroll");
+    enableWindowScroll();
   }
 
   modalTrigger.forEach((btn) => {
@@ -264,10 +300,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
   const btns = document.querySelectorAll(".btn"),
     list = document.querySelectorAll(".section__item");
 
-  window.onload = () => {
-    // Array.from(list).forEach((item) => (item.style.transition = "all 0.4s ease-out"));
-    search();
-  };
   let filters = [];
   btns.forEach((btn) => {
     btn.addEventListener("click", () => {
