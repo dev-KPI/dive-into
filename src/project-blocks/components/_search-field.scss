@@ -39,7 +39,9 @@
     @include _768{
       height: 50px;
       padding-left: 50px;
-  }
+      font-size: 20px;
+      line-height: 27px;
+    }
   }
 
   &-btn{
