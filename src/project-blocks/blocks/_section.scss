@@ -111,7 +111,7 @@
     @include underline('&-heading',$textColor);
     @include _1000{
       visibility: hidden;
-      position: absolute;
+      position: fixed;
       top: 200px;
       opacity: 0;
       z-index: 50;
@@ -132,7 +132,6 @@
     &-open{
       visibility: visible;
       opacity: 1;
-      position: fixed;
       transition: opacity 0.2s ease-in,  visibility 0.2s ease-in;
     }
 
