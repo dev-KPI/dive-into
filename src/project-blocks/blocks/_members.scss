@@ -1,36 +1,48 @@
 .members {
   padding: 50px 0;
   @extend %container;
+  min-height: 86vh;
+  @include _480{
+    padding: 30px 0;
+  }
   &__top {
     display: flex;
-    gap: 30px;
+    gap: 100px;
     justify-content: space-between;
     align-items: center;
+    @include _1000{
+      gap: 30px;
+    }
     @include _768{
+      gap: 15px;
+    }
+    @include _480 {
       flex-wrap: wrap;
     }
   }
-  &__title{
+  &__title {
     @extend %title-font;
+    @include _768 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 54px;
+    }
   }
   &__main {
     display: flex;
     gap: 40px;
     margin-top: 90px;
-    @include _768{
-      flex-wrap: wrap;
+    justify-content: center;
+    @include _1000{
+      margin-top: 50px;
+    }
+    @include _480 {
+      margin-top: 25px;
     }
   }
-  &__filters{
-    @include _768{
-    order: 1;
-    max-width: 100%;
-    }
-  }
-  &__list{
-    @include _768{
-    order: 2;
-    width: 100%;
+  &__list {
+    @include _768 {
+      width: 100%;
     }
   }
 }

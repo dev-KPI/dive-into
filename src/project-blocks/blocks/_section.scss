@@ -1,10 +1,18 @@
 .section{
   &__list {
-    width: 560px;
+    max-width: 560px;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    @include _1000{
+      max-width: 760px;
+    }
+    @include _768{
+      max-width: 690px;
+    }
   }
   &__item {
+    transition: all 0.4s ease-out;
     box-sizing: border-box;
     padding: 0 30px;
     height: 70px;
@@ -21,6 +29,18 @@
     
     @include underline('&-counter', $textColor);
     cursor: pointer;
+    @include _480{
+      font-size: 20px;
+      line-height: 27px;
+      padding: 0 10px;
+      gap: 10px;
+      height: 60px;
+    }
+    @include _320{
+      font-size: 16px;
+      line-height: 22px;
+      height: 55px;
+    }
   }
 
   &__item-counter::after{
@@ -30,8 +50,11 @@
     height: 30px;
     background-color: $mainColor;
     right: 115%;
-    top: 15%;
+    top: 10%;
     border-radius: 100px;
+    @include _768{
+      display: none;
+    }
   }
 
   &__item-counter {
@@ -40,13 +63,23 @@
 
   &__item{
     margin-bottom: 25px;
+    @include _480{
+      margin-bottom: 15px;
+    }
     &:last-child{
       margin-bottom: 0;
     }
+   
   }
   
   &__item-link{
     height: 50px;
+    & svg{
+      height: 50px;
+      @include _480{
+        display: none;
+      }
+    }
   }
 
   &__item.hide {
@@ -69,20 +102,55 @@
   &__filters {
     box-sizing: border-box;
     max-width: 560px;
-    height: 100%;
+    width: 100%;
+    height: fit-content;
     background-color: #dcdaeb;
     border-radius: 20px;
     padding: 0 25px 19px;
+
+    @include underline('&-heading',$textColor);
+    @include _1000{
+      visibility: hidden;
+      position: fixed;
+      top: 200px;
+      opacity: 0;
+      z-index: 50;
+      transition: opacity 0.2s ease-in, visibility 0.2s ease-in;
+    }
+    @include _768{
+      width: 90%;
+    }
+    @include _480{
+      top: 150px;
+    }
+
     &-heading {
       display: inline-block;
       @extend %text-font;
     }
-    @include underline('&-heading',$textColor);
+
+    &-open{
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 0.2s ease-in,  visibility 0.2s ease-in;
+    }
+
+    &-close{
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 5;
+      cursor: pointer;
+    }
+
     &-block{
       box-sizing: border-box;
       margin-top: 17px;
       padding-bottom: 20px;
       position: relative;
+      @include _480{
+        margin-top: 10px;
+      }
       &::after{
         position: absolute;
         content:'';
@@ -96,8 +164,7 @@
       &:last-child::after{
         background:none;
       }
-    }
-    
+    } 
   }
 
   &__buttons {
@@ -105,6 +172,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    @include _480{
+      margin-top: 10px;
+    }
   }
   
   &__btn {

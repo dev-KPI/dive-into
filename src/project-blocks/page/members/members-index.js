@@ -1,6 +1,15 @@
 import "../../../index.scss";
-
+ 
 document.addEventListener('DOMContentLoaded', ()=> {
+  // fix transition on page load
+  function returnTransition() {
+    document.querySelector("body").classList.remove("no-transition");
+  }
+  window.onload = () => {
+    search();
+    returnTransition();
+  };
+
   // atom animation
   const circles = document.querySelectorAll("#circle");
   const atom = document.querySelector("#atom");
@@ -12,12 +21,81 @@ document.addEventListener('DOMContentLoaded', ()=> {
     });
   });
 
-  //burger menu
-  document.querySelector(".burger").addEventListener("click", () => {
-    document.querySelector(".navbar").classList.toggle("navbar--open");
-    document.querySelector(".burger").classList.toggle("burger--open");
+   var winX = null;
+   var winY = null;
+
+   window.addEventListener("scroll", function () {
+     if (winX !== null && winY !== null) {
+       window.scrollTo(winX, winY);
+     }
+   });
+
+   function disableWindowScroll() {
+     winX = window.scrollX;
+     winY = window.scrollY;
+   }
+
+   function enableWindowScroll() {
+     winX = null;
+     winY = null;
+   }
+
+   const navbar = document.querySelector(".navbar");
+   const burger = document.querySelector(".burger");
+   const blur = document.querySelector(".wrapper-blur");
+
+   //burger menu
+   function toggleMenu() {
+     navbar.classList.toggle("navbar--open");
+     burger.classList.toggle("burger--open");
+     blur.classList.toggle("wrapper-blur--show");
+     winX == null ? disableWindowScroll() : enableWindowScroll();
+   }
+
+  // burger open
+  burger.addEventListener("click", ()=>{
+    if(filtersWindow.classList.contains('section__filters-open')){
+      toggleFiltersWindow();
+    }
+    toggleMenu();
   });
 
+  // filters menu
+  const filtersModalBtn = document.querySelector(".search-filters-btn");
+  const filtersWindow = document.querySelector(".section__filters");
+  const filtersClose = document.querySelector('.section__filters-close');
+  filtersModalBtn.addEventListener("click", toggleFiltersWindow);
+  filtersClose.addEventListener("click", toggleFiltersWindow);
+  function toggleFiltersWindow() {
+    filtersWindow.classList.toggle('section__filters-open');
+    blur.classList.toggle('wrapper-blur--show');
+    winX == null ? disableWindowScroll() : enableWindowScroll();
+  }
+
+  // close menu
+  blur.addEventListener('click', ()=>{
+    if(blur.classList.contains('wrapper-blur--show') && navbar.classList.contains('navbar--open') ){
+      toggleMenu();
+    } else if(blur.classList.contains('wrapper-blur--show') && filtersWindow.classList.contains('section__filters-open')){
+      toggleFiltersWindow();
+    }
+  });
+
+  
+  // fix menu and window on resizing window
+  let timeOutFunctionId;
+  window.addEventListener('resize', ()=>{
+    document.body.classList.add("no-transition");
+    if(window.matchMedia('(min-width: 1000px)').matches && document.querySelector('.section__filters').classList.contains('section__filters-open')){
+      toggleFiltersWindow();
+    } else if (window.matchMedia('(min-width: 768px)').matches && navbar.classList.contains('navbar--open')){
+      toggleMenu();
+    }
+    clearTimeout(timeOutFunctionId);
+    timeOutFunctionId = setTimeout(returnTransition, 250);
+  });
+
+  
   // add member
   class MembersCard {
     constructor(id, name, surname, dateOfBirth, email, photoSrc, about, linkedinLink, discordLink, githubLink, numProjects, features) {
@@ -85,7 +163,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
           <p class="modal__text">
             ${this.about}
           </p>
-          <ul class="social">
+          <ul class="modal__social social">
             <li class="social__item">
               <a class="social__item-link" href="${this.linkedinLink}">
                 <svg class="social__item-link--linkedin" width="100" height="100" viewBox="0 0 100 100" fill="none"
@@ -132,7 +210,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
           const el = document.createElement("span");
           el.classList.add("modal__filters-item");
           el.textContent = `${feature}`;
-          console.log(el);
           document.querySelector(`.${this.modalId} .modal__filters`).append(el);
         });
       }
@@ -170,15 +247,15 @@ document.addEventListener('DOMContentLoaded', ()=> {
   // modal window
   const modalTrigger = document.querySelectorAll("[data-modal]"),
         modals = document.querySelectorAll('.modal');
-
+  
   function openModal(modal) {
     modal.style.display = "block";
-    document.body.style.overflow = "hidden";
+    disableWindowScroll();
   }
 
   function closeModal(modal) {
     modal.style.display = "none";
-    document.body.style.overflow = "";
+    enableWindowScroll();
   }
 
   modalTrigger.forEach((btn) => {
@@ -203,7 +280,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   // custom input-range
   const range = document.querySelector(".range-input"),
     output = document.querySelector(".range-output");
-
+  
   range.addEventListener("input", () => {
     setOutput(range, output);
   });
@@ -223,11 +300,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
   const btns = document.querySelectorAll(".btn"),
     list = document.querySelectorAll(".section__item");
 
-  window.onload = () => {
-    Array.from(list).forEach((item) => (item.style.transition = "all 0.4s ease-out"));
-    search();
-  };
-
   let filters = [];
   btns.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -246,6 +318,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
       search();
     });
   });
+  
   //search-field && input-range filters
 
   const searchInput = document.querySelector(".search-input");

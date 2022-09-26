@@ -28,9 +28,19 @@
   transform: scale(1.12);
   }
   &__item-link svg{
-      @include _1000{
+    @include _1000{
       height: 60px;
       width: 60px;
+    }
+    // @include _1000 {
+    //   height: 5rem;
+    //   width: 5rem;
+    // } 
+    @include _768 {
+      margin-right: 0;
+    }
+    @include _480 {
+      margin: 0 10px;
     }
   }
 }

@@ -1,11 +1,15 @@
 .footer {
   background-color: $mainColor;
   margin-top: auto;
+  z-index: 30;
   &__inner {
     @extend %container;
     display: flex;
     height: 140px;
     justify-content: flex-end;
     align-items: center;
+    @include _768 {
+      justify-content: center;
+    }
   }
 }
