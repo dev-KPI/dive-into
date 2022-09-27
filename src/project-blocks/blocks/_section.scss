@@ -119,6 +119,8 @@
     }
     @include _768{
       width: 90%;
+      top: 170px;
+      padding: 0 20px 10px;
     }
     @include _480{
       top: 150px;
@@ -127,6 +129,10 @@
     &-heading {
       display: inline-block;
       @extend %text-font;
+      @include _480{
+        font-size: 19px;
+        line-height: 27px;
+      }
     }
 
     &-open{
@@ -148,7 +154,7 @@
       margin-top: 17px;
       padding-bottom: 20px;
       position: relative;
-      @include _480{
+      @include _768{
         margin-top: 10px;
       }
       &::after{
@@ -172,8 +178,12 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    @include _1000{
+      margin-top: 15px;
+    }
     @include _480{
       margin-top: 10px;
+      gap: 5px;
     }
   }
   
@@ -181,9 +191,20 @@
     min-width: 60px;
     min-height: 40px;
     padding: 4px 10px;
+    @include _768{
+      padding: 2px 6px;
+      
+    }
+    @include _480{
+      font-size: 14px;
+      line-height: 19px;
+    }
   }
 
   &__range{
-    margin: 40px auto 0 auto
+    margin: 40px auto 0 auto;
+    @include _1000{
+      margin-top: 30px;
+    }
   }
 }
