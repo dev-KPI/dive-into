@@ -21,15 +21,23 @@ npm run dev
  ┣ 📂.git
  ┣ 📂.node_modules
  ┣ 📂public
- ┃ ┣ 📂img
- ┃ ┣ 📂fonts
- ┃ ┣ 📂css
- ┃ ┣ 📂js
- ┃ ┣ 📜about-us.html
- ┃ ┣ 📜index.html
- ┃ ┣ 📜members.html
- ┃ ┗ 📜projects.html
+ ┃ ┣ 📂assets
+ ┃ ┃ ┣ 📂css
+ ┃ ┃ ┣ 📂fonts
+ ┃ ┃ ┣ 📂img
+ ┃ ┃ ┗ 📂js
+ ┃ ┣ 📂project-blocks
+ ┃ ┃ ┣ 📂about-us
+ ┃ ┃ ┃ ┗ 📜about-us.html
+ ┃ ┃ ┣ 📂members
+ ┃ ┃ ┃ ┗ 📜members.html
+ ┃ ┃ ┗ 📂projects
+ ┃ ┃   ┗ 📜projects.html
+ ┃ ┗ 📜index.html
  ┣ 📂src
+ ┃ ┣ 📂assets
+ ┃ ┃ ┣ 📂fonts
+ ┃ ┃ ┗ 📂img
  ┃ ┣ 📂project-blocks
  ┃ ┃ ┣ 📂abstracts
  ┃ ┃ ┃ ┗ 📜__abstracts-dir.scss
