@@ -18,20 +18,18 @@
     padding-top: 145px;
     right: 0;
     top: 140px;
-    bottom: -140px;
+    bottom: -1000px;
     background: #f0f0f0;
     opacity: 0;
-    transition: opacity 0.5s cubic-bezier(0.77,0.2,0.05,1.0), visibility 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
     box-shadow: 2px 3px 17px 0px #000;
     &--open{
       opacity: 1;
       visibility: visible;
     }
-
     &__list{
       flex-direction: column;
       gap:53px;
-      display: flex;
     }
     &__link{
       color: $mainColor;

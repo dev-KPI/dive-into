@@ -1,6 +1,15 @@
 import "../../../index.scss";
+ 
+document.addEventListener('DOMContentLoaded', ()=> {
+  // fix transition on page load
+  function returnTransition() {
+    document.querySelector("body").classList.remove("no-transition");
+  }
+  window.onload = () => {
+    search();
+    returnTransition();
+  };
 
-document.addEventListener("DOMContentLoaded", () => {
   // atom animation
   const circles = document.querySelectorAll("#circle");
   const atom = document.querySelector("#atom");
@@ -12,30 +21,85 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  //burger menu
-  document.querySelector(".burger").addEventListener("click", () => {
-    document.querySelector(".navbar").classList.toggle("navbar--open");
-    document.querySelector(".burger").classList.toggle("burger--open");
-    document.querySelector(".wrapper").classList.toggle("wrapper-blur");
+   var winX = null;
+   var winY = null;
+
+   window.addEventListener("scroll", function () {
+     if (winX !== null && winY !== null) {
+       window.scrollTo(winX, winY);
+     }
+   });
+
+   function disableWindowScroll() {
+     winX = window.scrollX;
+     winY = window.scrollY;
+   }
+
+   function enableWindowScroll() {
+     winX = null;
+     winY = null;
+   }
+
+   const navbar = document.querySelector(".navbar");
+   const burger = document.querySelector(".burger");
+   const blur = document.querySelector(".wrapper-blur");
+
+   //burger menu
+   function toggleMenu() {
+     navbar.classList.toggle("navbar--open");
+     burger.classList.toggle("burger--open");
+     blur.classList.toggle("wrapper-blur--show");
+     winX == null ? disableWindowScroll() : enableWindowScroll();
+   }
+
+  // burger open
+  burger.addEventListener("click", ()=>{
+    if(filtersWindow.classList.contains('section__filters-open')){
+      toggleFiltersWindow();
+    }
+    toggleMenu();
   });
 
+  // filters menu
+  const filtersModalBtn = document.querySelector(".search-filters-btn");
+  const filtersWindow = document.querySelector(".section__filters");
+  const filtersClose = document.querySelector('.section__filters-close');
+  filtersModalBtn.addEventListener("click", toggleFiltersWindow);
+  filtersClose.addEventListener("click", toggleFiltersWindow);
+  function toggleFiltersWindow() {
+    filtersWindow.classList.toggle('section__filters-open');
+    blur.classList.toggle('wrapper-blur--show');
+    winX == null ? disableWindowScroll() : enableWindowScroll();
+  }
+
+  // close menu
+  blur.addEventListener('click', ()=>{
+    if(blur.classList.contains('wrapper-blur--show') && navbar.classList.contains('navbar--open') ){
+      toggleMenu();
+    } else if(blur.classList.contains('wrapper-blur--show') && filtersWindow.classList.contains('section__filters-open')){
+      toggleFiltersWindow();
+    }
+  });
+
+  
+  // fix menu and window on resizing window
+  let timeOutFunctionId;
+  window.addEventListener('resize', ()=>{
+    document.body.classList.add("no-transition");
+    if(window.matchMedia('(min-width: 1000px)').matches && document.querySelector('.section__filters').classList.contains('section__filters-open')){
+      toggleFiltersWindow();
+    } else if (window.matchMedia('(min-width: 768px)').matches && navbar.classList.contains('navbar--open')){
+      toggleMenu();
+    }
+    clearTimeout(timeOutFunctionId);
+    timeOutFunctionId = setTimeout(returnTransition, 250);
+  });
+
+  
   // add member
   class MembersCard {
-    constructor(
-      id,
-      name,
-      surname,
-      dateOfBirth,
-      email,
-      photoSrc,
-      about,
-      linkedinLink,
-      discordLink,
-      githubLink,
-      numProjects,
-      features
-    ) {
-      this.id = id;
+    constructor(id, name, surname, dateOfBirth, email, photoSrc, about, linkedinLink, discordLink, githubLink, numProjects, features) {
+      this.id=id;
       this.name = name;
       this.surname = surname;
       this.dateOfBirth = dateOfBirth;
@@ -48,16 +112,14 @@ document.addEventListener("DOMContentLoaded", () => {
       this.numProjects = numProjects;
       this.features = features;
 
-      this.modalId = `modal-${this.id}`;
-      this.age = this.getAge();
+      this.modalId = `modal-${this.id}`;  
+      this.age = this.getAge();   
     }
     // count age of members
     getAge() {
-      let dateOfBirth = this.dateOfBirth.split(".");
-      let ageInMilliseconds =
-        new Date() -
-        new Date(dateOfBirth[2], dateOfBirth[1] - 1, dateOfBirth[0]);
-      return Math.floor(ageInMilliseconds / 1000 / 60 / 60 / 24 / 365.25); // convert to years
+      let dateOfBirth = this.dateOfBirth.split('.');
+      let ageInMilliseconds = new Date() - new Date(dateOfBirth[2], dateOfBirth[1]-1, dateOfBirth[0]);
+      return Math.floor(ageInMilliseconds/1000/60/60/24/365.25); // convert to years
     }
     render() {
       const el = document.createElement("li");
@@ -67,11 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
         el.classList.add("section__item");
       } else {
         el.classList.add("section__item");
-        this.features
-          .split(", ")
-          .forEach((feature) =>
-            el.classList.add(feature.toLowerCase().replace(/ |\./, ""))
-          );
+        this.features.split(', ').forEach((feature) => el.classList.add(feature.toLowerCase().replace(/ |\./, "")));
       }
       el.innerHTML = `
             <span class="section__item-name">${this.name} ${this.surname}</span>
@@ -79,10 +137,10 @@ document.addEventListener("DOMContentLoaded", () => {
               href="${this.githubLink}">${this.numProjects} projects
             </a>
           `;
-      document.querySelector(".section__list").append(el);
+      document.querySelector('.section__list').append(el);
       this.modal();
     }
-    modal() {
+    modal(){
       const el = document.createElement("div");
       this.el = `modal`;
       el.classList.add(this.el);
@@ -93,16 +151,10 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="modal__dialog">
         <div class="modal__content">
           <div class="modal__info">
-            <img class="modal__info-img" src="${
-              this.photoSrc ? this.photoSrc : "/assets/img/modal-img.png"
-            }" alt="photo" />
+            <img class="modal__info-img" src="${this.photoSrc ? this.photoSrc : "/assets/img/modal-img.png"}" alt="photo" />
             <div class="modal__personal">
-              <h2 class="modal__personal-title">${this.name} ${
-        this.surname
-      }</h2>
-              <p class="modal__personal-age">${this.age} years (${
-        this.dateOfBirth
-      })</p>
+              <h2 class="modal__personal-title">${this.name} ${this.surname}</h2>
+              <p class="modal__personal-age">${this.age} years (${this.dateOfBirth})</p>
               <p class="modal__personal-email">${this.email}</p>
             </div>
           </div>
@@ -111,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="modal__text">
             ${this.about}
           </p>
-          <ul class="social">
+          <ul class="modal__social social">
             <li class="social__item">
               <a class="social__item-link" href="${this.linkedinLink}">
                 <svg class="social__item-link--linkedin" width="100" height="100" viewBox="0 0 100 100" fill="none"
@@ -151,14 +203,13 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       </div>
           `;
-      document.querySelector(".wrapper").append(el);
+      document.querySelector(".wrapper").append(el);   
       //add features to member in modal window
       if (this.features.length !== 0) {
         this.features.split(", ").forEach((feature) => {
           const el = document.createElement("span");
           el.classList.add("modal__filters-item");
           el.textContent = `${feature}`;
-          console.log(el);
           document.querySelector(`.${this.modalId} .modal__filters`).append(el);
         });
       }
@@ -195,30 +246,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // modal window
   const modalTrigger = document.querySelectorAll("[data-modal]"),
-    modals = document.querySelectorAll(".modal");
-
+        modals = document.querySelectorAll('.modal');
+  
   function openModal(modal) {
     modal.style.display = "block";
-    document.body.style.overflow = "hidden";
+    disableWindowScroll();
   }
 
   function closeModal(modal) {
     modal.style.display = "none";
-    document.body.style.overflow = "";
+    enableWindowScroll();
   }
 
   modalTrigger.forEach((btn) => {
     const idModal = btn.getAttribute("data-modal");
     const modal = document.querySelector(`.modal-${idModal}`);
-    btn.addEventListener("click", (evt) => {
+    btn.addEventListener("click", (evt)=>{
       if (evt.target.tagName === "A") {
         return;
       }
       openModal(modal);
     });
   });
-
-  modals.forEach((modal) => {
+  
+  modals.forEach(modal => {
     modal.addEventListener("click", (e) => {
       if (e.target === modal || e.target.getAttribute("data-close") == "") {
         closeModal(modal);
@@ -229,7 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // custom input-range
   const range = document.querySelector(".range-input"),
     output = document.querySelector(".range-output");
-
+  
   range.addEventListener("input", () => {
     setOutput(range, output);
   });
@@ -249,13 +300,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const btns = document.querySelectorAll(".btn"),
     list = document.querySelectorAll(".section__item");
 
-  window.onload = () => {
-    Array.from(list).forEach(
-      (item) => (item.style.transition = "all 0.4s ease-out")
-    );
-    search();
-  };
-
   let filters = [];
   btns.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -269,15 +313,12 @@ document.addEventListener("DOMContentLoaded", () => {
         filters.push(btn.dataset.filter);
       }
       Array.from(list)
-        .filter(
-          (item) =>
-            !Array.from(item.classList).some((el) => filters.includes(el))
-        )
+        .filter((item) =>!Array.from(item.classList).some((el) => filters.includes(el)))
         .forEach((item) => item.classList.add("hide"));
       search();
     });
   });
-
+  
   //search-field && input-range filters
 
   const searchInput = document.querySelector(".search-input");
@@ -289,41 +330,19 @@ document.addEventListener("DOMContentLoaded", () => {
   function search() {
     let searchWord = searchInput.value.toLowerCase();
     list.forEach((item) => {
-      const projValue = +item.children[1].textContent.match(/\d/g).join("");
+      const projValue = +item.children[1].textContent.match(/\d/g).join('');
       const title = item.firstElementChild.textContent.toLowerCase();
       if (filters.length !== 0) {
         title.includes(searchWord) &&
         Array.from(item.classList).some((el) => filters.includes(el)) &&
-        projValue >= range.value
+        projValue >= range.value 
           ? item.classList.remove("hide")
           : item.classList.add("hide");
       } else {
-        title.includes(searchWord) && projValue >= range.value
+        title.includes(searchWord) && projValue >= range.value 
           ? item.classList.remove("hide")
           : item.classList.add("hide");
       }
     });
-  }
+  } 
 });
-
-if (window.matchMedia("(max-width: 1188px)").matches) {
-  const filtersBtn = document.querySelector(".filters-btn");
-  const filtersBlock = document.querySelector(".section__filters");
-  const filtersClose = document.querySelector(".section__filters-close");
-  const members = document.querySelector(".members");
-  const searchInput = document.querySelector(".search");
-  filtersBtn.addEventListener("click", function () {
-    filtersBlock.style.visibility = "visible";
-    filtersBlock.style.opacity = "1";
-    members.style.backgroundColor = "rgba(12, 9, 43, 0.5)";
-    searchInput.style.zIndex = "-1";
-  });
-  filtersClose.addEventListener("click", function () {
-    filtersBlock.style.visibility = "hidden";
-    filtersBlock.style.opacity = "0";
-    members.style.backgroundColor = "white";
-    searchInput.style.zIndex = "1";
-  });
-  filtersBlock.style.transition = "visibility 0.2s, opacity 0.2s linear";
-  members.style.transition = "background-color 0.2s linear";
-}

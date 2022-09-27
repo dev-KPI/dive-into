@@ -25,7 +25,6 @@
     &--open span{
       opacity: 1;
       transform: rotate(45deg) translate(-2px, -1px);
-      // background: #232323;
     }
     &--open span:nth-child(2){
       opacity: 0;
@@ -35,5 +34,8 @@
       opacity: 1;
       transform: rotate(-45deg) translate(0px, -1px);
     }
+  }
+  @include _480{
+    margin-right: 10px;
   }
 }

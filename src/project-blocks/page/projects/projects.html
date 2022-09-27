@@ -7,11 +7,11 @@
     <title>Dive Into</title>
   </head>
 
-  <body>
+  <body class="no-transition">
     <div class="wrapper">
       <header class="header">
         <div class="header__inner">
-          <a class="header__link" href="http://127.0.0.1:5173/index.html">
+          <a class="header__link" href="127.0.0.1:5173/index.html">
             <svg
               id="atom"
               width="215"
@@ -243,12 +243,14 @@
           <div class="projects__top">
             <h2 class="projects__title">Projects</h2>
             <form class="projects__search search">
-              <button class="search-btn" type="submit">
+              <button class="search-btn" type="button">
                 <img src="/assets/img/search.svg" alt="search" />
               </button>
               <input class="search-input" type="text" placeholder="" />
-              <button class="search-btn filters-btn" type="button">
-                <img src="/assets/img/filters.svg" alt="filters" />
+              <button class="search-btn search-filters-btn" type="button">
+                <span></span>
+                <span></span>
+                <span></span>
               </button>
             </form>
           </div>
@@ -366,14 +368,34 @@
             </ul>
 
             <div class="section__filters projects__filters">
-              <div class="section__filters-block">
-                <div class="section__filters-block-header">
-                  <h3 class="section__filters-heading">Project direction</h3>
-                  <img
-                    class="section__filters-close"
-                    src="/assets/img/filters-close.svg"
+              <svg
+                data-close
+                class="section__filters-close"
+                width="30"
+                height="30"
+                viewBox="0 0 30 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_2246_1321)">
+                  <path
+                    d="M28.9284 1.07144L1.07129 28.9286"
+                    stroke="#0C073E"
+                    stroke-width="2.14286"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                   />
-                </div>
+                  <path
+                    d="M1.07129 1.07144L28.9284 28.9286"
+                    stroke="#0C073E"
+                    stroke-width="2.14286"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </g>
+              </svg>
+              <div class="section__filters-block">
+                <h3 class="section__filters-heading">Project direction</h3>
                 <div class="section__buttons">
                   <button class="section__btn btn btn--red" data-filter="web">
                     Web
@@ -585,6 +607,7 @@
           </div>
         </div>
       </div>
+      <div class="wrapper-blur"></div>
     </div>
   </body>
   <script src="projects-index.js" type="module"></script>

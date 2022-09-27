@@ -1,14 +1,16 @@
 .contacts {
-  min-height: 550px;
   background-color: #eaeaea;
   &__inner {
-    padding: 50px 0px 50px;
+    padding: 50px 0px;
     @extend %container;
-    @include _480 {
-      padding-top: 40px;
+    @include _1000{
+      padding: 35px 0;
     }
-    @include _320 {
-      padding-top: 30px;
+    @include _768 {
+      padding: 25px 0;
+    }
+    @include _480 {
+      padding: 15px 0;
     }
   }
   &__title {
@@ -27,11 +29,8 @@
   }
   &__items-box {
     padding-top: 40px;
-    @include _480 {
-      padding-top: 35px;
-    }
-    @include _320 {
-      padding-top: 30px;
+    @include _768 {
+      padding-top: 10px;
     }
   }
   &__item {
@@ -63,6 +62,20 @@
     @include _320 {
       font-size: 18px;
       line-height: 27px;
+    }
+  }
+  &__item-link svg {
+    @include _1000 {
+      height: 6rem;
+      width: 6rem;
+    }
+    @include _480 {
+      width: 5rem;
+      height: 5rem;
+    }
+    @include _320 {
+      width: 4rem;
+      height: 4rem;
     }
   }
 }

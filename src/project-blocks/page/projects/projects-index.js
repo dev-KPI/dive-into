@@ -1,6 +1,15 @@
 import "../../../index.scss";
 
 document.addEventListener("DOMContentLoaded", () => {
+  // fix transition on page load
+  function returnTransition() {
+    document.querySelector("body").classList.remove("no-transition");
+  }
+  window.onload = () => {
+    search();
+    returnTransition();
+  };
+
   // atom animation
   const circles = document.querySelectorAll("#circle");
   const atom = document.querySelector("#atom");
@@ -12,18 +21,87 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // burger menu
-  document.querySelector(".burger").addEventListener("click", () => {
-    document.querySelector(".navbar").classList.toggle("navbar--open");
-    document.querySelector(".burger").classList.toggle("burger--open");
+   var winX = null;
+   var winY = null;
+
+   window.addEventListener("scroll", function () {
+     if (winX !== null && winY !== null) {
+       window.scrollTo(winX, winY);
+     }
+   });
+
+   function disableWindowScroll() {
+     winX = window.scrollX;
+     winY = window.scrollY;
+   }
+
+   function enableWindowScroll() {
+     winX = null;
+     winY = null;
+   }
+
+   const navbar = document.querySelector(".navbar");
+   const burger = document.querySelector(".burger");
+   const blur = document.querySelector(".wrapper-blur");
+
+   //burger menu
+   function toggleMenu() {
+     navbar.classList.toggle("navbar--open");
+     burger.classList.toggle("burger--open");
+     blur.classList.toggle("wrapper-blur--show");
+     winX == null ? disableWindowScroll() : enableWindowScroll();
+   }
+
+  // burger open
+  burger.addEventListener("click", ()=>{
+    if(filtersWindow.classList.contains('section__filters-open')){
+      toggleFiltersWindow();
+    }
+    toggleMenu();
   });
+
+  // filters menu
+  const filtersModalBtn = document.querySelector(".search-filters-btn");
+  const filtersWindow = document.querySelector(".section__filters");
+  const filtersClose = document.querySelector('.section__filters-close');
+  filtersModalBtn.addEventListener("click", toggleFiltersWindow);
+  filtersClose.addEventListener("click", toggleFiltersWindow);
+  function toggleFiltersWindow() {
+    filtersWindow.classList.toggle('section__filters-open');
+    blur.classList.toggle('wrapper-blur--show');
+    winX == null ? disableWindowScroll() : enableWindowScroll();
+  }
+
+  // close menu
+  blur.addEventListener('click', ()=>{
+    if(blur.classList.contains('wrapper-blur--show') && navbar.classList.contains('navbar--open') ){
+      toggleMenu();
+    } else if(blur.classList.contains('wrapper-blur--show') && filtersWindow.classList.contains('section__filters-open')){
+      toggleFiltersWindow();
+    }
+  });
+
+  
+  // fix menu and window on resizing window
+  let timeOutFunctionId;
+  window.addEventListener('resize', ()=>{
+    document.body.classList.add("no-transition");
+    if(window.matchMedia('(min-width: 1000px)').matches && document.querySelector('.section__filters').classList.contains('section__filters-open')){
+      toggleFiltersWindow();
+    } else if (window.matchMedia('(min-width: 768px)').matches && navbar.classList.contains('navbar--open')){
+      toggleMenu();
+    }
+    clearTimeout(timeOutFunctionId);
+    timeOutFunctionId = setTimeout(returnTransition, 250);
+  });
+
 
   // add project
   class ProjectsCard {
     constructor(
       id,
       name,
-      age,
+      surname,
       dateOfBirth,
       email,
       photoSrc,
@@ -32,12 +110,11 @@ document.addEventListener("DOMContentLoaded", () => {
       discordLink,
       githubLink,
       numMembers,
-      classes,
       features
     ) {
       this.id = id;
       this.name = name;
-      this.age = age;
+      this.surname = surname;
       this.dateOfBirth = dateOfBirth;
       this.email = email;
       this.photoSrc = photoSrc;
@@ -46,24 +123,32 @@ document.addEventListener("DOMContentLoaded", () => {
       this.discordLink = discordLink;
       this.githubLink = githubLink;
       this.numMembers = numMembers;
-      this.classes = classes;
       this.features = features;
       this.modalId = `modal-${this.id}`;
+    }
+    getAge() {
+      let dateOfBirth = this.dateOfBirth.split(".");
+      let ageInMilliseconds =
+        new Date() -
+        new Date(dateOfBirth[2], dateOfBirth[1] - 1, dateOfBirth[0]);
+      return Math.floor(ageInMilliseconds / 1000 / 60 / 60 / 24 / 365.25); // convert to years
     }
     render() {
       const el = document.createElement("li");
 
       el.setAttribute("data-modal", `${this.id}`);
-      if (this.classes.length === 0) {
+      if (this.features.length === 0) {
         el.classList.add("section__item");
       } else {
         el.classList.add("section__item");
-        this.classes
+        this.features
           .split(", ")
-          .forEach((className) => el.classList.add(className));
+          .forEach((feature) =>
+            el.classList.add(feature.toLowerCase().replace(/ |\./, ""))
+          );
       }
       el.innerHTML = `
-           <span class="section__item-name">${this.name}</span>
+           <span class="section__item-name">${this.name} ${this.surname}</span>
             <a class="social__item-link section__item-link" href="${this.githubLink}">
               <svg class="social__item-link--github" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M50 25C50 11.1929 38.8071 0 25 0C11.1929 0 0 11.1929 0 25C0 38.8071 11.1929 50 25 50C38.8071 50 50 38.8071 50 25Z" fill="#0C073E" />
@@ -72,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   fill="white" />
               </svg>
             </a>
-            <a class="section__item-counter"
+            <a class="section__item-counter projects__item-counter"
               href="${this.githubLink}">${this.numMembers} members
             </a>
           `;
@@ -90,23 +175,18 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="modal__dialog">
         <div class="modal__content">
           <div class="modal__info">
-            <img class="modal__info-img" src="${
-              this.photoSrc ? this.photoSrc : "/assets/img/modal-img.png"
-            }" alt="photo" />
+            <img class="modal__info-img" src="${this.photoSrc ? this.photoSrc : "/assets/img/modal-img.png"}" alt="photo" />
             <div class="modal__personal">
-              <h2 class="modal__personal-title">${this.name}</h2>
-              <p class="modal__personal-age">${this.age} years (${
-        this.dateOfBirth
-      })</p>
+              <h2 class="modal__personal-title">${this.name} ${this.surname}</h2>
+              <p class="modal__personal-age">${this.getAge()} years (${this.dateOfBirth})</p>
               <p class="modal__personal-email">${this.email}</p>
             </div>
           </div>
           <div class="modal__filters">
           </div>
-          <p class="modal__text">
-            ${this.about}
+          <p class="modal__text">${this.about}
           </p>
-          <ul class="social">
+          <ul class="modal__social social">
             <li class="social__item">
               <a class="social__item-link" href="${this.linkedinLink}">
                 <svg class="social__item-link--linkedin" width="100" height="100" viewBox="0 0 100 100" fill="none"
@@ -147,18 +227,21 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
           `;
       document.querySelector(".wrapper").append(el);
-      this.features.split(", ").forEach((feature) => {
-        const el = document.createElement("span");
-        el.classList.add("modal__filters-item");
-        el.textContent = `${feature}`;
-        document.querySelector(`.${this.modalId} .modal__filters`).append(el);
-      });
+      //add features to member in modal window
+      if (this.features.length !== 0) {
+        this.features.split(", ").forEach((feature) => {
+          const el = document.createElement("span");
+          el.classList.add("modal__filters-item");
+          el.textContent = `${feature}`;
+          document.querySelector(`.${this.modalId} .modal__filters`).append(el);
+        });
+      }
     }
   }
   new ProjectsCard(
     "1",
     "DIVE INTO site",
-    "17",
+    "",
     "28.11.2004",
     "test@gmail.com",
     "",
@@ -167,13 +250,12 @@ document.addEventListener("DOMContentLoaded", () => {
     "#",
     "#",
     "10",
-    "web, desktop, study",
     "Web, Desktop, Study"
   ).render();
   new ProjectsCard(
     "2",
     "DIVE INTO app",
-    "22",
+    "",
     "12.01.2000",
     "test@gmail.com",
     "",
@@ -182,7 +264,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "#",
     "#",
     "33",
-    "systemDevelopment, mobile, ml, commercial",
     "System Develpment, Mobile, ML, Commercial"
   ).render();
 
@@ -192,12 +273,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function openModal(modal) {
     modal.style.display = "block";
-    document.body.style.overflow = "hidden";
+    disableWindowScroll();
   }
 
   function closeModal(modal) {
     modal.style.display = "none";
-    document.body.style.overflow = "";
+    enableWindowScroll();
   }
 
   modalTrigger.forEach((btn) => {
@@ -241,12 +322,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // button filters
   const btns = document.querySelectorAll(".btn"),
     list = document.querySelectorAll(".section__item");
-
-  window.onload = () => {
-    Array.from(list).forEach(
-      (item) => (item.style.transition = "all 0.4s ease-out")
-    );
-  };
 
   let filters = [];
   btns.forEach((btn) => {
@@ -297,25 +372,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-
-if (window.matchMedia("(max-width: 1188px)").matches) {
-  const filtersBtn = document.querySelector(".filters-btn");
-  const filtersBlock = document.querySelector(".section__filters");
-  const filtersClose = document.querySelector(".section__filters-close");
-  const projects = document.querySelector(".projects");
-  const searchInput = document.querySelector(".search");
-  filtersBtn.addEventListener("click", function () {
-    filtersBlock.style.visibility = "visible";
-    filtersBlock.style.opacity = "1";
-    projects.style.backgroundColor = "rgba(12, 9, 43, 0.5)";
-    searchInput.style.zIndex = "-1";
-  });
-  filtersClose.addEventListener("click", function () {
-    filtersBlock.style.visibility = "hidden";
-    filtersBlock.style.opacity = "0";
-    projects.style.backgroundColor = "white";
-    searchInput.style.zIndex = "1";
-  });
-  filtersBlock.style.transition = "visibility 0.2s, opacity 0.2s linear";
-  projects.style.transition = "background-color 0.2s linear";
-}

@@ -1,14 +1,16 @@
 .about {
   background-color: #eaeaea;
-  min-height: 432px;
   &__inner {
-    padding: 50px 0px 70px;
+    padding: 60px 0px 70px;
     @extend %container;
-    @include _480 {
-      padding-top: 40px;
+    @include _1000{
+      padding: 30px 0 50px;
     }
-    @include _320 {
-      padding-top: 30px;
+    @include _768 {
+      padding: 20px 0 30px;
+    }
+    @include _480 {
+      padding: 10px 0 20px;
     }
   }
   &__title {
@@ -16,10 +18,11 @@
     text-transform: uppercase;
     @include _1188 {
       text-align: center;
+      font-size: 60px;
     }
     @include _480 {
-      font-size: 48px;
-      line-height: 61px;
+      font-size: 45px;
+      line-height: 54px;
     }
     @include _320 {
       font-size: 36px;
@@ -27,17 +30,18 @@
     }
   }
   &__text {
-    margin-top: 50px;
-    max-width: 1159px;
-    @include _480 {
-      margin-top: 40px;
-    }
-    @include _320 {
+    margin-top: 30px;
+    @include _1000{
       margin-top: 30px;
     }
+    @include _768 {
+      margin-top: 15px;
+    }
+    @include _480 {
+      margin-top: 10px;
+    }
   }
-  &__text-item {
-    margin-top: 30px;
+  &__text-item{
     @extend %light-font;
     @include _480 {
       text-align: center;
@@ -49,18 +53,13 @@
       line-height: 27px;
     }
   }
-  &__social-link svg {
-    @include _1000 {
-      height: 5rem;
-      width: 5rem;
+  &__text-item + .about__text-item{
+    margin-top: 30px;
+    @include _768{
+      margin-top: 20px;
     }
-    @include _480 {
-      width: 4rem;
-      height: 4rem;
-    }
-    @include _320 {
-      width: 3.5rem;
-      height: 3.5rem;
+    @include _480{
+      margin-top: 10px;
     }
   }
 }

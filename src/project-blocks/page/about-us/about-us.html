@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
 
-  <body>
+  <body class="no-transition">
     <div class="wrapper">
       <header class="header">
         <div class="header__inner">
@@ -329,7 +329,7 @@
             <h2 class="contacts__title">Contacts</h2>
             <div class="contacts__items-box">
               <div class="contacts__item">
-                <a class="social__item-link about__social-link" href="#">
+                <a class="social__item-link contacts__item-link" href="#">
                   <svg
                     class="social__item-link--discord"
                     width="140"
@@ -353,7 +353,7 @@
                 </p>
               </div>
               <div class="contacts__item">
-                <a class="social__item-link about__social-link" href="#">
+                <a class="social__item-link contacts__item-link" href="#">
                   <svg
                     class="social__item-link--github"
                     width="140"
@@ -387,12 +387,9 @@
         <div class="footer__inner">
           <ul class="social">
             <li class="social__item">
-              <a
-                class="social__item-link about__social-link"
-                href="https://discord.gg/nCKzvVXZ"
-              >
+              <a class="social__item-link" href="https://discord.gg/nCKzvVXZ">
                 <svg
-                  class="social__item-link--discord"
+                  class="social__item-link--discord about__social-link"
                   width="50"
                   height="50"
                   viewBox="0 0 50 50"
@@ -408,12 +405,9 @@
               </a>
             </li>
             <li class="social__item">
-              <a
-                class="social__item-link about__social-link"
-                href="https://github.com/dev-KPI"
-              >
+              <a class="social__item-link" href="https://github.com/dev-KPI">
                 <svg
-                  class="social__item-link--github"
+                  class="social__item-link--github about__social-link"
                   width="50"
                   height="50"
                   viewBox="0 0 50 50"
@@ -436,6 +430,7 @@
           </ul>
         </div>
       </footer>
+      <div class="wrapper-blur"></div>
     </div>
   </body>
   <script src="about-us-index.js" type="module"></script>
