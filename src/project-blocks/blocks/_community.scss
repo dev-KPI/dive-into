@@ -20,7 +20,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 200px;
-  margin-top: 25px;
+  margin-top: 15px;
   @extend %container;
 
   @include _1440 {
@@ -32,6 +32,8 @@
   }
 
   @include _768 {
+    height: fit-content;
+    margin-top: 25px;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
@@ -92,22 +94,23 @@
   }
 
   &__decor {
-    height: 740px;
+    height: 115%;
+    max-height: 740px;
 
     @include _1440 {
-      height: 660px;
+      max-height: 620px;
     }
 
     @include _1000 {
-      height: 447px;
+      max-height: 447px;
     }
 
     @include _768 {
-      height: 414px;
+      max-height: 414px;
     }
 
     @include _480 {
-      height: 312px;
+      max-height: 312px;
     }
   }
 
