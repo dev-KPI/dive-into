@@ -1,0 +1,41 @@
+.navbar {
+  z-index: 15;
+  &__list {
+    display: flex;
+    gap: 90px;
+  }
+  &__link {
+    @extend %text-font;
+    color:#F0F0F0;
+  }
+  @include underline('&__link', #F0F0F0);
+  @include _768{
+    visibility: hidden;
+    box-sizing: border-box;
+    position: absolute;
+    width: 320px;
+    padding: 50px;
+    padding-top: 145px;
+    right: 0;
+    top: 140px;
+    bottom: -1000px;
+    background: #f0f0f0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    box-shadow: 2px 3px 17px 0px #000;
+    &--open{
+      opacity: 1;
+      visibility: visible;
+    }
+    &__list{
+      flex-direction: column;
+      gap:53px;
+    }
+    &__link{
+      color: $mainColor;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 44px;
+    }
+  }
+}

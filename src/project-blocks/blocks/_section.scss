@@ -1,0 +1,210 @@
+.section{
+  &__list {
+    max-width: 560px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    @include _1000{
+      max-width: 760px;
+    }
+    @include _768{
+      max-width: 690px;
+    }
+  }
+  &__item {
+    transition: all 0.4s ease-out;
+    box-sizing: border-box;
+    padding: 0 30px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    @extend %text-font;
+    background-color: #dcdaeb;
+    border-radius: 20px;
+
+    opacity: 1;
+    
+    @include underline('&-counter', $textColor);
+    cursor: pointer;
+    @include _480{
+      font-size: 20px;
+      line-height: 27px;
+      padding: 0 10px;
+      gap: 10px;
+      height: 60px;
+    }
+    @include _320{
+      font-size: 16px;
+      line-height: 22px;
+      height: 55px;
+    }
+  }
+
+  &__item-counter::after{
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    background-color: $mainColor;
+    right: 115%;
+    top: 10%;
+    border-radius: 100px;
+    @include _768{
+      display: none;
+    }
+  }
+
+  &__item-counter {
+    color: $textColor;
+  }
+
+  &__item{
+    margin-bottom: 25px;
+    @include _480{
+      margin-bottom: 15px;
+    }
+    &:last-child{
+      margin-bottom: 0;
+    }
+   
+  }
+  
+  &__item-link{
+    height: 50px;
+    & svg{
+      height: 50px;
+      @include _480{
+        display: none;
+      }
+    }
+  }
+
+  &__item.hide {
+    transition: all 0.4s ease-out;
+    opacity: 0;
+    height: 0px;
+    margin-bottom: 0px;
+    .section__item-counter, 
+    .section__item-name, 
+    .section__item-counter::after{
+      opacity:0;
+      transition: all 0.2s ease-out;
+    }
+    .section__item-link{
+      opacity:0;
+      transition: all 0.1s ease-out;
+    }
+  }
+
+  &__filters {
+    box-sizing: border-box;
+    max-width: 560px;
+    width: 100%;
+    height: fit-content;
+    background-color: #dcdaeb;
+    border-radius: 20px;
+    padding: 0 25px 19px;
+
+    @include underline('&-heading',$textColor);
+    @include _1000{
+      visibility: hidden;
+      position: fixed;
+      top: 200px;
+      opacity: 0;
+      z-index: 50;
+      transition: opacity 0.2s ease-in, visibility 0.2s ease-in;
+    }
+    @include _768{
+      width: 90%;
+      top: 170px;
+      padding: 0 20px 10px;
+    }
+    @include _480{
+      top: 150px;
+    }
+
+    &-heading {
+      display: inline-block;
+      @extend %text-font;
+      @include _480{
+        font-size: 19px;
+        line-height: 27px;
+      }
+    }
+
+    &-open{
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 0.2s ease-in,  visibility 0.2s ease-in;
+    }
+
+    &-close{
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 5;
+      cursor: pointer;
+    }
+
+    &-block{
+      box-sizing: border-box;
+      margin-top: 17px;
+      padding-bottom: 20px;
+      position: relative;
+      @include _768{
+        margin-top: 10px;
+      }
+      &::after{
+        position: absolute;
+        content:'';
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background: #bab8cc;
+        border-radius:2px;
+      }
+      &:last-child::after{
+        background:none;
+      }
+    } 
+  }
+
+  &__buttons {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    @include _1000{
+      margin-top: 15px;
+    }
+    @include _480{
+      margin-top: 10px;
+      gap: 5px;
+    }
+  }
+  
+  &__btn {
+    min-width: 60px;
+    min-height: 40px;
+    padding: 4px 10px;
+    @include _768{
+      padding: 2px 6px;
+      
+    }
+    @include _480{
+      font-size: 14px;
+      line-height: 19px;
+    }
+  }
+
+  &__range{
+    margin: 40px auto 0 auto;
+    @include _1000{
+      margin-top: 30px;
+    }
+  }
+}

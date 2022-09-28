@@ -1,0 +1,41 @@
+.burger{
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 15;
+  margin-right: 30px;
+  @include _768{
+    display: block;
+    & span{
+      background-color: #fff;
+      width: 55px;
+      height: 4px;
+      border-radius: 4px;
+      display: block;
+      margin-bottom: 13px;  
+      transform-origin: 3px 5px;
+      transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                  background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                  opacity 0.55s ease;
+    }
+    & span:first-child{
+      transform-origin: 0% 0%;
+    }
+    &--open span{
+      opacity: 1;
+      transform: rotate(45deg) translate(-2px, -1px);
+    }
+    &--open span:nth-child(2){
+      opacity: 0;
+      transform: rotate(0deg) scale(0.2, 0.2);
+    }
+    &--open span:nth-child(3){
+      opacity: 1;
+      transform: rotate(-45deg) translate(0px, -1px);
+    }
+  }
+  @include _480{
+    margin-right: 10px;
+  }
+}

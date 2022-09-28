@@ -1,0 +1,193 @@
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(12, 7, 62, 0.8);
+  &__dialog{
+    max-width: 1160px;
+    width: 90%;
+    margin: 90px auto;
+    @include _768{
+      margin: 60px auto;
+    }
+  }
+  &__content{
+    box-sizing:border-box;
+    position: relative;
+    width: 100%;
+    padding: 40px 60px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+    overflow-y: auto;
+    max-height: 85vh;
+    @include _768{
+      padding: 20px 30px;
+    }
+    @include _480{
+      padding: 10px 20px;
+    }
+  }
+  &__info{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    & img{
+      height: 240px;
+      @include _768{
+        height: 200px;
+      }
+      @include _480{
+        height: 150px;
+      }
+    }
+    @include _1000{
+      gap: 25px;
+    }
+    @include _768{
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+  }
+  &__personal{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    gap: 20px;
+    @include _768{
+      gap: 10px;
+      min-width: 250px;
+      width: 50%;
+    }
+    @include _480{
+      width: 100%;
+      min-width: auto;
+    }
+    @include _480{
+      gap: 0
+    }
+  }
+  &__personal-title{
+    @extend %title-font;
+    @include _1000{
+      font-size: 54px;
+      line-height: 60px;
+    }
+    @include _768{
+      font-size: 50px;
+      line-height: 55px;
+    }
+    @include _480{
+      font-size: 35px;
+      line-height: 38px;
+    }
+  }
+  &__personal p{
+    @extend %subtitle-font;
+    color:$mainColor;
+    @include _1000{
+      font-size: 27px;
+      line-height: 33px;
+    }
+    @include _768{
+      font-size: 24px;
+      line-height: 30px;
+    }
+    @include _480{
+      font-size: 21px;
+      line-height: 27px;
+    }
+  }
+  &__filters{
+    margin-top: 25px;
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 340px;
+    @include _480{
+      margin-top: 10px;
+      justify-content: center;
+    }
+  }
+  &__filters-item{
+    color: #F0F0F0;
+    @extend %filters-font;
+    border-radius: 100px;
+    background: #2B03C9;
+    padding: 10px 20px;
+    align-items:center;
+    display: flex;
+    justify-content: center;
+    @include _480{
+      padding: 5px 10px;
+    }
+    &--red{
+      background-color: $red;
+    }
+    &--purple{
+      background-color: $purple;
+    }
+    &--orange{
+      background-color: $orange;
+    }
+    &--yellow{
+      background-color: $yellow;
+    }
+    &--blue{
+      background-color: $blue;
+    }
+    &--light-blue{
+      background-color: $lightBlue;
+    }
+    &--dark-blue{
+      background-color: $darkBlue;
+    }
+    &--green{
+      background-color: $green;
+    }
+    &--pink{
+      background-color: $pink;
+    }
+    &--red-pink{
+      background-color: $redPink;
+    }
+  }
+  &__text{
+    margin-top: 20px;
+    @extend %text-font;
+    color:$mainColor;
+    @include _768{
+      font-size: 19px;
+      line-height: 27px;
+    }
+    @include _480{
+      font-size: 17px;
+      line-height: 25px;
+      margin-top: 10px;
+    }
+  }
+  &__close{
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    cursor: pointer;
+    @include _768{
+      top: 10px;
+    }
+  }
+  &__social{
+    @include _768{
+      margin-top: 10px;
+    }
+    @include _480{
+      gap: 5px;
+      margin-right: 0;
+    }
+  }
+}

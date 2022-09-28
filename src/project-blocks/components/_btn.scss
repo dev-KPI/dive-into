@@ -1,0 +1,19 @@
+.btn {
+  background: none;
+  @extend %filters-font;
+  border-radius: 50px;
+  cursor: pointer;
+  &:focus{
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+  @include btnColor ('&--red', $red);
+  @include btnColor ('&--purple', $purple);
+  @include btnColor ('&--orange', $orange);
+  @include btnColor ('&--yellow', $yellow);
+  @include btnColor ('&--blue', $blue);
+  @include btnColor ('&--light-blue', $lightBlue);
+  @include btnColor ('&--dark-blue', $darkBlue);
+  @include btnColor ('&--green', $green);
+  @include btnColor ('&--pink', $pink);
+  @include btnColor ('&--red-pink', $redPink);
+}

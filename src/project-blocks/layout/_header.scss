@@ -1,0 +1,33 @@
+.header {
+  &--main {
+    background: none;
+    position: static;
+    @include _768{
+      position: sticky;
+      background: $mainColor;
+    }
+  }
+  transition: background 0.5s ease-in-out;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  background: $mainColor;
+  height: 140px;
+  z-index: 10;
+  @include _768{
+    overflow: visible;
+  }
+  &__inner {
+    @extend %container;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__link svg{
+    @include _320{
+      height: 80px;
+      width: 200px;
+    }
+  }
+}

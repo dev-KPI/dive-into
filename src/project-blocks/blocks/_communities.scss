@@ -1,0 +1,71 @@
+.communities {
+  &__inner {
+    padding: 50px 0px 80px;
+    @extend %container;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-top: 100px;
+    @include _1188 {
+      gap: 30px;
+    }
+    @include _480 {
+      margin-top: 80px;
+      gap: 25px;
+    }
+    @include _320 {
+      margin-top: 60px;
+      gap: 20px;
+    }
+    &-img {
+      @include _480 {
+        width: 282px;
+      }
+      @include _320 {
+        width: 240px;
+      }
+    }
+    &-title {
+      @extend %subtitle-font;
+      justify-content: center;
+      max-width: 400px;
+      @include _480 {
+        font-size: 28px;
+        line-height: 38px;
+      }
+      @include _320 {
+        font-size: 24px;
+        line-height: 32px;
+      }
+    }
+  }
+  &__title {
+    @extend %title-font;
+    @include _1188 {
+      text-align: center;
+    }
+    @include _480 {
+      font-size: 48px;
+      line-height: 61px;
+    }
+    @include _320 {
+      font-size: 36px;
+      line-height: 40px;
+    }
+  }
+  &__items-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 300px;
+    grid-row-gap: 0px;
+    @include _1188 {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
