@@ -9,10 +9,10 @@
 </head>
 
 <body class="no-transition">
-  <div class="wrapper wrapper-main">
-    <header class="header header--main">
+  <div class="wrapper">
+    <header class="header">
       <div class="header__inner">
-        <a class="header__link" href="./index.html">
+        <a class="header__link" href="../index.html">
           <svg id="atom" width="215" height="100" viewBox="0 0 314 144" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_455_308)">
               <path
@@ -125,10 +125,12 @@
               <a class="navbar__link" href="../members/members.html">Members</a>
             </li>
             <li class="navbar__item">
-              <a class="navbar__link" href="../projects/projects.html">Projects</a>
+              <a class="navbar__link"
+                href="../projects/projects.html">Projects</a>
             </li>
             <li class="navbar__item">
-              <a class="navbar__link" href="../about-us/about-us.html">About Us</a>
+              <a class="navbar__link" href="../about-us/about-us.html">About
+                Us</a>
             </li>
           </ul>
         </nav>
@@ -140,58 +142,160 @@
       </div>
     </header>
     <main class="main">
-      <section class="community">
-        <div class="community__logo">
-          <div class="community__logo-box">
-            <h2 class="community__logo-title">
-              <span class="community__logo-title-first">DIVE</span>
-              <span class="community__logo-title-second">INTO</span>
-            </h2>
-            <span class="community__logo-subtitle">community</span>
-          </div>
-          <div class="community__logo-about">
-            <p class="community__logo-text">A community of people interested in IT wants to find like-minded people and
-              realize their fantasies. Community members are involved in the implementation of various projects using
-              modern technologies. It is a platform for everyone who wants to learn, create, learn, and communicate.</p>
+      <section class="projects">
+        <div class="projects__top">
+          <h2 class="projects__title">Projects</h2>
+          <form class="projects__search search">
+            <button class="search-btn" type="button">
+              <img src="/assets/img/search.svg" alt="search">
+            </button>
+            <input class="search-input" type="text" placeholder="">
+            <button class="search-btn search-filters-btn" type="button">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </form>
+        </div>
+
+        <div class="projects__main">
+          <ul class="section__list projects__list"></ul>
+          <div class="section__filters projects__filters">
+            <svg data-close class="section__filters-close" width="30" height="30" viewBox="0 0 30 30" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_2246_1321)">
+                <path d="M28.9284 1.07144L1.07129 28.9286" stroke="#0C073E" stroke-width="2.14286" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M1.07129 1.07144L28.9284 28.9286" stroke="#0C073E" stroke-width="2.14286" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </g>
+            </svg>
+            <div class="section__filters-block">
+              <h3 class="section__filters-heading">Project direction</h3>
+              <div class="section__buttons">
+                <button class="section__btn btn btn--red" data-filter="web">Web</button>
+                <button class="section__btn btn btn--purple" data-filter="mobile">Mobile</button>
+                <button class="section__btn btn btn--orange" data-filter="desktop">Desktop</button>
+                <button class="section__btn btn btn--yellow" data-filter="gameDev">GameDEV</button>
+                <button class="section__btn btn btn--light-blue" data-filter="ml">ML</button>
+                <button class="section__btn btn btn--light-blue" data-filter="systemDevelopment">System Development</button>
+                <button class="section__btn btn btn--red" data-filter="study">Study</button>
+                <button class="section__btn btn btn--green" data-filter="commercial">Commercial</button>
+              </div>
+            </div>
+            <div class="section__filters-block">
+              <h3 class="section__filters-heading">Number of members</h3>
+              <div class="section__range range">
+                <input class="section__range-input range-input" type="range" min="0" max="100" value="5" />
+                <span class="section__range-output range-output"></span>
+              </div>
+            </div>
           </div>
         </div>
-        <img class="community__decor" src="./assets/img/main-image.png" alt="decor" />
       </section>
     </main>
-  <div class="wrapper-blur"></div>
-  </div>
-  <footer class="footer">
-    <div class="footer__inner">
-      <ul class="social">
-        <li class="social__item">
-          <a class="social__item-link" href="https://discord.gg/nCKzvVXZ">
-            <svg class="social__item-link--discord" width="50" height="50" viewBox="0 0 50 50" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <rect width="50" height="50" rx="25" fill="#0C073E" />
-              <path
-                d="M36.2844 17.5333C34.2202 15.9333 31.7432 15.1333 29.1285 15L28.7156 15.4C31.055 15.9333 33.1193 17 35.0459 18.4666C32.7064 17.2667 30.0917 16.4667 27.3394 16.2C26.5138 16.0667 25.8257 16.0667 25 16.0667C24.1743 16.0667 23.4862 16.0667 22.6606 16.2C19.9083 16.4667 17.2936 17.2667 14.9541 18.4666C16.8807 17 18.945 15.9333 21.2844 15.4L20.8715 15C18.2568 15.1333 15.7798 15.9333 13.7156 17.5333C11.3761 21.8 10.1376 26.6 10 31.5333C12.0642 33.6667 14.9541 35 17.9817 35C17.9817 35 18.945 33.9333 19.633 32.9999C17.8441 32.6 16.1927 31.6666 15.0918 30.2C16.055 30.7333 17.0183 31.2667 17.9817 31.6666C19.2202 32.2 20.4588 32.4667 21.6973 32.7334C22.7982 32.8666 23.8991 32.9999 25 32.9999C26.1009 32.9999 27.2018 32.8666 28.3027 32.7334C29.5413 32.4667 30.7798 32.2 32.0183 31.6666C32.9817 31.2667 33.945 30.7333 34.9083 30.2C33.8073 31.6666 32.1559 32.6 30.367 32.9999C31.055 33.9333 32.0183 35 32.0183 35C35.0459 35 37.9358 33.6667 40 31.5333C39.8624 26.6 38.6238 21.8 36.2844 17.5333ZM20.4587 29.1333C19.0826 29.1333 17.8441 27.9333 17.8441 26.4667C17.8441 25 19.0826 23.8 20.4587 23.8C21.8349 23.8 23.0734 25 23.0734 26.4667C23.0734 27.9333 21.8349 29.1333 20.4587 29.1333ZM29.5413 29.1333C28.1651 29.1333 26.9266 27.9333 26.9266 26.4667C26.9266 25 28.1651 23.8 29.5413 23.8C30.9174 23.8 32.1559 25 32.1559 26.4667C32.1559 27.9333 30.9174 29.1333 29.5413 29.1333Z"
-                fill="white" />
-            </svg>
-
-          </a>
-        </li>
-        <li class="social__item">
-          <a class="social__item-link" href="https://github.com/dev-KPI">
-            <svg class="social__item-link--github" width="50" height="50" viewBox="0 0 50 50" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M50 25C50 11.1929 38.8071 0 25 0C11.1929 0 0 11.1929 0 25C0 38.8071 11.1929 50 25 50C38.8071 50 50 38.8071 50 25Z"
-                fill="#0C073E" />
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M24.9618 12.8C18.081 12.8 12.5 18.381 12.5 25.2618C12.5 30.7663 16.0933 35.43 20.9862 37.1119C21.5979 37.1884 21.8272 36.8061 21.8272 36.5003C21.8272 36.1945 21.8272 35.43 21.8272 34.3596C18.3868 35.1241 17.6223 32.6777 17.6223 32.6777C17.0872 31.2251 16.2462 30.8428 16.2462 30.8428C15.0994 30.0783 16.3226 30.0783 16.3226 30.0783C17.5459 30.1547 18.2339 31.378 18.2339 31.378C19.3807 33.2893 21.1391 32.7541 21.8272 32.4483C21.9037 31.6073 22.2859 31.0722 22.5917 30.7663C19.8394 30.4605 16.9343 29.3902 16.9343 24.5737C16.9343 23.1975 17.393 22.1272 18.2339 21.2098C18.1575 20.9804 17.6988 19.6807 18.3868 17.9988C18.3868 17.9988 19.4572 17.693 21.8272 19.2985C22.8211 18.9926 23.8914 18.9162 24.9618 18.9162C26.0321 18.9162 27.1024 19.0691 28.0963 19.2985C30.4664 17.693 31.5367 17.9988 31.5367 17.9988C32.2248 19.6807 31.7661 20.9804 31.6896 21.2862C32.4541 22.1272 32.9893 23.274 32.9893 24.6501C32.9893 29.4667 30.0841 30.4605 27.3318 30.7663C27.7905 31.1486 28.1728 31.9131 28.1728 33.0599C28.1728 34.7419 28.1728 36.0416 28.1728 36.5003C28.1728 36.8061 28.4021 37.1884 29.0138 37.1119C33.9832 35.43 37.5 30.7663 37.5 25.2618C37.4235 18.381 31.8425 12.8 24.9618 12.8Z"
-                fill="white" />
-            </svg>
-          </a>
-        </li>
-      </ul>
+    <footer class="footer">
+      <div class="footer__inner">
+        <ul class="social">
+          <li class="social__item">
+            <a class="social__item-link" href="https://discord.gg/nCKzvVXZ">
+              <svg class="social__item-link--discord" width="50" height="50" viewBox="0 0 50 50" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect width="50" height="50" rx="25" fill="#0C073E" />
+                <path
+                  d="M36.2844 17.5333C34.2202 15.9333 31.7432 15.1333 29.1285 15L28.7156 15.4C31.055 15.9333 33.1193 17 35.0459 18.4666C32.7064 17.2667 30.0917 16.4667 27.3394 16.2C26.5138 16.0667 25.8257 16.0667 25 16.0667C24.1743 16.0667 23.4862 16.0667 22.6606 16.2C19.9083 16.4667 17.2936 17.2667 14.9541 18.4666C16.8807 17 18.945 15.9333 21.2844 15.4L20.8715 15C18.2568 15.1333 15.7798 15.9333 13.7156 17.5333C11.3761 21.8 10.1376 26.6 10 31.5333C12.0642 33.6667 14.9541 35 17.9817 35C17.9817 35 18.945 33.9333 19.633 32.9999C17.8441 32.6 16.1927 31.6666 15.0918 30.2C16.055 30.7333 17.0183 31.2667 17.9817 31.6666C19.2202 32.2 20.4588 32.4667 21.6973 32.7334C22.7982 32.8666 23.8991 32.9999 25 32.9999C26.1009 32.9999 27.2018 32.8666 28.3027 32.7334C29.5413 32.4667 30.7798 32.2 32.0183 31.6666C32.9817 31.2667 33.945 30.7333 34.9083 30.2C33.8073 31.6666 32.1559 32.6 30.367 32.9999C31.055 33.9333 32.0183 35 32.0183 35C35.0459 35 37.9358 33.6667 40 31.5333C39.8624 26.6 38.6238 21.8 36.2844 17.5333ZM20.4587 29.1333C19.0826 29.1333 17.8441 27.9333 17.8441 26.4667C17.8441 25 19.0826 23.8 20.4587 23.8C21.8349 23.8 23.0734 25 23.0734 26.4667C23.0734 27.9333 21.8349 29.1333 20.4587 29.1333ZM29.5413 29.1333C28.1651 29.1333 26.9266 27.9333 26.9266 26.4667C26.9266 25 28.1651 23.8 29.5413 23.8C30.9174 23.8 32.1559 25 32.1559 26.4667C32.1559 27.9333 30.9174 29.1333 29.5413 29.1333Z"
+                  fill="white" />
+              </svg>
+            </a>
+          </li>
+          <li class="social__item">
+            <a class="social__item-link" href="https://github.com/dev-KPI">
+              <svg class="social__item-link--github" width="50" height="50" viewBox="0 0 50 50" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M50 25C50 11.1929 38.8071 0 25 0C11.1929 0 0 11.1929 0 25C0 38.8071 11.1929 50 25 50C38.8071 50 50 38.8071 50 25Z"
+                  fill="#0C073E" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M24.9618 12.8C18.081 12.8 12.5 18.381 12.5 25.2618C12.5 30.7663 16.0933 35.43 20.9862 37.1119C21.5979 37.1884 21.8272 36.8061 21.8272 36.5003C21.8272 36.1945 21.8272 35.43 21.8272 34.3596C18.3868 35.1241 17.6223 32.6777 17.6223 32.6777C17.0872 31.2251 16.2462 30.8428 16.2462 30.8428C15.0994 30.0783 16.3226 30.0783 16.3226 30.0783C17.5459 30.1547 18.2339 31.378 18.2339 31.378C19.3807 33.2893 21.1391 32.7541 21.8272 32.4483C21.9037 31.6073 22.2859 31.0722 22.5917 30.7663C19.8394 30.4605 16.9343 29.3902 16.9343 24.5737C16.9343 23.1975 17.393 22.1272 18.2339 21.2098C18.1575 20.9804 17.6988 19.6807 18.3868 17.9988C18.3868 17.9988 19.4572 17.693 21.8272 19.2985C22.8211 18.9926 23.8914 18.9162 24.9618 18.9162C26.0321 18.9162 27.1024 19.0691 28.0963 19.2985C30.4664 17.693 31.5367 17.9988 31.5367 17.9988C32.2248 19.6807 31.7661 20.9804 31.6896 21.2862C32.4541 22.1272 32.9893 23.274 32.9893 24.6501C32.9893 29.4667 30.0841 30.4605 27.3318 30.7663C27.7905 31.1486 28.1728 31.9131 28.1728 33.0599C28.1728 34.7419 28.1728 36.0416 28.1728 36.5003C28.1728 36.8061 28.4021 37.1884 29.0138 37.1119C33.9832 35.43 37.5 30.7663 37.5 25.2618C37.4235 18.381 31.8425 12.8 24.9618 12.8Z"
+                  fill="white" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <div class="modal">
+      <img class="modal__close" src="/assets/img/modal-close.svg" alt="close" data-close />
+      <div class="modal__dialog">
+        <div class="modal__content">
+          <div class="modal__info">
+            <img class="modal__info-img" src="/assets/img/modal-img.png" alt="photo" />
+            <div class="modal__personal">
+              <h2 class="modal__personal-title">Kyrylo Bortnikov</h2>
+              <p class="modal__personal-age">18 years (06.08.2004)</p>
+              <p class="modal__personal-email">kirfilbor@gmail.com</p>
+            </div>
+          </div>
+          <div class="modal__filters">
+            <span class="modal__filters-item">QA</span>
+            <span class="modal__filters-item">Design</span>
+            <span class="modal__filters-item">GameDEV</span>
+            <span class="modal__filters-item">JAVA</span>
+            <span class="modal__filters-item">C++</span>
+            <span class="modal__filters-item">C</span>
+            <span class="modal__filters-item">C#</span>
+          </div>
+          <p class="modal__text">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </p>
+          <ul class="social">
+            <li class="social__item">
+              <a class="social__item-link" href="#">
+                <svg class="social__item-link--linkedin" width="100" height="100" viewBox="0 0 100 100" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100" height="100" rx="50" fill="#0C073E" />
+                  <path
+                    d="M70 51.861V65.6502H61.9283V52.7018C61.9283 49.5067 60.7511 47.3206 57.8924 47.3206C55.7063 47.3206 54.361 48.8341 53.8565 50.1794C53.6883 50.6839 53.5202 51.3565 53.5202 52.1973V65.6502H45.4484C45.4484 65.6502 45.6166 43.7892 45.4484 41.6031H53.5202V44.9664C54.5292 43.2848 56.5471 40.9305 60.7511 40.9305C65.9641 40.9305 70 44.4619 70 51.861ZM37.0404 30C34.3498 30 32.5 31.8498 32.5 34.204C32.5 36.5583 34.1816 38.4081 36.8722 38.4081C39.7309 38.4081 41.4126 36.5583 41.4126 34.204C41.5807 31.6816 39.8991 30 37.0404 30ZM33.0045 65.6502H41.0762V41.6031H33.0045V65.6502Z"
+                    fill="white" />
+                </svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__item-link" href="https://discord.gg/nCKzvVXZ">
+                <svg class="social__item-link--discord" width="100" height="100" viewBox="0 0 50 50" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <rect width="50" height="50" rx="25" fill="#0C073E" />
+                  <path
+                    d="M36.2844 17.5333C34.2202 15.9333 31.7432 15.1333 29.1285 15L28.7156 15.4C31.055 15.9333 33.1193 17 35.0459 18.4666C32.7064 17.2667 30.0917 16.4667 27.3394 16.2C26.5138 16.0667 25.8257 16.0667 25 16.0667C24.1743 16.0667 23.4862 16.0667 22.6606 16.2C19.9083 16.4667 17.2936 17.2667 14.9541 18.4666C16.8807 17 18.945 15.9333 21.2844 15.4L20.8715 15C18.2568 15.1333 15.7798 15.9333 13.7156 17.5333C11.3761 21.8 10.1376 26.6 10 31.5333C12.0642 33.6667 14.9541 35 17.9817 35C17.9817 35 18.945 33.9333 19.633 32.9999C17.8441 32.6 16.1927 31.6666 15.0918 30.2C16.055 30.7333 17.0183 31.2667 17.9817 31.6666C19.2202 32.2 20.4588 32.4667 21.6973 32.7334C22.7982 32.8666 23.8991 32.9999 25 32.9999C26.1009 32.9999 27.2018 32.8666 28.3027 32.7334C29.5413 32.4667 30.7798 32.2 32.0183 31.6666C32.9817 31.2667 33.945 30.7333 34.9083 30.2C33.8073 31.6666 32.1559 32.6 30.367 32.9999C31.055 33.9333 32.0183 35 32.0183 35C35.0459 35 37.9358 33.6667 40 31.5333C39.8624 26.6 38.6238 21.8 36.2844 17.5333ZM20.4587 29.1333C19.0826 29.1333 17.8441 27.9333 17.8441 26.4667C17.8441 25 19.0826 23.8 20.4587 23.8C21.8349 23.8 23.0734 25 23.0734 26.4667C23.0734 27.9333 21.8349 29.1333 20.4587 29.1333ZM29.5413 29.1333C28.1651 29.1333 26.9266 27.9333 26.9266 26.4667C26.9266 25 28.1651 23.8 29.5413 23.8C30.9174 23.8 32.1559 25 32.1559 26.4667C32.1559 27.9333 30.9174 29.1333 29.5413 29.1333Z"
+                    fill="white" />
+                </svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__item-link" href="https://github.com/dev-KPI">
+                <svg class="social__item-link--github" width="100" height="100" viewBox="0 0 50 50" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M50 25C50 11.1929 38.8071 0 25 0C11.1929 0 0 11.1929 0 25C0 38.8071 11.1929 50 25 50C38.8071 50 50 38.8071 50 25Z"
+                    fill="#0C073E" />
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M24.9618 12.8C18.081 12.8 12.5 18.381 12.5 25.2618C12.5 30.7663 16.0933 35.43 20.9862 37.1119C21.5979 37.1884 21.8272 36.8061 21.8272 36.5003C21.8272 36.1945 21.8272 35.43 21.8272 34.3596C18.3868 35.1241 17.6223 32.6777 17.6223 32.6777C17.0872 31.2251 16.2462 30.8428 16.2462 30.8428C15.0994 30.0783 16.3226 30.0783 16.3226 30.0783C17.5459 30.1547 18.2339 31.378 18.2339 31.378C19.3807 33.2893 21.1391 32.7541 21.8272 32.4483C21.9037 31.6073 22.2859 31.0722 22.5917 30.7663C19.8394 30.4605 16.9343 29.3902 16.9343 24.5737C16.9343 23.1975 17.393 22.1272 18.2339 21.2098C18.1575 20.9804 17.6988 19.6807 18.3868 17.9988C18.3868 17.9988 19.4572 17.693 21.8272 19.2985C22.8211 18.9926 23.8914 18.9162 24.9618 18.9162C26.0321 18.9162 27.1024 19.0691 28.0963 19.2985C30.4664 17.693 31.5367 17.9988 31.5367 17.9988C32.2248 19.6807 31.7661 20.9804 31.6896 21.2862C32.4541 22.1272 32.9893 23.274 32.9893 24.6501C32.9893 29.4667 30.0841 30.4605 27.3318 30.7663C27.7905 31.1486 28.1728 31.9131 28.1728 33.0599C28.1728 34.7419 28.1728 36.0416 28.1728 36.5003C28.1728 36.8061 28.4021 37.1884 29.0138 37.1119C33.9832 35.43 37.5 30.7663 37.5 25.2618C37.4235 18.381 31.8425 12.8 24.9618 12.8Z"
+                    fill="white" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </footer>
+    <div class="wrapper-blur"></div>
+  </div>
 </body>
-<script src="index.js" type="module"></script>
+<script src="projects-index.js" type="module"></script>
 
 </html>
