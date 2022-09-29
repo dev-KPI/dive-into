@@ -1,4 +1,4 @@
-import "../../../index.scss";
+import "../index.scss";
 import imgModalClose from '/assets/img/modal-close.svg';
 import imgModalUser from  '/assets/img/modal-img.png';
 document.addEventListener('DOMContentLoaded', ()=> {
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     "#",
     "#",
     "10",
-    "QA, Design, Front End"
+    "Front End, Java Script, C, C#, Java"
   ).render();
   new MembersCard(
     "2",
@@ -242,7 +242,63 @@ document.addEventListener('DOMContentLoaded', ()=> {
     "#",
     "#",
     "33",
-    "Back End, Python, node.JS"
+    "Back End, Python, C"
+  ).render();
+  new MembersCard(
+    "3",
+    "Anton",
+    "Bochkovskyi",
+    "05.10.2002",
+    "test@gmail.com",
+    "",
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    "#",
+    "#",
+    "#",
+    "17",
+    "Front End, JavaScript, C, C++"
+  ).render();
+  new MembersCard(
+    "4",
+    "Kyrylo",
+    "Bortnikov",
+    "01.05.2003",
+    "test@gmail.com",
+    "",
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    "#",
+    "#",
+    "#",
+    "14",
+    "Design, QA, Project Manager, C, C++"
+  ).render();
+  new MembersCard(
+    "5",
+    "Mykhailo",
+    "Prytula",
+    "07.01.2001",
+    "test@gmail.com",
+    "",
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    "#",
+    "#",
+    "#",
+    "41",
+    "Front End, JavaScript, TypeScript"
+  ).render();
+  new MembersCard(
+    "6",
+    "Demian",
+    "Parkhomenko",
+    "11.11.2003",
+    "test@gmail.com",
+    "",
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    "#",
+    "#",
+    "#",
+    "28",
+    "Back End, Java, JavaScript, Node.js"
   ).render();
 
   // modal window
