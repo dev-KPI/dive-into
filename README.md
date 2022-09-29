@@ -21,10 +21,11 @@ npm run dev
  ┣ 📂.git
  ┣ 📂.node_modules
  ┣ 📂public
- ┃ ┣ 📂img
- ┃ ┣ 📂fonts
- ┃ ┣ 📂css
- ┃ ┣ 📂js
+ ┃ ┣ 📂assets
+ ┃ ┃ ┣ 📂img
+ ┃ ┃ ┣ 📂fonts
+ ┃ ┃ ┣ 📂css
+ ┃ ┃ ┗ 📂js
  ┃ ┣ 📜about-us.html
  ┃ ┣ 📜index.html
  ┃ ┣ 📜members.html
@@ -42,18 +43,15 @@ npm run dev
  ┃ ┃ ┃ ┗ 📜__components-dir.scss
  ┃ ┃ ┣ 📂layout
  ┃ ┃ ┃ ┗ 📜__layout-dir.scss
- ┃ ┃ ┗ 📂page
- ┃ ┃ ┃ ┣ 📂about-us
- ┃ ┃ ┃ ┃ ┣ 📜about-us-index.js
- ┃ ┃ ┃ ┃ ┗ 📜about-us.html
- ┃ ┃ ┃ ┣ 📂members
- ┃ ┃ ┃ ┃ ┣ 📜members-index.js
- ┃ ┃ ┃ ┃ ┗ 📜members.html
- ┃ ┃ ┃ ┣ 📂projects
- ┃ ┃ ┃ ┃ ┣ 📜projects-index.js
- ┃ ┃ ┃ ┃ ┗ 📜projects.html
- ┃ ┃ ┃ ┣ 📜__page-dir.scss
- ┃ ┃ ┃ ┗ 📜projects.html
+ ┃ ┣ 📂about-us
+ ┃ ┃ ┣ 📜about-us-index.js
+ ┃ ┃ ┗ 📜about-us.html
+ ┃ ┣ 📂members
+ ┃ ┃ ┣ 📜members-index.js
+ ┃ ┃ ┗ 📜members.html
+ ┃ ┣ 📂projects
+ ┃ ┃ ┣ 📜projects-index.js
+ ┃ ┃ ┗ 📜projects.html
  ┃ ┣ 📜index.html
  ┃ ┣ 📜index.js
  ┃ ┗ 📜index.scss

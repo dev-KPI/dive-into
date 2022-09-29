@@ -1,4 +1,4 @@
-import "../../../index.scss";
+import "../index.scss";
 window.addEventListener('DOMContentLoaded', ()=> {
   // fix transition on page load
   function returnTransition() {

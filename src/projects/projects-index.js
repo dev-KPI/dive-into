@@ -1,4 +1,4 @@
-import "../../../index.scss";
+import "../index.scss";
 import imgModalClose from '/assets/img/modal-close.svg';
 import imgModalUser from  '/assets/img/modal-img.png';
 document.addEventListener("DOMContentLoaded", () => {

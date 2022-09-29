@@ -1,4 +1,4 @@
-import "../../../index.scss";
+import "../index.scss";
 import imgModalClose from '/assets/img/modal-close.svg';
 import imgModalUser from  '/assets/img/modal-img.png';
 document.addEventListener('DOMContentLoaded', ()=> {
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     "#",
     "#",
     "10",
-    "QA, Design, Front End"
+    "Front End, Java Script, C, C#, Java"
   ).render();
   new MembersCard(
     "2",
@@ -242,8 +242,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
     "#",
     "#",
     "33",
-    "Back End, Python, node.JS"
+    "Back End, Python, C"
   ).render();
+
 
   // modal window
   const modalTrigger = document.querySelectorAll("[data-modal]"),

@@ -12,9 +12,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(root, "index.html"),
-        about: resolve(root, "project-blocks/page/about-us/", "about-us.html"),
-        members: resolve(root, "project-blocks/page/members/members.html"),
-        projects: resolve(root, "project-blocks/page/projects/projects.html"),
+        about: resolve(root, "about-us/about-us.html"),
+        members: resolve(root, "members/members.html"),
+        projects: resolve(root, "projects/projects.html"),
       },
       output: {
         assetFileNames: (assetInfo) => {
