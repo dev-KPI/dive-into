@@ -5,6 +5,7 @@ const root = resolve(__dirname, "./src");
 const outDir = resolve(__dirname, "public");
 
 export default defineConfig({
+  base: '/iatp-dev-website-frontend/',
   root,
   build: {
     outDir,
