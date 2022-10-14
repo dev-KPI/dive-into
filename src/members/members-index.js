@@ -99,54 +99,116 @@ document.addEventListener('DOMContentLoaded', ()=> {
   
   // add member
   class MembersCard {
-    constructor(id, name, surname, dateOfBirth, email, photoSrc, about, linkedinLink, discordLink, githubLink, numProjects, features) {
+    constructor(id, name, surname, dateOfBirth, email, photoSrc, about, languages, specializations) {
+      this.allProjects = this.getProjects();
       this.id=id;
       this.name = name;
       this.surname = surname;
-      this.dateOfBirth = dateOfBirth;
+      this.dateOfBirth = this.changeDateFormat(dateOfBirth);
       this.email = email;
       this.photoSrc = photoSrc;
       this.about = about;
-      this.linkedinLink = linkedinLink;
-      this.discordLink = discordLink;
-      this.githubLink = githubLink;
-      this.numProjects = numProjects;
-      this.features = features;
+      this.allLanguages = this.getLanguages();
+      this.allSpecializations = this.getSpecializations();
+      this.allSocials = this.getSocials();
+      
+      this.numProjects = 0;
+      this.languages = languages;
+      this.specializations = specializations;
+
+      this.discordLink = this.link("DS");
+      this.linkedinLink = this.link("LD");
+      this.githubLink =  this.link("GH");
 
       this.modalId = `modal-${this.id}`;  
-      this.age = this.getAge();   
+      this.age = this.getAge(dateOfBirth);   
     }
     // count age of members
-    getAge() {
-      let dateOfBirth = this.dateOfBirth.split('.');
-      let ageInMilliseconds = new Date() - new Date(dateOfBirth[2], dateOfBirth[1]-1, dateOfBirth[0]);
+    getAge(date) {
+      let dateOfBirth = date.split('-');
+      let ageInMilliseconds = new Date() - new Date(dateOfBirth[0], dateOfBirth[1]-1, dateOfBirth[2]);
       return Math.floor(ageInMilliseconds/1000/60/60/24/365.25); // convert to years
     }
-    render() {
+    changeDateFormat(date) {
+      let dateOfBirth = date.split("-");
+      return `${dateOfBirth[2]}.${dateOfBirth[1]}.${dateOfBirth[0]}`;
+    }
+    async getLanguages (){
+      let languages = [];
+        await getResource("https://sitedive.fly.dev/languages/?format=json").then((data) => {languages = data.slice();}
+      );
+      return languages;
+    }
+    async getSpecializations (){
+      let specializations =  getResource("https://sitedive.fly.dev/specializations/?format=json")
+      // console.log(specializations);
+      let result = await specializations.then((data) => data.slice());
+      return result;
+    }
+    async getSocials (){
+      let socials =  getResource("https://sitedive.fly.dev/sociallinks/?format=json")
+      let result = await socials.then((data) => data.slice());
+      return result;
+    }
+    async getProjects (){
+      return await getResource("https://sitedive.fly.dev/projects/?format=json");
+    }
+    link(social) {
+      let res = this.allSocials.then((data) => {
+        const member = data.filter(({ member }) => member === this.id);
+        const res = member.find(({ social_link }) => social_link === social);
+        return res ? res.link : "#";
+      });
+      return res;
+    }
+  
+    
+      render() {
       const el = document.createElement("li");
 
       el.setAttribute("data-modal", `${this.id}`);
-      if (this.features.length === 0) {
+      if (this.languages.length === 0 && this.specialization.length === 0) {
         el.classList.add("section__item");
       } else {
         el.classList.add("section__item");
-        this.features.split(', ').forEach((feature) => el.classList.add(feature.toLowerCase().replace(/ |\./, "")));
+
+       this.allLanguages.then((data)=> {
+        let language = this.languages.values();
+        for(let item of language){
+          const res = data.find(({id}) => id === item);
+          el.classList.add(res.language.toLowerCase().replace(/ |\./, ""));
+        }
+       });
+
+       this.allSpecializations.then((data)=> {
+         let specialization = this.specializations.values();
+         for (let item of specialization) {
+           const res = data.find(({ id }) => id === item);
+           el.classList.add(res.specialization.toLowerCase().replace(/ |\./, ""));
+         }
+       });
       }
+      let numProjects = 0;
+       this.allProjects.then((data) => {data.forEach(({ members }) =>members.includes(this.id) ? numProjects++ : console.log("no", members));
+       proj.textContent = `${numProjects} projects`
+      });
+     
       el.innerHTML = `
             <span class="section__item-name">${this.name} ${this.surname}</span>
-            <a class="section__item-counter"
-              href="${this.githubLink}">${this.numProjects} projects
-            </a>
+            <p class="section__item-counter">${numProjects} projects</p>
           `;
-      document.querySelector('.section__list').append(el);
+      document.querySelector(".section__list").append(el);
+      const proj = document.querySelectorAll('.section__item-counter')[this.id-1];
+
+      
       this.modal();
     }
-    modal(){
+     modal(){
       const el = document.createElement("div");
       this.el = `modal`;
       el.classList.add(this.el);
       el.classList.add(this.modalId);
-
+      
       el.innerHTML = `
       <img class="modal__close" src="${imgModalClose}" alt="close" data-close />
       <div class="modal__dialog">
@@ -166,7 +228,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
           </p>
           <ul class="modal__social social">
             <li class="social__item">
-              <a class="social__item-link" href="${this.linkedinLink}">
+              <a class="social__item-link" href="#">
                 <svg class="social__item-link--linkedin" width="100" height="100" viewBox="0 0 100 100" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
                   <rect width="100" height="100" rx="50" fill="#0C073E" />
@@ -177,7 +239,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
               </a>
             </li>
             <li class="social__item">
-              <a class="social__item-link" href="${this.discordLink}">
+              <a class="social__item-link" href="#">
                 <svg class="social__item-link--discord" width="100" height="100" viewBox="0 0 50 50" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
                   <rect width="50" height="50" rx="25" fill="#0C073E" />
@@ -188,7 +250,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
               </a>
             </li>
             <li class="social__item">
-              <a class="social__item-link" href="${this.githubLink}">
+              <a class="social__item-link" href="#">
                 <svg class="social__item-link--github" width="100" height="100" viewBox="0 0 50 50" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -205,201 +267,186 @@ document.addEventListener('DOMContentLoaded', ()=> {
       </div>
           `;
       document.querySelector(".wrapper").append(el);   
-      //add features to member in modal window
-      if (this.features.length !== 0) {
-        this.features.split(", ").forEach((feature) => {
+   
+      this.allLanguages.then((data) => {
+        let language = this.languages.values();
+        for (let item of language) {
+          const res = data.find(({ id }) => id === item);
           const el = document.createElement("span");
           el.classList.add("modal__filters-item");
-          el.textContent = `${feature}`;
+          el.textContent = `${res.language}`;
           document.querySelector(`.${this.modalId} .modal__filters`).append(el);
-        });
-      }
+        }
+      });
+      this.allSpecializations.then((data) => {
+        let specialization = this.specializations.values();
+        for (let item of specialization) {
+          const res = data.find(({ id }) => id === item);
+          const el = document.createElement("span");
+          el.classList.add("modal__filters-item");
+          el.textContent = `${res.specialization}`;
+          document.querySelector(`.${this.modalId} .modal__filters`).append(el);
+        }
+      });
+      const linkedin = document.querySelectorAll(`.${this.modalId} .social__item-link`)[0];
+      const discord = document.querySelectorAll(`.${this.modalId} .social__item-link`)[1];
+      const github = document.querySelectorAll(`.${this.modalId} .social__item-link`)[2];
+      this.linkedinLink.then((data)=> linkedin.href = data);
+      this.githubLink.then((data) => github.href = data);
+      this.discordLink.then((data) => discord.href = data);
     }
   }
-  new MembersCard(
-    "1",
-    "Dima",
-    "Pestenkov",
-    "28.11.2004",
-    "test@gmail.com",
-    "",
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-    "#",
-    "#",
-    "#",
-    "10",
-    "Front End, Java Script, C, C#, Java"
-  ).render();
-  new MembersCard(
-    "2",
-    "Dmitriy",
-    "Rezenkov",
-    "02.09.2000",
-    "test@gmail.com",
-    "",
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-    "#",
-    "#",
-    "#",
-    "33",
-    "Back End, Python, C"
-  ).render();
-  new MembersCard(
-    "3",
-    "Anton",
-    "Bochkovskyi",
-    "05.10.2002",
-    "test@gmail.com",
-    "",
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-    "#",
-    "#",
-    "#",
-    "17",
-    "Front End, JavaScript, C, C++"
-  ).render();
-  new MembersCard(
-    "4",
-    "Kyrylo",
-    "Bortnikov",
-    "01.05.2003",
-    "test@gmail.com",
-    "",
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-    "#",
-    "#",
-    "#",
-    "14",
-    "Design, QA, Project Manager, C, C++"
-  ).render();
-  new MembersCard(
-    "5",
-    "Mykhailo",
-    "Prytula",
-    "07.01.2001",
-    "test@gmail.com",
-    "",
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-    "#",
-    "#",
-    "#",
-    "41",
-    "Front End, JavaScript, TypeScript"
-  ).render();
-  new MembersCard(
-    "6",
-    "Demian",
-    "Parkhomenko",
-    "11.11.2003",
-    "test@gmail.com",
-    "",
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy textever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-    "#",
-    "#",
-    "#",
-    "28",
-    "Back End, Java, JavaScript, Node.js"
-  ).render();
+ async function getResource(url) {
+   let res = await fetch(url)
 
-  // modal window
-  const modalTrigger = document.querySelectorAll("[data-modal]"),
-        modals = document.querySelectorAll('.modal');
-  
-  function openModal(modal) {
-    modal.style.display = "block";
-    disableWindowScroll();
-  }
-
-  function closeModal(modal) {
-    modal.style.display = "none";
-    enableWindowScroll();
-  }
-
-  modalTrigger.forEach((btn) => {
-    const idModal = btn.getAttribute("data-modal");
-    const modal = document.querySelector(`.modal-${idModal}`);
-    btn.addEventListener("click", (evt)=>{
-      if (evt.target.tagName === "A") {
-        return;
-      }
-      openModal(modal);
+   if (!res.ok) {
+     throw new Error(`Could not fetch ${url}, status: ${res.status}`);
+   }
+   return await res.json();
+ }
+ 
+ let list = [];
+ let modalTrigger = [];
+ let modals = [];
+ 
+ 
+  getResource("https://sitedive.fly.dev/members/?format=json")
+    .then((data) => {
+      data.forEach(
+        ({
+          id,
+          first_name,
+          last_name,
+          date_of_birth,
+          summary,
+          email,
+          programming_language,
+          specialization,
+        }) => {
+          new MembersCard(
+            id,
+            first_name,
+            last_name,
+            date_of_birth,
+            email,
+            "",
+            summary,
+            programming_language,
+            specialization
+          ).render();
+        }
+      );
+      console.log(data);
+    })
+    .then(() => {
+      initialize();
     });
-  });
-  
-  modals.forEach(modal => {
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal || e.target.getAttribute("data-close") == "") {
-        closeModal(modal);
-      }
+    function initialize() {
+     list = document.querySelectorAll(".section__item");
+     modalTrigger = document.querySelectorAll("[data-modal]");
+     modals = document.querySelectorAll(".modal");
+     search();
+
+    modalTrigger.forEach((btn) => {
+      const idModal = btn.getAttribute("data-modal");
+      const modal = document.querySelector(`.modal-${idModal}`);
+      btn.addEventListener("click", (evt) => {
+        if (evt.target.tagName === "A") {
+          return;
+        }
+        openModal(modal);
+      });
     });
-  });
 
-  // custom input-range
-  const range = document.querySelector(".range-input"),
-    output = document.querySelector(".range-output");
-  
-  range.addEventListener("input", () => {
-    setOutput(range, output);
-  });
-  setOutput(range, output);
-
-  function setOutput(range, output) {
-    const val = range.value;
-    const min = range.min ? range.min : 0;
-    const max = range.max ? range.max : 100;
-    const newValue = Number(((val - min) * 100) / (max - min));
-
-    output.innerHTML = val;
-    output.style.left = `calc(${newValue}% + (${14 - newValue * 0.25}px))`;
-  }
-
-  // button filters
-  const btns = document.querySelectorAll(".btn"),
-    list = document.querySelectorAll(".section__item");
-
-  let filters = [];
-  btns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      Array.from(list).forEach((item) => item.classList.remove("hide"));
-      if (btn.classList.contains("is-checked")) {
-        btn.classList.remove("is-checked");
-        const index = filters.indexOf(btn.dataset.filter);
-        filters.splice(index, 1);
-      } else {
-        btn.classList.add("is-checked");
-        filters.push(btn.dataset.filter);
-      }
-      Array.from(list)
-        .filter((item) =>!Array.from(item.classList).some((el) => filters.includes(el)))
-        .forEach((item) => item.classList.add("hide"));
-      search();
+    modals.forEach((modal) => {
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal || e.target.getAttribute("data-close") == "") {
+          closeModal(modal);
+        }
+      });
     });
-  });
-  
-  //search-field && input-range filters
+    
+     // modal window
+      function openModal(modal) {
+       modal.style.display = "block";
+       document.body.style.overflow = "hidden";
+     }
 
-  const searchInput = document.querySelector(".search-input");
-  // const searchBtn = document.querySelector(".search-btn");
-  searchInput.addEventListener("keyup", search);
-  range.addEventListener("input", search);
-  // searchBtn.addEventListener("click", search);
+      function closeModal(modal) {
+       modal.style.display = "none";
+       document.body.style.overflow = "";
+     }
+   }
 
-  function search() {
-    let searchWord = searchInput.value.toLowerCase();
-    list.forEach((item) => {
-      const projValue = +item.children[1].textContent.match(/\d/g).join('');
-      const title = item.firstElementChild.textContent.toLowerCase();
-      if (filters.length !== 0) {
-        title.includes(searchWord) &&
-        Array.from(item.classList).some((el) => filters.includes(el)) &&
-        projValue >= range.value 
-          ? item.classList.remove("hide")
-          : item.classList.add("hide");
-      } else {
-        title.includes(searchWord) && projValue >= range.value 
-          ? item.classList.remove("hide")
-          : item.classList.add("hide");
-      }
-    });
-  } 
+ 
+
+ // custom input-range
+ const range = document.querySelector(".range-input"),
+   output = document.querySelector(".range-output");
+
+ range.addEventListener("input", () => {
+   setOutput(range, output);
+ });
+ setOutput(range, output);
+
+ function setOutput(range, output) {
+   const val = range.value;
+   const min = range.min ? range.min : 0;
+   const max = range.max ? range.max : 100;
+   const newValue = Number(((val - min) * 100) / (max - min));
+
+   output.innerHTML = val;
+   output.style.left = `calc(${newValue}% + (${14 - newValue * 0.25}px))`;
+ }
+
+ // button filters
+ const btns = document.querySelectorAll(".btn");
+ let filters = [];
+ btns.forEach((btn) => {
+   btn.addEventListener("click", () => {
+     Array.from(list).forEach((item) => item.classList.remove("hide"));
+     if (btn.classList.contains("is-checked")) {
+       btn.classList.remove("is-checked");
+       const index = filters.indexOf(btn.dataset.filter);
+       filters.splice(index, 1);
+     } else {
+       btn.classList.add("is-checked");
+       filters.push(btn.dataset.filter);
+     }
+     Array.from(list)
+       .filter(
+         (item) =>
+           !Array.from(item.classList).some((el) => filters.includes(el))
+       )
+       .forEach((item) => item.classList.add("hide"));
+     search();
+   });
+ });
+
+ //search-field && input-range filters
+
+ const searchInput = document.querySelector(".search-input");
+ // const searchBtn = document.querySelector(".search-btn");
+ searchInput.addEventListener("keyup", search);
+ range.addEventListener("input", search);
+ // searchBtn.addEventListener("click", search);
+
+ function search() {
+   let searchWord = searchInput.value.toLowerCase();
+   list.forEach((item) => {
+     const projValue = +item.children[1].textContent.match(/\d/g).join("");
+     const title = item.firstElementChild.textContent.toLowerCase();
+     if (filters.length !== 0) {
+       title.includes(searchWord) &&
+       Array.from(item.classList).some((el) => filters.includes(el)) &&
+       projValue >= range.value
+         ? item.classList.remove("hide")
+         : item.classList.add("hide");
+     } else {
+       title.includes(searchWord) && projValue >= range.value
+         ? item.classList.remove("hide")
+         : item.classList.add("hide");
+     }
+   });
+ } 
 });
