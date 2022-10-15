@@ -11,7 +11,7 @@
       max-width: 690px;
     }
   }
-  &__item {
+  &__item, &__blank {
     transition: all 0.4s ease-out;
     box-sizing: border-box;
     padding: 0 30px;
@@ -26,21 +26,37 @@
     border-radius: 20px;
 
     opacity: 1;
-    
+
+    margin-bottom: 25px;
+    &:last-child{
+      margin-bottom: 0;
+    }
     @include underline('&-counter', $textColor);
     cursor: pointer;
+    @include _1188{
+      padding: 0 20px;
+    }
     @include _480{
       font-size: 20px;
       line-height: 27px;
       padding: 0 10px;
       gap: 10px;
       height: 60px;
+      margin-bottom: 15px;
     }
     @include _320{
       font-size: 16px;
       line-height: 22px;
       height: 55px;
     }
+  }
+  &__blank{
+    cursor: default;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
   }
 
   &__item-counter::after{
@@ -49,7 +65,7 @@
     width: 2px;
     height: 30px;
     background-color: $mainColor;
-    right: 115%;
+    right: 110%;
     top: 10%;
     border-radius: 100px;
     @include _768{
@@ -61,17 +77,6 @@
     color: $textColor;
   }
 
-  &__item{
-    margin-bottom: 25px;
-    @include _480{
-      margin-bottom: 15px;
-    }
-    &:last-child{
-      margin-bottom: 0;
-    }
-   
-  }
-  
   &__item-link{
     height: 50px;
     & svg{
@@ -82,7 +87,7 @@
     }
   }
 
-  &__item.hide {
+  &__item.hide,&__blank.hide {
     transition: all 0.4s ease-out;
     opacity: 0;
     height: 0px;
