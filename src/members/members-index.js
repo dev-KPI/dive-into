@@ -22,25 +22,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
     });
   });
 
-   var winX = null;
-   var winY = null;
-
-   window.addEventListener("scroll", function () {
-     if (winX !== null && winY !== null) {
-       window.scrollTo(winX, winY);
-     }
-   });
-
-   function disableWindowScroll() {
-     winX = window.scrollX;
-     winY = window.scrollY;
-   }
-
-   function enableWindowScroll() {
-     winX = null;
-     winY = null;
-   }
-
    const navbar = document.querySelector(".navbar");
    const burger = document.querySelector(".burger");
    const blur = document.querySelector(".wrapper-blur");
@@ -50,7 +31,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
      navbar.classList.toggle("navbar--open");
      burger.classList.toggle("burger--open");
      blur.classList.toggle("wrapper-blur--show");
-     winX == null ? disableWindowScroll() : enableWindowScroll();
+     document.body.style.overflow === "" ? document.body.style.overflow="hidden" : document.body.style.overflow="";
    }
 
   // burger open
@@ -70,7 +51,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   function toggleFiltersWindow() {
     filtersWindow.classList.toggle('section__filters-open');
     blur.classList.toggle('wrapper-blur--show');
-    winX == null ? disableWindowScroll() : enableWindowScroll();
+    document.body.style.overflow === "" ? document.body.style.overflow="hidden" : document.body.style.overflow="";
   }
 
   // close menu
@@ -96,11 +77,31 @@ document.addEventListener('DOMContentLoaded', ()=> {
     timeOutFunctionId = setTimeout(returnTransition, 250);
   });
 
-  
+  async function getLanguages (){
+      let languages = [];
+        await getResource("https://sitedive.fly.dev/languages/?format=json").then((data) => {languages = data.slice();}
+      );
+      return languages;
+    }
+    async function getSpecializations (){
+      let specializations =  getResource("https://sitedive.fly.dev/specializations/?format=json")
+      // console.log(specializations);
+      let result = await specializations.then((data) => data.slice());
+      return result;
+    }
+    async function getSocials (){
+      let socials =  getResource("https://sitedive.fly.dev/sociallinks/?format=json")
+      let result = await socials.then((data) => data.slice());
+      return result;
+    }
+    async function getProjects (){
+      return await getResource("https://sitedive.fly.dev/projects/?format=json");
+    }
+
   // add member
   class MembersCard {
     constructor(id, name, surname, dateOfBirth, email, photoSrc, about, languages, specializations) {
-      this.allProjects = this.getProjects();
+      this.allProjects = getProjects();
       this.id=id;
       this.name = name;
       this.surname = surname;
@@ -108,9 +109,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
       this.email = email;
       this.photoSrc = photoSrc;
       this.about = about;
-      this.allLanguages = this.getLanguages();
-      this.allSpecializations = this.getSpecializations();
-      this.allSocials = this.getSocials();
+      this.allLanguages = getLanguages();
+      this.allSpecializations = getSpecializations();
+      this.allSocials = getSocials();
       
       this.numProjects = 0;
       this.languages = languages;
@@ -118,7 +119,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
       this.discordLink = this.link("DS");
       this.linkedinLink = this.link("LD");
-      this.githubLink =  this.link("GH");
+      this.githubLink = this.link("GH");
 
       this.modalId = `modal-${this.id}`;  
       this.age = this.getAge(dateOfBirth);   
@@ -133,26 +134,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
       let dateOfBirth = date.split("-");
       return `${dateOfBirth[2]}.${dateOfBirth[1]}.${dateOfBirth[0]}`;
     }
-    async getLanguages (){
-      let languages = [];
-        await getResource("https://sitedive.fly.dev/languages/?format=json").then((data) => {languages = data.slice();}
-      );
-      return languages;
-    }
-    async getSpecializations (){
-      let specializations =  getResource("https://sitedive.fly.dev/specializations/?format=json")
-      // console.log(specializations);
-      let result = await specializations.then((data) => data.slice());
-      return result;
-    }
-    async getSocials (){
-      let socials =  getResource("https://sitedive.fly.dev/sociallinks/?format=json")
-      let result = await socials.then((data) => data.slice());
-      return result;
-    }
-    async getProjects (){
-      return await getResource("https://sitedive.fly.dev/projects/?format=json");
-    }
     link(social) {
       let res = this.allSocials.then((data) => {
         const member = data.filter(({ member }) => member === this.id);
@@ -161,35 +142,34 @@ document.addEventListener('DOMContentLoaded', ()=> {
       });
       return res;
     }
-  
     
-      render() {
-      const el = document.createElement("li");
+    render() {
+    const el = document.createElement("li");
 
-      el.setAttribute("data-modal", `${this.id}`);
-      if (this.languages.length === 0 && this.specialization.length === 0) {
-        el.classList.add("section__item");
-      } else {
-        el.classList.add("section__item");
+    el.setAttribute("data-modal", `${this.id}`);
+    if (this.languages.length === 0 && this.specialization.length === 0) {
+      el.classList.add("section__item");
+    } else {
+      el.classList.add("section__item");
 
-       this.allLanguages.then((data)=> {
+      this.allLanguages.then((data)=> {
         let language = this.languages.values();
-        for(let item of language){
-          const res = data.find(({id}) => id === item);
-          el.classList.add(res.language.toLowerCase().replace(/ |\./, ""));
-        }
-       });
+          for(let item of language){
+            const res = data.find(({id}) => id === item);
+            el.classList.add(res.language.toLowerCase().replace(/ |\./, ""));
+          }
+        });
 
-       this.allSpecializations.then((data)=> {
-         let specialization = this.specializations.values();
-         for (let item of specialization) {
-           const res = data.find(({ id }) => id === item);
-           el.classList.add(res.specialization.toLowerCase().replace(/ |\./, ""));
-         }
-       });
+        this.allSpecializations.then((data)=> {
+          let specialization = this.specializations.values();
+          for (let item of specialization) {
+            const res = data.find(({ id }) => id === item);
+            el.classList.add(res.specialization.toLowerCase().replace(/ |\./, ""));
+          }
+        });
       }
       let numProjects = 0;
-       this.allProjects.then((data) => {data.forEach(({ members }) =>members.includes(this.id) ? numProjects++ : console.log("no", members));
+       this.allProjects.then((data) => {data.forEach(({ members }) =>members.includes(this.id) ? numProjects++ : null);
        proj.textContent = `${numProjects} projects`
       });
      
@@ -310,30 +290,10 @@ document.addEventListener('DOMContentLoaded', ()=> {
  let modals = [];
  
  
-  getResource("https://sitedive.fly.dev/members/?format=json")
+  const newLocal = getResource("https://sitedive.fly.dev/members/?format=json")
     .then((data) => {
-      data.forEach(
-        ({
-          id,
-          first_name,
-          last_name,
-          date_of_birth,
-          summary,
-          email,
-          programming_language,
-          specialization,
-        }) => {
-          new MembersCard(
-            id,
-            first_name,
-            last_name,
-            date_of_birth,
-            email,
-            "",
-            summary,
-            programming_language,
-            specialization
-          ).render();
+      data.forEach(({first_name, last_name, date_of_birth, summary, email, programming_language, specialization}, id) => {
+          new MembersCard(id+1, first_name, last_name, date_of_birth, email, "", summary, programming_language, specialization).render();
         }
       );
       console.log(data);
@@ -413,12 +373,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
        btn.classList.add("is-checked");
        filters.push(btn.dataset.filter);
      }
-     Array.from(list)
-       .filter(
-         (item) =>
-           !Array.from(item.classList).some((el) => filters.includes(el))
-       )
+     Array.from(list).filter((item) =>!Array.from(item.classList).some((el) => filters.includes(el)))
        .forEach((item) => item.classList.add("hide"));
+       
+    
+     
      search();
    });
  });
@@ -448,5 +407,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
          : item.classList.add("hide");
      }
    });
+
+   let blank = Array.from(list).every((el) => el.classList.contains("hide"));
+   if(blank && list.length>0){
+    document.querySelector(".section__blank").classList.remove("hide");
+   }
+   else {
+    document.querySelector(".section__blank").classList.add("hide");
+   }
  } 
 });

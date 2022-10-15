@@ -19,25 +19,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
       circle.setAttribute("cy", "0");
     });
   });
-  
-  var winX = null;
-  var winY = null;
 
-  window.addEventListener("scroll", function () {
-    if (winX !== null && winY !== null) {
-      window.scrollTo(winX, winY);
-    }
-  });
-
-  function disableWindowScroll() {
-    winX = window.scrollX;
-    winY = window.scrollY;
-  }
-
-  function enableWindowScroll() {
-    winX = null;
-    winY = null;
-  }
 
   const navbar = document.querySelector(".navbar");
   const burger = document.querySelector(".burger");
@@ -48,7 +30,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
     navbar.classList.toggle("navbar--open");
     burger.classList.toggle("burger--open");
     blur.classList.toggle("wrapper-blur--show");
-    winX == null ? disableWindowScroll() : enableWindowScroll();
+    document.body.style.overflow === "" ? document.body.style.overflow = "hidden" : document.body.style.overflow = "";
   }
 
   burger.addEventListener("click", toggleMenu);
