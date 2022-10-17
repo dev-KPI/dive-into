@@ -158,7 +158,12 @@
           </form>
         </div>
         <div class="members__main">
-          <ul class="section__list members__list"></ul>
+          <ul class="section__list members__list">
+            <li class="section__blank hide">
+              <img class="section__blank-item" src="/assets/img/search.svg" alt="search">
+              <p class="section__blank-item">Sorry! We couldn't find any members based on your filters</p>
+            </li>
+          </ul>
           <div class="section__filters members__filters">
             <svg data-close class="section__filters-close" width="30" height="30" viewBox="0 0 30 30" fill="none"
               xmlns="http://www.w3.org/2000/svg">
@@ -200,7 +205,7 @@
             <div class="section__filters-block">
               <h3 class="section__filters-heading">Number of projects</h3>
               <div class="section__range range">
-                <input class="section__range-input range-input" type="range" min="0" max="100" value="5" />
+                <input class="section__range-input range-input" type="range" min="0" max="100" value="0" />
                 <span class="section__range-output range-output"></span>
               </div>
             </div>

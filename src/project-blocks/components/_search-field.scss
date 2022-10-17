@@ -16,9 +16,12 @@
 .search{
   position: relative;
   max-width: 560px;
-  width: 100%;
+  width: 50%;
   @include _1000{
     max-width: 420px;
+  }
+  @include _480{
+    width: 100%;
   }
 
   &-input{

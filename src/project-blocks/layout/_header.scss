@@ -16,6 +16,7 @@
   z-index: 10;
   @include _768{
     overflow: visible;
+    height: unset
   }
   &__inner {
     @extend %container;
@@ -23,11 +24,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include _768{
+      padding: 9px 0;
+    }
+    @include _480{
+      padding: 0;
+    }
   }
   &__link svg{
-    @include _320{
-      height: 80px;
-      width: 200px;
+    @include _768{
+      width: 180px;
+    }
+    @include _480{
+      width: 150px;
     }
   }
 }
