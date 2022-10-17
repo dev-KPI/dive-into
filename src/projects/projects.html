@@ -159,7 +159,12 @@
         </div>
 
         <div class="projects__main">
-          <ul class="section__list projects__list"></ul>
+          <ul class="section__list projects__list">
+            <li class="section__blank hide">
+              <img class="section__blank-item" src="/assets/img/search.svg" alt="search">
+              <p class="section__blank-item">Sorry! We couldn't find any members based on your filters</p>
+            </li>
+          </ul>
           <div class="section__filters projects__filters">
             <svg data-close class="section__filters-close" width="30" height="30" viewBox="0 0 30 30" fill="none"
               xmlns="http://www.w3.org/2000/svg">
@@ -176,9 +181,9 @@
                 <button class="section__btn btn btn--red" data-filter="web">Web</button>
                 <button class="section__btn btn btn--purple" data-filter="mobile">Mobile</button>
                 <button class="section__btn btn btn--orange" data-filter="desktop">Desktop</button>
-                <button class="section__btn btn btn--yellow" data-filter="gameDev">GameDEV</button>
+                <button class="section__btn btn btn--yellow" data-filter="gamedev">GameDEV</button>
                 <button class="section__btn btn btn--light-blue" data-filter="ml">ML</button>
-                <button class="section__btn btn btn--light-blue" data-filter="systemDevelopment">System Development</button>
+                <button class="section__btn btn btn--light-blue" data-filter="systemdevelopment">System Development</button>
                 <button class="section__btn btn btn--red" data-filter="study">Study</button>
                 <button class="section__btn btn btn--green" data-filter="commercial">Commercial</button>
               </div>
@@ -186,7 +191,7 @@
             <div class="section__filters-block">
               <h3 class="section__filters-heading">Number of members</h3>
               <div class="section__range range">
-                <input class="section__range-input range-input" type="range" min="0" max="100" value="5" />
+                <input class="section__range-input range-input" type="range" min="0" max="100" value="0" />
                 <span class="section__range-output range-output"></span>
               </div>
             </div>
