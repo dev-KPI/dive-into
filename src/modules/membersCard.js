@@ -21,7 +21,7 @@ import imgModalUser from "/assets/img/modal-img.png";
       
       this.githubLink = this.link("GH");
       this.linkedinLink = this.link("LD");
-      this.discordLink = this.link("DS");
+      this.telegramLink = this.link("TG");
 
       this.modalId = `modal-${this.id}`;  
       this.age = this.getAge(dateOfBirth);   
@@ -85,7 +85,7 @@ import imgModalUser from "/assets/img/modal-img.png";
           </p>
           <ul class="modal__social social">
             <li class="social__item">
-              <a class="social__item-link" href="${this.linkedinLink}">
+              <a class="social__item-link" href="${this.linkedinLink}" target="_blank">
                 <svg class="social__item-link--linkedin" width="100" height="100" viewBox="0 0 100 100" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
                   <rect width="100" height="100" rx="50" fill="#0C073E" />
@@ -96,18 +96,15 @@ import imgModalUser from "/assets/img/modal-img.png";
               </a>
             </li>
             <li class="social__item">
-              <a class="social__item-link" href="${this.discordLink}">
-                <svg class="social__item-link--discord" width="100" height="100" viewBox="0 0 50 50" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <rect width="50" height="50" rx="25" fill="#0C073E" />
-                  <path
-                    d="M36.2844 17.5333C34.2202 15.9333 31.7432 15.1333 29.1285 15L28.7156 15.4C31.055 15.9333 33.1193 17 35.0459 18.4666C32.7064 17.2667 30.0917 16.4667 27.3394 16.2C26.5138 16.0667 25.8257 16.0667 25 16.0667C24.1743 16.0667 23.4862 16.0667 22.6606 16.2C19.9083 16.4667 17.2936 17.2667 14.9541 18.4666C16.8807 17 18.945 15.9333 21.2844 15.4L20.8715 15C18.2568 15.1333 15.7798 15.9333 13.7156 17.5333C11.3761 21.8 10.1376 26.6 10 31.5333C12.0642 33.6667 14.9541 35 17.9817 35C17.9817 35 18.945 33.9333 19.633 32.9999C17.8441 32.6 16.1927 31.6666 15.0918 30.2C16.055 30.7333 17.0183 31.2667 17.9817 31.6666C19.2202 32.2 20.4588 32.4667 21.6973 32.7334C22.7982 32.8666 23.8991 32.9999 25 32.9999C26.1009 32.9999 27.2018 32.8666 28.3027 32.7334C29.5413 32.4667 30.7798 32.2 32.0183 31.6666C32.9817 31.2667 33.945 30.7333 34.9083 30.2C33.8073 31.6666 32.1559 32.6 30.367 32.9999C31.055 33.9333 32.0183 35 32.0183 35C35.0459 35 37.9358 33.6667 40 31.5333C39.8624 26.6 38.6238 21.8 36.2844 17.5333ZM20.4587 29.1333C19.0826 29.1333 17.8441 27.9333 17.8441 26.4667C17.8441 25 19.0826 23.8 20.4587 23.8C21.8349 23.8 23.0734 25 23.0734 26.4667C23.0734 27.9333 21.8349 29.1333 20.4587 29.1333ZM29.5413 29.1333C28.1651 29.1333 26.9266 27.9333 26.9266 26.4667C26.9266 25 28.1651 23.8 29.5413 23.8C30.9174 23.8 32.1559 25 32.1559 26.4667C32.1559 27.9333 30.9174 29.1333 29.5413 29.1333Z"
-                    fill="white" />
-                </svg>
+              <a class="social__item-link" href="${this.telegramLink}" target="_blank">
+                <svg class="social__item-link--telegram" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100" height="100" rx="50" fill="#0C073E"/>
+                  <path d="M70 31.5056L62.4864 70.7307C62.4864 70.7307 61.4352 73.4503 58.5472 72.146L41.2114 58.3814L41.1311 58.3409C43.4727 56.1635 61.631 39.2567 62.4246 38.4903C63.6532 37.3034 62.8905 36.5968 61.464 37.4934L34.642 55.1324L24.2941 51.5269C24.2941 51.5269 22.6656 50.9271 22.509 49.6228C22.3503 48.3163 24.3477 47.6097 24.3477 47.6097L66.5328 30.4724C66.5328 30.4724 70 28.8948 70 31.5056Z" fill="white"/>
+                  </svg>
               </a>
             </li>
             <li class="social__item">
-              <a class="social__item-link" href="${this.githubLink}">
+              <a class="social__item-link" href="${this.githubLink}" target="_blank">
                 <svg class="social__item-link--github" width="100" height="100" viewBox="0 0 50 50" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
                   <path
