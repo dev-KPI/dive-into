@@ -1,36 +1,45 @@
 # Project usage guide
 ## Dependency installation
 To use this project without installation of everything by yourself just use
+
 ```bash
 npm install package-lock.json
 ```
+
 ## npm scripts
 ### 🔨 build
 Builds project into /public/ using Vite with SASS
+
 ```bash
 npm run build
 ```
+
 ### ⚡ start
 First builds project with build, then runs live-server on localhost with index.html file from /public
+
 ```bash
 npm run dev
 ```
+
 ## Project structure
+
 ```
 📦iatp-dev-website
  ┣ 📂.git
  ┣ 📂.node_modules
  ┣ 📂public
- ┃ ┣ 📂assets
- ┃ ┃ ┣ 📂img
- ┃ ┃ ┣ 📂fonts
- ┃ ┃ ┣ 📂css
- ┃ ┃ ┗ 📂js
+ ┃ ┣ 📂img
+ ┃ ┣ 📂fonts
+ ┃ ┣ 📂css
+ ┃ ┣ 📂js
  ┃ ┣ 📜about-us.html
  ┃ ┣ 📜index.html
  ┃ ┣ 📜members.html
  ┃ ┗ 📜projects.html
  ┣ 📂src
+ ┃ ┣ 📂assets
+ ┃ ┃ ┣ 📂fonts
+ ┃ ┃ ┗ 📂img
  ┃ ┣ 📂project-blocks
  ┃ ┃ ┣ 📂abstracts
  ┃ ┃ ┃ ┗ 📜__abstracts-dir.scss
@@ -60,4 +69,4 @@ npm run dev
  ┣ 📜package-lock.json
  ┣ 📜package.json
  ┗ vite.config.js
- ```
+```
