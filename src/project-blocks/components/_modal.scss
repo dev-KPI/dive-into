@@ -32,7 +32,7 @@
   }
   &__info{
     display: flex;
-    gap: 40px;
+    column-gap: 40px;
     align-items: center;
     & img{
       height: 240px;
@@ -43,14 +43,25 @@
       @include _480{
         height: 150px;
       }
+      &.img-projects{
+        border-radius: unset;
+        height: unset;
+        width: 240px;
+        filter: invert(1);
+        @include _768{
+          width: 200px;
+        }
+        @include _480{
+          width: 175px;
+        }
+      }
     }
     @include _1000{
-      gap: 25px;
+      column-gap: 35px;
     }
     @include _768{
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
     }
   }
   &__personal{
@@ -61,14 +72,10 @@
     @include _768{
       gap: 10px;
       min-width: 350px;
-      width: 50%;
     }
     @include _480{
       width: 100%;
       min-width: auto;
-    }
-    @include _480{
-      gap: 0
     }
   }
   &__title{
@@ -107,10 +114,13 @@
     gap: 10px;
     display: flex;
     flex-wrap: wrap;
-    max-width: 340px;
     @include _480{
       margin-top: 10px;
     }
+    &.filters-projects{
+      margin-top: 0;
+    }
+    
   }
   &__filters-item{
     color: #F0F0F0;
@@ -157,14 +167,17 @@
   }
   &__main{
     display: flex;
-    gap: 20px;
+    column-gap: 25px;
+    row-gap: 10px;
     margin: 20px 0;
     @extend %text-font;
     color:$mainColor;
+    @include _1000{
+      flex-wrap: wrap-reverse;
+    }
     @include _768{
       font-size: 19px;
       line-height: 27px;
-      flex-wrap: wrap;
     }
     @include _480{
       font-size: 17px;
@@ -175,6 +188,15 @@
   &__members{
     flex: 1 0 auto;
     list-style-type: decimal;
+    font-size: 20px;
+    @include _768{
+      font-size: 19px;
+      line-height: 27px;
+    }
+    @include _480{
+      font-size: 17px;
+      line-height: 25px;
+    }
     & li {
       margin-left: 30px;
     }
@@ -186,7 +208,22 @@
     right: 50px;
     cursor: pointer;
     @include _768{
-      top: 10px;
+      display: none;
+    }
+    &-inside{
+      display: none;
+      top:30px;
+      right: 30px;
+      @include _768{
+        display: block;
+      }
+      @include _480{
+        width: 35px;
+      }
+      @include _320{
+        top:17px;
+        right: 17px;
+      }
     }
   }
   &__social{
@@ -207,5 +244,35 @@
         width: 60px;
       }
     }
+  }
+  &__social-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 5px;
+  }
+  &__link-title{
+    @extend %filters-font;
+  }
+  // custom scrollbar inside modal window
+  ::-webkit-scrollbar {
+    width: 16px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-track {
+      border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      height: 56px;
+      border-radius: 8px;
+      border: 4px solid transparent;
+      background-clip: content-box;
+      background-color: #888;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+      background-color: #555;
   }
 }

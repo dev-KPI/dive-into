@@ -5,7 +5,7 @@ function modal(){
     const idModal = btn.getAttribute("data-modal");
     const modal = document.querySelector(`.modal-${idModal}`);
     btn.addEventListener("click", (evt) => {
-      if (evt.target.tagName === "A") {
+      if (evt.target.tagName === "A" || evt.target.tagName === "path" || evt.target.tagName === "P") {
         return;
       }
       openModal(modal);
