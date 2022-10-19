@@ -78,6 +78,7 @@
 
   &__item-counter {
     color: $textColor;
+    text-align: center;
   }
 
   &__item-link{
@@ -189,10 +190,9 @@
     flex-wrap: wrap;
     gap: 10px;
     @include _1000{
-      margin-top: 15px;
+      margin-top: 20px;
     }
     @include _480{
-      margin-top: 10px;
       gap: 5px;
     }
   }
