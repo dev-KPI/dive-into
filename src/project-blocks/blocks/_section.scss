@@ -11,7 +11,7 @@
       max-width: 690px;
     }
   }
-  &__item {
+  &__item, &__blank {
     transition: all 0.4s ease-out;
     box-sizing: border-box;
     padding: 0 30px;
@@ -26,20 +26,39 @@
     border-radius: 20px;
 
     opacity: 1;
-    
+
+    margin-bottom: 25px;
+    &:last-child{
+      margin-bottom: 0;
+    }
     @include underline('&-counter', $textColor);
     cursor: pointer;
+    @include _1188{
+      padding: 0 20px;
+    }
     @include _480{
       font-size: 20px;
       line-height: 27px;
       padding: 0 10px;
       gap: 10px;
       height: 60px;
+      margin-bottom: 15px;
     }
     @include _320{
       font-size: 16px;
       line-height: 22px;
       height: 55px;
+    }
+  }
+  &__blank{
+    cursor: default;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    &-item{
+      transition: all 0.4s ease-out 0.2s;
     }
   }
 
@@ -49,7 +68,7 @@
     width: 2px;
     height: 30px;
     background-color: $mainColor;
-    right: 115%;
+    right: 110%;
     top: 10%;
     border-radius: 100px;
     @include _768{
@@ -61,17 +80,6 @@
     color: $textColor;
   }
 
-  &__item{
-    margin-bottom: 25px;
-    @include _480{
-      margin-bottom: 15px;
-    }
-    &:last-child{
-      margin-bottom: 0;
-    }
-   
-  }
-  
   &__item-link{
     height: 50px;
     & svg{
@@ -82,21 +90,23 @@
     }
   }
 
-  &__item.hide {
+  &__item.hide,&__blank.hide {
     transition: all 0.4s ease-out;
     opacity: 0;
     height: 0px;
     margin-bottom: 0px;
+    pointer-events: none;
     .section__item-counter, 
     .section__item-name, 
     .section__item-counter::after{
       opacity:0;
       transition: all 0.2s ease-out;
     }
-    .section__item-link{
+    .section__item-link, .section__blank-item{
       opacity:0;
       transition: all 0.1s ease-out;
     }
+    
   }
 
   &__filters {
@@ -119,6 +129,8 @@
     }
     @include _768{
       width: 90%;
+      top: 170px;
+      padding: 0 20px 10px;
     }
     @include _480{
       top: 150px;
@@ -127,6 +139,10 @@
     &-heading {
       display: inline-block;
       @extend %text-font;
+      @include _480{
+        font-size: 19px;
+        line-height: 27px;
+      }
     }
 
     &-open{
@@ -148,7 +164,7 @@
       margin-top: 17px;
       padding-bottom: 20px;
       position: relative;
-      @include _480{
+      @include _768{
         margin-top: 10px;
       }
       &::after{
@@ -172,8 +188,12 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    @include _1000{
+      margin-top: 15px;
+    }
     @include _480{
       margin-top: 10px;
+      gap: 5px;
     }
   }
   
@@ -181,9 +201,20 @@
     min-width: 60px;
     min-height: 40px;
     padding: 4px 10px;
+    @include _768{
+      padding: 2px 6px;
+      
+    }
+    @include _480{
+      font-size: 14px;
+      line-height: 19px;
+    }
   }
 
   &__range{
-    margin: 40px auto 0 auto
+    margin: 40px auto 0 auto;
+    @include _1000{
+      margin-top: 30px;
+    }
   }
 }

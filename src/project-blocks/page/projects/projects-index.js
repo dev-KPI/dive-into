@@ -1,5 +1,6 @@
 import "../../../index.scss";
-
+import imgModalClose from '/assets/img/modal-close.svg';
+import imgModalUser from  '/assets/img/modal-img.png';
 document.addEventListener("DOMContentLoaded", () => {
   // fix transition on page load
   function returnTransition() {
@@ -171,11 +172,11 @@ document.addEventListener("DOMContentLoaded", () => {
       el.classList.add(this.modalId);
 
       el.innerHTML = `
-      <img class="modal__close" src="/assets/img/modal-close.svg" alt="close" data-close />
+      <img class="modal__close" src="${imgModalClose}" alt="close" data-close />
       <div class="modal__dialog">
         <div class="modal__content">
           <div class="modal__info">
-            <img class="modal__info-img" src="${this.photoSrc ? this.photoSrc : "/assets/img/modal-img.png"}" alt="photo" />
+            <img class="modal__info-img" src="${this.photoSrc ? this.photoSrc : imgModalUser}" alt="photo" />
             <div class="modal__personal">
               <h2 class="modal__personal-title">${this.name} ${this.surname}</h2>
               <p class="modal__personal-age">${this.getAge()} years (${this.dateOfBirth})</p>
@@ -285,7 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const idModal = btn.getAttribute("data-modal");
     const modal = document.querySelector(`.modal-${idModal}`);
     btn.addEventListener("click", (evt) => {
-      if (evt.target.tagName === "A") {
+      if (evt.target.tagName === "A" || evt.target.tagName === "path") {
         return;
       }
       openModal(modal);

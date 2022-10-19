@@ -10,6 +10,10 @@
     align-items: center;
     @include _768 {
       justify-content: center;
+      height: 120px;
+    }
+    @include _480{
+      height: 100px;
     }
   }
 }
