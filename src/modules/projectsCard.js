@@ -128,7 +128,7 @@ import imgModalUser from "/assets/img/modal-img.png";
     }
   }
   function projectsCard() {
-    getResource("http://localhost:3000/projects").then((data) => {
+    getResource("https://sitedive.fly.dev/projects-details/?format=json").then((data) => {
     data.forEach(({id, photo_url, title, description,members, specialization, programming_language, github_links, }) => { 
       new ProjectsCard(id, photo_url, title, description,members,specialization, programming_language, github_links, ).render();
       }
