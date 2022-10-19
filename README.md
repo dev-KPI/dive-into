@@ -28,10 +28,11 @@ npm run dev
  ┣ 📂.git
  ┣ 📂.node_modules
  ┣ 📂public
- ┃ ┣ 📂img
- ┃ ┣ 📂fonts
- ┃ ┣ 📂css
- ┃ ┣ 📂js
+ ┃ ┣ 📂assets
+ ┃ ┃ ┣ 📂img
+ ┃ ┃ ┣ 📂fonts
+ ┃ ┃ ┣ 📂css
+ ┃ ┃ ┗ 📂js
  ┃ ┣ 📜about-us.html
  ┃ ┣ 📜index.html
  ┃ ┣ 📜members.html
