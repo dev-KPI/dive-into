@@ -3,7 +3,7 @@
   &__inner {
     padding: 50px 0px;
     @extend %container;
-    @include _1000{
+    @include _1000 {
       padding: 35px 0;
     }
     @include _768 {
@@ -55,7 +55,6 @@
     align-items: center;
     display: flex;
     @include _480 {
-      text-align: center;
       font-size: 21px;
       line-height: 29px;
     }
