@@ -69,6 +69,7 @@ import imgModalUser from "/assets/img/modal-img.png";
       <img class="modal__close" src="${imgModalClose}" alt="close" data-close />
       <div class="modal__dialog">
         <div class="modal__content">
+          <img class="modal__close modal__close-inside" src="${imgModalClose}" alt="close" data-close style="filter:invert(1)"/>
           <div class="modal__info">
             <img class="modal__info-img" src="${this.photoSrc ? this.photoSrc : imgModalUser}" alt="photo" />
             <div class="modal__personal">
