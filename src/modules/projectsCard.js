@@ -25,6 +25,7 @@ import imgModalUser from "/assets/img/modal-img.png";
       return res ? res[property] : "#";
     }
    
+
     render() {
       const el = document.createElement("li");
       el.setAttribute("data-modal", `${this.id}`);

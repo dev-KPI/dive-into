@@ -192,6 +192,7 @@
     @include _768{
       font-size: 19px;
       line-height: 27px;
+      flex-wrap: wrap;
     }
     @include _480{
       font-size: 17px;
